@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:37:21 +0700] "GET /FashionWebProject HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:37:24 +0700] "GET /FashionWebProject/ HTTP/1.1" 200 3017
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:37:25 +0700] "GET /FashionWebProject/css/style.css HTTP/1.1" 200 52
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:37:25 +0700] "GET /FashionWebProject/js/script.js HTTP/1.1" 200 15
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:44:19 +0700] "GET /FashionWebProject HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:44:19 +0700] "GET /FashionWebProject/ HTTP/1.1" 404 774
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:46:25 +0700] "GET /FashionWebProject HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:46:25 +0700] "GET /FashionWebProject/ HTTP/1.1" 404 774
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:47:09 +0700] "GET /FashionWebProject HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:47:09 +0700] "GET /FashionWebProject/ HTTP/1.1" 404 774
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:47:47 +0700] "GET /FashionWebProject HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [20/Oct/2024:10:47:49 +0700] "GET /FashionWebProject/ HTTP/1.1" 200 2898

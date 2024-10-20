@@ -72,7 +72,8 @@ public class Order {
         this.items = items;
     }
 
-    public String getPaymentMethod() {
-
-    }
+//    public String getPaymentMethod() {
+//        // Lấy phương thức thanh toán từ đơn hàng
+//        return "Thanh toán qua đại lý";
+//    }
 }
