@@ -41,7 +41,7 @@
                     </figcaption>
                 </div>
             </div>
-            	<div class="col-md-3">
+            	<div class= "col-md-3">
             		<div class="card card-product-grid">
             			<a href="./product-detail.html" class="img-wrap">
             			<img src="${pageContext.request.contextPath}/static/images/items/3.jpg"> </a>
