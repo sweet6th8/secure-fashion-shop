@@ -1,20 +1,19 @@
 package model;
-
 public class Product {
-    private int id; // ID sản phẩm
-    private String name; // Tên sản phẩm
-    private double price; // Giá sản phẩm
-    private String brand; // Thương hiệu
-    private String size; // Kích thước
-    private String color; // Màu sắc
-    private String gender; // Giới tính (nam, nữ, unisex)
-    private String description; // Mô tả sản phẩm
-    private String imageUrl; // URL hình ảnh sản phẩm
+    private int id;
+    private String productName;
+    private double price;
+    private String imageUrl;
 
-    // Constructor
-    public Product() {}
+    // Constructors
+    public Product(int id, String productName, double price, String imageUrl) {
+        this.id = id;
+        this.productName = productName;
+        this.price = price;
+        this.imageUrl = imageUrl;
+    }
 
-    // Getter và Setter
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -23,12 +22,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public double getPrice() {
@@ -37,46 +36,6 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getImageUrl() {
