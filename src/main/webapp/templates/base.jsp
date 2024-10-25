@@ -33,7 +33,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <%@ include file="includes/navbar.jsp" %>
+   <%@ include file="includes/navbar.jsp" %>
 
  <!-- Đây là phần mà các trang khác sẽ nhúng nội dung vào -->
     <jsp:include page="${param.contentPage}" />

@@ -10,6 +10,7 @@ public class User {
     private String fullName; // Họ và tên
     private String address; // Địa chỉ
     private String phone; // Số điện thoại
+    private boolean gender ;
     private List<Product> favoriteProducts; // Danh sách sản phẩm yêu thích
 
     // Constructor
@@ -78,5 +79,28 @@ public class User {
 
     public void setFavoriteProducts(List<Product> favoriteProducts) {
         this.favoriteProducts = favoriteProducts;
+    }
+
+    public boolean isGender() {
+        return gender;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", gender=" + gender +
+                ", favoriteProducts=" + favoriteProducts +
+                '}';
     }
 }
