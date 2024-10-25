@@ -1,17 +1,18 @@
 package model;
 
-import java.util.List;
-
 public class Category {
-    private int id; // ID danh mục
-    private String name; // Tên danh mục
-    private String description; // Mô tả danh mục
-    private List<Product> products; // Danh sách sản phẩm trong danh mục
+    private int id;
+    private String categoryName;
+    private String url;
 
-    // Constructor
-    public Category() {}
+    // Constructors
+    public Category(int id, String categoryName, String url) {
+        this.id = id;
+        this.categoryName = categoryName;
+        this.url = url;
+    }
 
-    // Getter và Setter
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -20,27 +21,19 @@ public class Category {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public String getDescription() {
-        return description;
+    public String getUrl() {
+        return url;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

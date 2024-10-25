@@ -13,7 +13,10 @@
 <section class="section-name padding-y-sm">
     <div class="container">
         <header class="section-heading">
-            <a href="./store.jsp" class="btn btn-outline-primary float-right">See all</a>
+
+            <a href="${pageContext.request.contextPath}/store" class="btn btn-outline-primary float-right">See all</a>
+
+
             <h3 class="section-title">Popular products</h3>
         </header>
 

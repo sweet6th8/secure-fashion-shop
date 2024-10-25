@@ -39,6 +39,8 @@
     <jsp:include page="${param.contentPage}" />
 
 
+
+
     <!-- Footer -->
     <%@ include file="includes/footer.jsp" %>
 </body>
