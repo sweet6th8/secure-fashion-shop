@@ -1,18 +1,27 @@
 package model;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Category {
     private int id;
-    private String categoryName;
-    private String url;
+    private String title;
+    private String description;
+    private List<Product> products;
 
-    // Constructors
-    public Category(int id, String categoryName, String url) {
+    public Category(int id, String title, String description) {
         this.id = id;
-        this.categoryName = categoryName;
-        this.url = url;
+        this.title = title;
+        this.description = description;
+        products = new ArrayList<>();
+
     }
 
-    // Getters and Setters
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
     public int getId() {
         return id;
     }
@@ -21,19 +30,27 @@ public class Category {
         this.id = id;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getUrl() {
-        return url;
+    public String getDescription() {
+        return description;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

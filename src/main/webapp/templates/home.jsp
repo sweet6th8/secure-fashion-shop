@@ -14,24 +14,24 @@
     <div class="container">
         <header class="section-heading">
 
-            <a href="${pageContext.request.contextPath}/store" class="btn btn-outline-primary float-right">See all</a>
+               <a href="${pageContext.request.contextPath}/store" class="btn btn-outline-primary float-right">See all</a>
 
 
-            <h3 class="section-title">Popular products</h3>
-        </header>
+                      <h3 class="section-title">Popular products</h3>
+          </header>
 
         <div class="row">
-            <div class="col-md-3">
-                <div class="card card-product-grid">
-                    <a href="./product-detail.jsp" class="img-wrap">
-                         <img src="${pageContext.request.contextPath}/static/images/items/1.jpg">
-                    </a>
-                    <figcaption class="info-wrap">
-                        <a href="./product-detail.jsp" class="title">Just another product name</a>
-                        <div class="price mt-1">$179.00</div>
-                    </figcaption>
+                <div class="col-md-3">
+                    <div class="card card-product-grid">
+                        <a href="./product-detail.jsp" class="img-wrap">
+                             <img src="${pageContext.request.contextPath}/static/images/items/1.jpg">
+                        </a>
+                        <figcaption class="info-wrap">
+                            <a href="./product-detail.jsp" class="title">Just another product name</a>
+                            <div class="price mt-1">$179.00</div>
+                        </figcaption>
+                    </div>
                 </div>
-            </div>
             <!-- Repeat for other products -->
             <div class="col-md-3">
                 <div class="card card-product-grid">

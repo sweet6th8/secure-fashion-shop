@@ -1,19 +1,32 @@
 package model;
+
 public class Product {
     private int id;
-    private String productName;
+    private String name;
+    private String description;
+    private String photo;
     private double price;
-    private String imageUrl;
+    private double discount;
+    private int quantity;
+    private Category category;
 
-    // Constructors
-    public Product(int id, String productName, double price, String imageUrl) {
+    public Product() {
+    }
+
+    public Product(int id, String name, String description, String photo, double price, double discount, int quantity, Category category) {
         this.id = id;
-        this.productName = productName;
+        this.name = name;
+        this.description = description;
+        this.photo = photo;
         this.price = price;
-        this.imageUrl = imageUrl;
+        this.discount = discount;
+        this.quantity = quantity;
+        this.category = category;
+
     }
 
     // Getters and Setters
+
     public int getId() {
         return id;
     }
@@ -22,12 +35,28 @@ public class Product {
         this.id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public double getPrice() {
@@ -38,11 +67,21 @@ public class Product {
         this.price = price;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public double getDiscount() {
+        return discount;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setDiscount(double discount) {
+        this.discount = discount;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+
 }
