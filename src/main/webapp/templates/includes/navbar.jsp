@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="model.Category" %>
 
 
 <header class="section-header">
@@ -38,16 +40,37 @@
         <i class="fa fa-bars"></i> All category
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Machinery / Mechanical Parts / Tools </a>
-        <a class="dropdown-item" href="#">Consumer Electronics / Home Appliances </a>
-        <a class="dropdown-item" href="#">Auto / Transportation</a>
-        <a class="dropdown-item" href="#">Apparel / Textiles / Timepieces </a>
-        <a class="dropdown-item" href="#">Home & Garden / Construction / Lights </a>
-        <a class="dropdown-item" href="#">Beauty & Personal Care / Health </a>
+         <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=all">All products</a>
+
+                        <%
+                            // Get the list of categories from the request attribute
+
+                                List<Category> categoryList = (List<Category>) application.getAttribute("categoryList");
+
+
+
+                            if (categoryList != null) {
+                                for (Category category : categoryList) {
+                        %>
+                            <li>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=<%= category.getId() %>">
+                                    <%= category.getTitle() %>
+                                </a>
+                            </li>
+                        <%
+                                }
+                            } else {
+                        %>
+                            <li>No categories available.</li>
+                        <%
+                            }
+                        %>
+
+
       </div>
     </div>  <!-- category-wrap.// -->
   </div> <!-- col.// -->
-  <a href="${pageContext.request.contextPath}/store" class="btn btn-outline-primary">Store</a>
+  <a href="${pageContext.request.contextPath}/category?id=all" class="btn btn-outline-primary">Store</a>
   <div class="col-lg  col-md-6 col-sm-12 col">
     <form action="#" class="search">
       <div class="input-group w-100">

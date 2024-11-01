@@ -38,9 +38,6 @@
  <!-- Đây là phần mà các trang khác sẽ nhúng nội dung vào -->
     <jsp:include page="${param.contentPage}" />
 
-
-
-
     <!-- Footer -->
     <%@ include file="includes/footer.jsp" %>
 </body>

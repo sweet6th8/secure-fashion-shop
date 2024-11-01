@@ -38,7 +38,7 @@ public class ProductDAO {
     // Lấy sản phẩm theo ID
     public Product getProductById(int id) {
         Product product = null;
-        String sql = "SELECT * FROM products WHERE id = ?";
+        String sql = "SELECT * FROM Product WHERE id = ?";
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -131,7 +131,7 @@ public class ProductDAO {
     // Helper method to fetch a Category by ID
     private Category getCategoryById(int categoryId) {
         Category category = null;
-        String sql = "SELECT * FROM categories WHERE id = ?";
+        String sql = "SELECT * FROM Category WHERE id = ?";
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -140,7 +140,8 @@ public class ProductDAO {
             if (resultSet.next()) {
                 category = new Category();
                 category.setId(resultSet.getInt("id"));
-                category.setTitle(resultSet.getString("name"));
+                category.setTitle(resultSet.getString("title"));
+                category.setDescription(resultSet.getString("description"));
                 // Set other Category fields if necessary
             }
 
@@ -148,5 +149,32 @@ public class ProductDAO {
             e.printStackTrace();
         }
         return category;
+    }
+
+    // Method to get products by category ID
+    public List<Product> getProductsByCategoryId(int categoryId) {
+        List<Product> productList = new ArrayList<>();
+        String sql = "SELECT * FROM Product WHERE category_id = ?"; // Update your SQL according to your database schema
+
+        try (Connection conn = DBConnection.getConnection(); // Assuming you have a method to get a DB connection
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, categoryId);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                // Assuming your Product class has a constructor that takes these parameters
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getDouble("price"));
+                product.setPhoto(rs.getString("photo")); // Assuming 'photo' is a column in your products table
+                productList.add(product);
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle exceptions appropriately in a real application
+        }
+
+        return productList;
     }
 }
