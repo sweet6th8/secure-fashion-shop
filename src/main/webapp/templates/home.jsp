@@ -1,6 +1,11 @@
+<!-- Chức năng: Trang chính hiển thị danh sách sản phẩm nổi bật và các banner quảng cáo.
+     Nội dung: Danh sách sản phẩm từ cơ sở dữ liệu, các mục quảng cáo và liên kết đến các trang khác. -->
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<%@ page import="dao.ProductDAO" %>
+
 <%@ page import="model.Product" %>
 <!-- Nội dung của home.jsp -->
 
@@ -23,27 +28,35 @@
           </header>
 
         <div class="row">
-                        <%
-                                      ProductDAO productDAO = new ProductDAO();
-                                      List<Product> productList = productDAO.getAllProducts();
-                                      System.out.println("Empty ");
-                                      for (Product product : productList) {
-                                      System.out.println("Product " + product.getId());
-                                  %>
-                                      <div class="col-md-3">
-                                          <div class="card card-product-grid">
-                                              <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
-                                                  <img src="<%= product.getPhoto() != null ? product.getPhoto() : "default-image.jpg" %>">
-                                              </a>
-                                              <figcaption class="info-wrap">
-                                                  <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
-                                                  <div class="price mt-1">$<%= product.getPrice() %></div>
-                                              </figcaption>
-                                          </div>
-                                      </div>
-                                  <%
-                                      } // End of product list iteration
-                                  %>
+                          // Lấy danh sách sản phẩm từ request
+                                     List<Product> productList = (List<Product>) request.getAttribute("productList");
+                                         System.out.println(productList==null);
+                                     // Kiểm tra xem danh sách sản phẩm có null hay không
+                                     if (productList != null && !productList.isEmpty()) {
+                                         for (Product product : productList) {
+                                         System.out.println(product.getId());
+                                 %>
+                                     <div class="col-md-3">
+                                         <div class="card card-product-grid">
+                                             <a href="" class="img-wrap">
+                                                 <img src="<%= product.getPhoto() != null ? product.getPhoto() : "" %>">
+                                             </a>
+                                             <figcaption class="info-wrap">
+                                                 <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+                                                 <div class="price mt-1">$<%= product.getPrice() %></div>
+                                             </figcaption>
+                                         </div>
+                                     </div>
+                                 <%
+                                         } // Kết thúc vòng lặp
+                                     } else {
+                                 %>
+                                     <div class="col-md-12">
+                                         <p>No products available.</p>
+                                     </div>
+                                 <%
+                                     } // Kết thúc kiểm tra
+                                 %>
         </div>
     </div>
 </section>
