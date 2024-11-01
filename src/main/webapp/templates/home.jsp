@@ -30,7 +30,7 @@
         <div class="row">
                           // Lấy danh sách sản phẩm từ request
                                      List<Product> productList = (List<Product>) request.getAttribute("productList");
-                                         System.out.println(productList==null);
+                
                                      // Kiểm tra xem danh sách sản phẩm có null hay không
                                      if (productList != null && !productList.isEmpty()) {
                                          for (Product product : productList) {
