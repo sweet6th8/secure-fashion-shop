@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class User {
     private int id; // ID người dùng
     private String username; // Tên đăng nhập
@@ -9,7 +11,7 @@ public class User {
     private String address; // Địa chỉ
     private String phone; // Số điện thoại
     private boolean gender ;
-
+    private ArrayList<Product> FavoriteProducts ;
 
     // Constructor
     public User() {}
@@ -94,5 +96,10 @@ public class User {
                 ", gender=" + gender +
 
                 '}';
+    }
+
+    public void setFavoriteProducts(ArrayList<Product> arrayList) {
+        this.FavoriteProducts = arrayList;
+
     }
 }

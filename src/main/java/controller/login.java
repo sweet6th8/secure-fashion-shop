@@ -1,5 +1,6 @@
 package controller;
 
+import dao.UserDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import model.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 @WebServlet(name = "DangNhap", urlPatterns = {"/templates/login"})
 public class login extends HttpServlet {
@@ -17,14 +19,15 @@ public class login extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String pass = req.getParameter("password");
-
-        User user = (User) req.getSession().getAttribute("user");
-        if (user == null || !user.getEmail().equals(email) || !user.getPassword().equals(pass)) {
-            resp.sendRedirect(req.getContextPath() + "/templates/register.jsp");
-            return;
+        UserDAO udao = new UserDAO();
+        try {
+            if (!udao.getLogin(email,pass)) {
+                resp.sendRedirect(req.getContextPath() + "/templates/register.jsp");
+                return;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-
-
         resp.sendRedirect(req.getContextPath());
     }
 
