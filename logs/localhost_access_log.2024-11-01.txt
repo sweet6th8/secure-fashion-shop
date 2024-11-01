@@ -492,6 +492,7 @@
 0:0:0:0:0:0:0:1 - - [01/Nov/2024:19:19:54 +0700] "GET /static/images/products/womens_summer_dress.jpg HTTP/1.1" 404 683
 0:0:0:0:0:0:0:1 - - [01/Nov/2024:19:20:04 +0700] "GET /FashionWebProject/product?id=4 HTTP/1.1" 200 8020
 0:0:0:0:0:0:0:1 - - [01/Nov/2024:19:20:04 +0700] "GET /static/images/products/womens_blouse.jpg HTTP/1.1" 404 683
+<<<<<<< HEAD
 0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:21:34 +0700] "GET /FashionWebProject HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:21:34 +0700] "GET /FashionWebProject HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:21:35 +0700] "GET /FashionWebProject/ HTTP/1.1" 500 3458
@@ -597,3 +598,13 @@
 0:0:0:0:0:0:0:1 - - [01/Nov/2024:22:06:28 +0700] "GET /WebProject/ HTTP/1.1" 404 605
 0:0:0:0:0:0:0:1 - - [01/Nov/2024:22:06:28 +0700] "GET /WebProject/ HTTP/1.1" 404 605
 0:0:0:0:0:0:0:1 - - [01/Nov/2024:22:06:28 +0700] "GET /WebProject/ HTTP/1.1" 404 605
+=======
+0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:33:25 +0700] "GET /FashionWebProject HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:33:30 +0700] "GET /FashionWebProject/ HTTP/1.1" 200 11426
+0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:33:31 +0700] "GET /static/images/products/mens_casual_shirt.jpg HTTP/1.1" 404 683
+0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:33:31 +0700] "GET /static/images/products/mens_denim_jacket.jpg HTTP/1.1" 404 683
+0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:33:31 +0700] "GET /static/images/products/womens_summer_dress.jpg HTTP/1.1" 404 683
+0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:33:32 +0700] "GET /static/images/products/kids_tshirt.jpg HTTP/1.1" 404 683
+0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:33:32 +0700] "GET /static/images/products/kids_hoodie.jpg HTTP/1.1" 404 683
+0:0:0:0:0:0:0:1 - - [01/Nov/2024:21:33:32 +0700] "GET /static/images/products/womens_blouse.jpg HTTP/1.1" 404 683
+>>>>>>> cd038864824fa0902108feed7b69a5638fc4a940

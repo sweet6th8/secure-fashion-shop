@@ -44,4 +44,5 @@ INSERT INTO Product (name, description, photo, price, discount, category_id) VAL
 ('Women''s Blouse', 'Elegant blouse suitable for work or casual outings.', '/static/images/products/womens_blouse.jpg', 39.99, 8.00, 2),
 ('Kids'' T-Shirt', 'Fun and colorful t-shirt for kids.', '/static/images/products/kids_tshirt.jpg', 19.99, 3.00, 3),
 ('Kids'' Hoodie', 'Cozy hoodie to keep kids warm in cooler weather.', '/static/images/products/kids_hoodie.jpg', 29.99, 5.00, 3);
-SELECT * FROM Product;
+	
+SELECT * FROM Category WHERE id = 1;
