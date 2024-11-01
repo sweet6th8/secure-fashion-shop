@@ -14,7 +14,6 @@
 <body>
       <jsp:include page="templates/base.jsp">
           <jsp:param name="contentPage" value="/templates/home.jsp" />
-
       </jsp:include>
 </body>
 </html>

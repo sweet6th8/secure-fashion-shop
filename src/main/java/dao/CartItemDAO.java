@@ -1,15 +1,5 @@
 package dao;
 
-import model.CartItem;
-import dao.DatabaseConnection;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class CartItemDAO {
 
     // Thêm một mục vào giỏ hàng

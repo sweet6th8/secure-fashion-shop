@@ -1,7 +1,5 @@
 package model;
 
-import java.util.List;
-
 public class User {
     private int id; // ID người dùng
     private String username; // Tên đăng nhập
@@ -11,7 +9,7 @@ public class User {
     private String address; // Địa chỉ
     private String phone; // Số điện thoại
     private boolean gender ;
-    private List<Product> favoriteProducts; // Danh sách sản phẩm yêu thích
+
 
     // Constructor
     public User() {}
@@ -73,13 +71,7 @@ public class User {
         this.phone = phone;
     }
 
-    public List<Product> getFavoriteProducts() {
-        return favoriteProducts;
-    }
 
-    public void setFavoriteProducts(List<Product> favoriteProducts) {
-        this.favoriteProducts = favoriteProducts;
-    }
 
     public boolean isGender() {
         return gender;
@@ -100,7 +92,7 @@ public class User {
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", gender=" + gender +
-                ", favoriteProducts=" + favoriteProducts +
+
                 '}';
     }
 }

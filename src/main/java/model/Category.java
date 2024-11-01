@@ -18,6 +18,10 @@ public class Category {
 
     }
 
+    public Category(){
+
+    }
+
     public void addProduct(Product product) {
         products.add(product);
     }
@@ -53,4 +57,5 @@ public class Category {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+
 }

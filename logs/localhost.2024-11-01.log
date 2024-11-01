@@ -1,0 +1,1331 @@
+01-Nov-2024 12:56:32.440 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getUrl() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getCategoryName() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getImageUrl() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [171] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+171:                                     <a href="./product-detail.jsp" class="title"><%= product.getProductName() %></a>
+172:                                     <div class="price-wrap mt-2">
+173:                                         <span class="price">$ <%= product.getPrice() %></span>
+174:                                     </div>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+		at controller.StoreServlet.doGet(StoreServlet.java:36)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 12:56:32.440 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [controller.StoreServlet] in context with path [/FashionWebProject] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getUrl() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getCategoryName() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getImageUrl() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [171] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+171:                                     <a href="./product-detail.jsp" class="title"><%= product.getProductName() %></a>
+172:                                     <div class="price-wrap mt-2">
+173:                                         <span class="price">$ <%= product.getPrice() %></span>
+174:                                     </div>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getUrl() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getCategoryName() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getImageUrl() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [171] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+171:                                     <a href="./product-detail.jsp" class="title"><%= product.getProductName() %></a>
+172:                                     <div class="price-wrap mt-2">
+173:                                         <span class="price">$ <%= product.getPrice() %></span>
+174:                                     </div>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+		at controller.StoreServlet.doGet(StoreServlet.java:36)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:27:24.047 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. dao.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. dao.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.templates.base_jsp._jspService(base_jsp.java:275)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.index_jsp._jspService(index_jsp.java:140)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:27:24.049 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. dao.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. dao.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.templates.base_jsp._jspService(base_jsp.java:275)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.index_jsp._jspService(index_jsp.java:140)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:27:24.050 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/FashionWebProject] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. dao.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. dao.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. dao.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. dao.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.templates.base_jsp._jspService(base_jsp.java:275)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.index_jsp._jspService(index_jsp.java:140)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:30:40.789 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.ProductDAO resolves to a package
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.templates.base_jsp._jspService(base_jsp.java:275)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.index_jsp._jspService(index_jsp.java:140)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:30:40.795 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.ProductDAO resolves to a package
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.templates.base_jsp._jspService(base_jsp.java:275)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.index_jsp._jspService(index_jsp.java:140)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:30:40.796 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/FashionWebProject] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.ProductDAO resolves to a package
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.ProductDAO resolves to a package
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.templates.base_jsp._jspService(base_jsp.java:275)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.index_jsp._jspService(index_jsp.java:140)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:32:07.668 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.ProductDAO resolves to a package
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.model.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.model.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.templates.base_jsp._jspService(base_jsp.java:275)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.index_jsp._jspService(index_jsp.java:140)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:32:07.669 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.ProductDAO resolves to a package
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.model.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.model.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.templates.base_jsp._jspService(base_jsp.java:275)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.index_jsp._jspService(index_jsp.java:140)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:32:07.670 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/FashionWebProject] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.ProductDAO resolves to a package
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.model.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.model.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [15] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.dao.ProductDAO resolves to a package
+
+An error occurred at line: [16] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.model.Product resolves to a package
+
+An error occurred at line: [17] in the generated java file: [D:\FashionWebProject\work\Catalina\localhost\FashionWebProject\org\apache\jsp\templates\home_jsp.java]
+Only a type can be imported. java.model.Category resolves to a package
+
+An error occurred at line: [37] in the jsp file: [/templates/home.jsp]
+Invalid character constant
+34:                                 <div class="col-md-3">
+35:                                     <div class="card card-product-grid">
+36:                                         <a href="./product-detail.jsp?id=<%= product.getId() %>" class="img-wrap">
+37:                                              <img src="<%= product.getPhoto() != null ? product.getPhoto() : 'default-image.jpg' %>">
+38:                                         </a>
+39:                                         <figcaption class="info-wrap">
+40:                                             <a href="./product-detail.jsp?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.templates.base_jsp._jspService(base_jsp.java:275)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:510)
+		at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:453)
+		at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:994)
+		at org.apache.jsp.index_jsp._jspService(index_jsp.java:140)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:67)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:45:22.264 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getUrl() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getCategoryName() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getImageUrl() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [171] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+171:                                     <a href="./product-detail.jsp" class="title"><%= product.getProductName() %></a>
+172:                                     <div class="price-wrap mt-2">
+173:                                         <span class="price">$ <%= product.getPrice() %></span>
+174:                                     </div>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+		at controller.StoreServlet.doGet(StoreServlet.java:36)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2024 13:45:22.264 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [controller.StoreServlet] in context with path [/FashionWebProject] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getUrl() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getCategoryName() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getImageUrl() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [171] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+171:                                     <a href="./product-detail.jsp" class="title"><%= product.getProductName() %></a>
+172:                                     <div class="price-wrap mt-2">
+173:                                         <span class="price">$ <%= product.getPrice() %></span>
+174:                                     </div>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getUrl() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [70] in the jsp file: [/templates/store/store.jsp]
+The method getCategoryName() is undefined for the type Category
+67:                                         List<Category> categories = (List<Category>) request.getAttribute("links");
+68:                                         for (Category category : categories) {
+69:                                     %>
+70:                                     <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
+71:                                     <%
+72:                                         }
+73:                                     %>
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getImageUrl() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [167] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+164:                     <div class="col-md-4">
+165:                         <figure class="card card-product-grid">
+166:                             <div class="img-wrap">
+167:                                 <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+
+
+An error occurred at line: [171] in the jsp file: [/templates/store/store.jsp]
+The method getProductName() is undefined for the type Product
+168:                             </div>
+169:                             <figcaption class="info-wrap">
+170:                                 <div class="fix-height">
+171:                                     <a href="./product-detail.jsp" class="title"><%= product.getProductName() %></a>
+172:                                     <div class="price-wrap mt-2">
+173:                                         <span class="price">$ <%= product.getPrice() %></span>
+174:                                     </div>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+		at controller.StoreServlet.doGet(StoreServlet.java:36)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:663)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)

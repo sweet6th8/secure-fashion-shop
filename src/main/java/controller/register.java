@@ -9,8 +9,6 @@ import jakarta.servlet.http.HttpSession;
 import model.User;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
 @WebServlet (urlPatterns = {"/templates/register"})
 public class register extends HttpServlet {
@@ -32,7 +30,7 @@ public class register extends HttpServlet {
         user.setPhone("093939");
         user.setUsername(FirstName);
         user.setAddress(city);
-        user.setFavoriteProducts(new ArrayList<>());
+//        user.setFavoriteProducts(new ArrayList<>());
         if (!password.equalsIgnoreCase(checkPassword)) {
             resp.sendRedirect("/templates/register");
             return ;

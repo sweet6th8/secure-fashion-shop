@@ -1,7 +1,7 @@
 package dao;
 
 import model.OrderItem;
-import dao.DatabaseConnection;
+import dao.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -26,8 +26,7 @@ public class StoreServlet extends HttpServlet {
 
         // Tạo danh sách Product
         List<Product> products = new ArrayList<>();
-        products.add(new Product(1, "Laptop", 1200.00, "/static/images/laptop.jpg"));
-        products.add(new Product(2, "Shirt", 35.99, "/static/images/shirt.jpg"));
+
         request.setAttribute("products", products);
 
         // Truyền số lượng sản phẩm

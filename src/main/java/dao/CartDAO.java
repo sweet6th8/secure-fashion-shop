@@ -2,7 +2,7 @@ package dao;
 
 import model.Cart;
 import model.CartItem;
-import dao.DatabaseConnection;
+import dao.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

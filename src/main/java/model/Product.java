@@ -7,7 +7,7 @@ public class Product {
     private String photo;
     private double price;
     private double discount;
-    private int quantity;
+
     private Category category;
 
     public Product() {
@@ -20,7 +20,6 @@ public class Product {
         this.photo = photo;
         this.price = price;
         this.discount = discount;
-        this.quantity = quantity;
         this.category = category;
 
     }
@@ -75,13 +74,11 @@ public class Product {
         this.discount = discount;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public Category getCategory(){
+            return category;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setCategory(Category category) {
+        this.category = category;
     }
-
-
 }
