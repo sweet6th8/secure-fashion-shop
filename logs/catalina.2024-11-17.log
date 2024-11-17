@@ -1,0 +1,401 @@
+17-Nov-2024 16:53:01.332 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 16:53:01.350 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 16:53:01.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 16:53:01.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 16:53:01.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 16:53:01.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 16:53:01.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 16:53:01.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 16:53:01.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 16:53:01.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 16:53:01.352 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 16:53:01.371 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 16:53:01.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=51752:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 16:53:01.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 16:53:01.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 16:53:01.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 16:53:01.381 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 16:53:01.416 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 16:53:02.272 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 16:53:02.302 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1444] milliseconds
+17-Nov-2024 16:53:02.390 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 16:53:02.390 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 16:53:02.405 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 16:53:04.936 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2024 16:53:05.124 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml] has finished in [2,719] ms
+17-Nov-2024 16:53:05.129 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 16:53:05.173 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2869] milliseconds
+17-Nov-2024 16:53:57.349 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 16:53:57.355 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2024 16:53:57.368 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [FashionWebProject] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+17-Nov-2024 16:53:57.376 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 16:53:57.380 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:05:06.350 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 17:05:06.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 17:05:06.361 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 17:05:06.361 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 17:05:06.361 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 17:05:06.361 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 17:05:06.361 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 17:05:06.361 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 17:05:06.361 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 17:05:06.362 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 17:05:06.362 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:05:06.387 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 17:05:06.387 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 17:05:06.387 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 17:05:06.388 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 17:05:06.388 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 17:05:06.388 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:05:06.388 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 17:05:06.388 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 17:05:06.388 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 17:05:06.388 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 17:05:06.389 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=51972:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 17:05:06.389 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 17:05:06.389 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 17:05:06.389 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 17:05:06.397 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 17:05:06.424 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 17:05:07.151 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:05:07.184 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1212] milliseconds
+17-Nov-2024 17:05:07.247 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 17:05:07.247 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 17:05:07.261 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 17:05:17.874 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 17:05:17.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 17:05:17.883 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 17:05:17.883 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 17:05:17.883 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 17:05:17.883 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 17:05:17.883 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 17:05:17.883 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 17:05:17.883 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 17:05:17.884 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 17:05:17.884 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:05:17.894 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 17:05:17.894 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 17:05:17.894 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 17:05:17.894 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 17:05:17.894 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 17:05:17.894 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:05:17.894 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 17:05:17.894 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 17:05:17.895 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 17:05:17.895 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 17:05:17.896 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=51975:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 17:05:17.896 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 17:05:17.896 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 17:05:17.896 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 17:05:17.899 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 17:05:17.906 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 17:05:19.020 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:05:19.079 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1555] milliseconds
+17-Nov-2024 17:05:19.149 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 17:05:19.149 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 17:05:19.163 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 17:05:22.339 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2024 17:05:22.660 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml] has finished in [3,495] ms
+17-Nov-2024 17:05:22.667 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:05:22.701 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [3617] milliseconds
+17-Nov-2024 17:07:01.127 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:07:01.137 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2024 17:07:01.160 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [FashionWebProject] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+17-Nov-2024 17:07:01.211 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:07:01.217 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:07:04.157 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 17:07:04.165 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 17:07:04.165 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 17:07:04.165 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 17:07:04.165 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 17:07:04.166 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 17:07:04.166 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 17:07:04.166 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 17:07:04.166 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 17:07:04.166 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 17:07:04.166 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:07:04.175 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 17:07:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 17:07:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 17:07:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 17:07:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 17:07:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:07:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 17:07:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 17:07:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 17:07:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 17:07:04.177 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=52014:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 17:07:04.177 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 17:07:04.177 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 17:07:04.177 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 17:07:04.180 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 17:07:04.186 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 17:07:05.018 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:07:05.054 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1114] milliseconds
+17-Nov-2024 17:07:05.117 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 17:07:05.117 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 17:07:05.128 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 17:07:07.770 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2024 17:07:07.900 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml] has finished in [2,772] ms
+17-Nov-2024 17:07:07.905 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:07:07.931 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2874] milliseconds
+17-Nov-2024 17:08:13.299 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:08:13.304 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2024 17:08:13.318 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [FashionWebProject] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+17-Nov-2024 17:08:13.324 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:08:13.332 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:08:16.778 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 17:08:16.782 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 17:08:16.782 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 17:08:16.782 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 17:08:16.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 17:08:16.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 17:08:16.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 17:08:16.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 17:08:16.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 17:08:16.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 17:08:16.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:08:16.794 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 17:08:16.794 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 17:08:16.794 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 17:08:16.794 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=52035:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 17:08:16.795 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 17:08:16.798 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 17:08:16.805 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 17:08:17.383 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:08:17.407 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [874] milliseconds
+17-Nov-2024 17:08:17.464 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 17:08:17.464 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 17:08:17.478 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 17:08:19.417 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2024 17:08:19.543 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml] has finished in [2,063] ms
+17-Nov-2024 17:08:19.548 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:08:19.572 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2164] milliseconds
+17-Nov-2024 17:09:41.766 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:09:41.771 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2024 17:09:41.786 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [FashionWebProject] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+17-Nov-2024 17:09:41.790 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:09:41.799 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:09:45.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 17:09:45.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 17:09:45.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 17:09:45.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 17:09:45.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 17:09:45.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 17:09:45.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 17:09:45.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 17:09:45.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 17:09:45.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 17:09:45.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 17:09:45.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 17:09:45.565 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=52068:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 17:09:45.565 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 17:09:45.565 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 17:09:45.565 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 17:09:45.567 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 17:09:45.575 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 17:09:46.453 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:09:46.505 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1368] milliseconds
+17-Nov-2024 17:09:46.577 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 17:09:46.577 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 17:09:46.588 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 17:09:50.937 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2024 17:09:51.128 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml] has finished in [4,539] ms
+17-Nov-2024 17:09:51.133 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:09:51.179 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [4672] milliseconds
+17-Nov-2024 17:11:18.067 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:11:18.074 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2024 17:11:18.089 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [FashionWebProject] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+17-Nov-2024 17:11:18.097 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:11:18.109 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:11:21.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 17:11:21.819 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 17:11:21.819 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 17:11:21.819 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 17:11:21.819 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 17:11:21.820 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 17:11:21.820 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 17:11:21.820 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 17:11:21.820 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 17:11:21.820 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 17:11:21.820 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:11:21.831 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=52121:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 17:11:21.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 17:11:21.836 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 17:11:21.842 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 17:11:22.429 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:11:22.454 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [900] milliseconds
+17-Nov-2024 17:11:22.507 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 17:11:22.507 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 17:11:22.518 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 17:11:24.404 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2024 17:11:24.514 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml] has finished in [1,995] ms
+17-Nov-2024 17:11:24.518 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:11:24.537 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2081] milliseconds
+17-Nov-2024 17:13:31.185 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:13:31.192 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2024 17:13:31.210 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [FashionWebProject] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+17-Nov-2024 17:13:31.220 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:13:31.242 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:13:34.341 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 17:13:34.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 17:13:34.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 17:13:34.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 17:13:34.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 17:13:34.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 17:13:34.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 17:13:34.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 17:13:34.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 17:13:34.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 17:13:34.347 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:13:34.359 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=52158:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 17:13:34.360 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 17:13:34.361 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 17:13:34.365 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 17:13:34.373 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 17:13:35.083 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:13:35.115 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1088] milliseconds
+17-Nov-2024 17:13:35.175 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 17:13:35.176 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 17:13:35.188 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 17:13:39.883 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2024 17:13:40.157 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml] has finished in [4,966] ms
+17-Nov-2024 17:13:40.163 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:13:40.237 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [5120] milliseconds
+17-Nov-2024 17:14:59.192 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:14:59.197 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2024 17:14:59.216 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [FashionWebProject] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+17-Nov-2024 17:14:59.224 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:14:59.229 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:15:11.494 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 17:15:11.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 17:15:11.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 17:15:11.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 17:15:11.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 17:15:11.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 17:15:11.506 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 17:15:11.506 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 17:15:11.508 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 17:15:11.509 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 17:15:11.509 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:15:11.521 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 17:15:11.521 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 17:15:11.521 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 17:15:11.521 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 17:15:11.521 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 17:15:11.521 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:15:11.522 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 17:15:11.522 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 17:15:11.522 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 17:15:11.522 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 17:15:11.522 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=52220:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 17:15:11.522 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 17:15:11.522 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 17:15:11.523 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 17:15:11.527 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 17:15:11.534 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 17:15:12.533 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:15:12.563 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1435] milliseconds
+17-Nov-2024 17:15:12.624 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 17:15:12.624 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 17:15:12.644 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 17:15:16.712 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2024 17:15:16.857 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml] has finished in [4,212] ms
+17-Nov-2024 17:15:16.861 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:15:16.888 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [4324] milliseconds
+17-Nov-2024 17:16:49.990 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:16:49.994 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2024 17:16:50.009 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [FashionWebProject] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+17-Nov-2024 17:16:50.019 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:16:50.028 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:16:53.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+17-Nov-2024 17:16:53.352 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+17-Nov-2024 17:16:53.352 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+17-Nov-2024 17:16:53.353 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+17-Nov-2024 17:16:53.353 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+17-Nov-2024 17:16:53.353 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+17-Nov-2024 17:16:53.353 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+17-Nov-2024 17:16:53.353 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+17-Nov-2024 17:16:53.353 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2024 17:16:53.353 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\FashionWebProject
+17-Nov-2024 17:16:53.355 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:16:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2024 17:16:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2024 17:16:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+17-Nov-2024 17:16:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+17-Nov-2024 17:16:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2024 17:16:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\NGUYEN THI LANG\Downloads\apache-tomcat-10.1.30-windows-x64\apache-tomcat-10.1.30
+17-Nov-2024 17:16:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\FashionWebProject
+17-Nov-2024 17:16:53.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\FashionWebProject\temp
+17-Nov-2024 17:16:53.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\FashionWebProject\conf\logging.properties
+17-Nov-2024 17:16:53.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2024 17:16:53.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\lib\idea_rt.jar=52278:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.4\bin
+17-Nov-2024 17:16:53.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+17-Nov-2024 17:16:53.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+17-Nov-2024 17:16:53.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+17-Nov-2024 17:16:53.371 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+17-Nov-2024 17:16:53.384 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+17-Nov-2024 17:16:54.040 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:16:54.066 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1159] milliseconds
+17-Nov-2024 17:16:54.123 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2024 17:16:54.123 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+17-Nov-2024 17:16:54.136 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml]
+17-Nov-2024 17:16:56.186 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2024 17:16:56.329 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\FashionWebProject\conf\Catalina\localhost\FashionWebProject.xml] has finished in [2,192] ms
+17-Nov-2024 17:16:56.334 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:16:56.366 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2298] milliseconds
+17-Nov-2024 17:17:26.646 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:17:26.651 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2024 17:17:26.668 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [FashionWebProject] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+17-Nov-2024 17:17:26.674 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2024 17:17:26.681 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

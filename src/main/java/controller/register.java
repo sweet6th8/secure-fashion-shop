@@ -17,7 +17,7 @@ public class register extends HttpServlet {
             String FirstName = req.getParameter("FirstName");
             String LastName = req.getParameter("LastName");
         String Email = req.getParameter("Email");
-        boolean gender = (req.getParameter("gender").equalsIgnoreCase("1")) ? true : false;
+        boolean gender = req.getParameter("gender").equalsIgnoreCase("1");
         String password = req.getParameter("password");
         String checkPassword = req.getParameter("CheckPassword");
         String city = req.getParameter("city");

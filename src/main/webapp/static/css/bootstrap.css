@@ -2402,7 +2402,7 @@ fieldset:disabled a.btn {
   background-color: #3167eb;
   border-color: #3167eb;
 }
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).activepage-item, .show > .btn-primary.dropdown-toggle {
   color: #fff;
   background-color: #154cd4;
   border-color: #1348c9;

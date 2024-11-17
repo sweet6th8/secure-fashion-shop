@@ -177,4 +177,37 @@ public class ProductDAO {
 
         return productList;
     }
+
+
+
+    // Tìm kiếm sản phẩm theo tên
+    public List<Product> searchProductByName(String name) {
+        List<Product> list = new ArrayList<>();
+        String sql = "SELECT * FROM Product WHERE name like ?";
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, "%" + name + "%");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Product product = new Product();
+                product.setId(resultSet.getInt("id"));
+                product.setName(resultSet.getString("name"));
+                product.setDescription(resultSet.getString("description"));
+                product.setPhoto(resultSet.getString("photo"));
+                product.setPrice(resultSet.getDouble("price"));
+                product.setDiscount(resultSet.getDouble("discount"));
+
+                int categoryId = resultSet.getInt("category_id");
+                Category category = getCategoryById(categoryId); // Helper method to fetch Category
+                product.setCategory(category);
+
+                list.add(product);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
