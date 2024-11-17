@@ -1,8 +1,43 @@
 package dao;
 
-public class UserDAO {
 
-    // Thêm người dùng
+import model.User;
+
+import java.sql.*;
+
+public class UserDAO {
+    public UserDAO() {
+    }
+    public boolean registerUsser (User user) throws SQLException {
+        int gender =(user.isGender()) ? 1 : 0;
+
+        String sql = "insert into ListUser  (username, password, email, fullName, address, phone,gender) " +
+                "VALUES ('"+user.getUsername()+"','" +user.getPassword()+"','" + user.getEmail()+"','" +
+        user.getFullName()+"','"+ user.getAddress()+"','"+user.getPhone()+"'," + gender+")";
+        try (Connection connection = DBConnection.getConnection()) {
+             Statement statement = connection.createStatement();
+          statement.executeQuery(sql);
+            System.out.println("thêm user vào db thành công !");
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        return true;
+    }
+    public boolean getLogin (String email , String password) throws SQLException {
+        String sql = "Select  email , password from ListUser where email ='" + email+"'";
+        Connection connection = DBConnection.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+        while (rs.next()) {
+            if (!rs.getString(1).equals(email) || !rs.getString(2).equals(password)) {
+                return  false;
+            }
+        }
+
+        return true;
+    }
+// Thêm người dùng
 //    public void addUser(User user) {
 //        String sql = "INSERT INTO users (username, password, email, full_name, address, phone) VALUES (?, ?, ?, ?, ?, ?)";
 //        try (Connection connection = DatabaseConnection.getConnection();
