@@ -22,7 +22,8 @@ public class login extends HttpServlet {
         UserDAO udao = new UserDAO();
         try {
             if (!udao.getLogin(email,pass)) {
-                resp.sendRedirect(req.getContextPath() + "/templates/register.jsp");
+                req.setAttribute("errorMessage", "Email hoặc mật khẩu không đúng.");
+                req.getRequestDispatcher("login.jsp").forward(req, resp);
                 return;
             }
         } catch (SQLException e) {

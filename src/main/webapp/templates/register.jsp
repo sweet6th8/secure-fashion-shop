@@ -54,7 +54,7 @@
       <div class="card mx-auto" style="max-width: 520px; margin-top: 40px">
         <article class="card-body">
           <header class="mb-4"><h4 class="card-title">Sign up</h4></header>
-          <form action="register" method="GET">
+          <form action="register" method="GET" onsubmit ="return validateForm()">
             <div class="form-row">
               <div class="col form-group">
                 <label>Họ </label>
@@ -128,7 +128,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label>Thành phố / Tỉnh</label>
-                <input list="inputState" class="form-control" />
+                <input list="inputState" class="form-control" require />
                 <datalist name="city" id="inputState">
                   <option name="city" value="Long An"></option>
                   <option name="city" value="Bình Định"></option>
@@ -148,6 +148,7 @@
                   id="password"
                   class="form-control"
                   onchange="validatePassword()"
+                  require
                 />
                 <p id="password-error" style="color: red; display: none">
                   Mật khẩu phải có từ 8 đến 20 ký tự, bao gồm chữ hoa, chữ
@@ -162,6 +163,7 @@
                   class="form-control"
                   type="password"
                   onChange="validateCheckPassword()"
+                  require
                 />
                 <p id="Checkpassword-error" style="color: red; display: none">
                   Mật khẩu không trùng khớp !
@@ -169,7 +171,7 @@
               </div>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block">
+              <button type="submit" class="btn btn-primary btn-block" ">
                 Register
               </button>
             </div>
@@ -192,6 +194,18 @@
       </div>
     </footer>
     <script>
+    function validateForm () {
+            var phonePattern = /^[0-9]{10}$/;
+        var emailPattern =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+            // Kiểm tra định dạng email và số điện thoại
+            if (!phonePattern.test(document.getElementById("phone").value)) {
+                alert("Số điện thoại phải có 10 chữ số.");
+                return false;
+            }
+
+            return true;
+    }
       function validateEmail() {
         const input = document.getElementById("email").value;
         const errorMessage = document.getElementById("error-email");

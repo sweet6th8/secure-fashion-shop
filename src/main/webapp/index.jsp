@@ -9,7 +9,6 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>GreatKart | One of the Biggest Online Shopping Platform</title>
-
       <!-- Favicon -->
        <link href="${pageContext.request.contextPath}/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
@@ -41,8 +40,8 @@
                  <jsp:param name="contentPage" value="/templates/home.jsp" />
              </jsp:include>
          </div>
-
          <!-- Footer -->
          <%@ include file="templates/includes/footer.jsp" %>
+         <script src ="src/main/webapp/js/script.js"></script>
 </body>
 </html>
