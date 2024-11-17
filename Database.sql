@@ -46,3 +46,9 @@ INSERT INTO Product (name, description, photo, price, discount, category_id) VAL
 ('Kids'' Hoodie', 'Cozy hoodie to keep kids warm in cooler weather.', '/static/images/products/kids_hoodie.jpg', 29.99, 5.00, 3);
 	
 SELECT * FROM Category WHERE id = 1;
+
+SELECT * FROM Product
+ORDER BY id
+OFFSET 0 ROWS
+FETCH NEXT 2 ROWS ONLY;
+
