@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -42,7 +44,10 @@
 
 
 </head>
+<%
+  String errorMessage = (String) application.getAttribute("error");
 
+%>
 <body>
   <section class="section-conten padding-y" style="min-height:84vh">
     <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
