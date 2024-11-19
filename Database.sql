@@ -44,6 +44,17 @@ INSERT INTO Product (name, description, photo, price, discount, category_id) VAL
 ('Women''s Blouse', 'Elegant blouse suitable for work or casual outings.', '/static/images/products/womens_blouse.jpg', 39.99, 8.00, 2),
 ('Kids'' T-Shirt', 'Fun and colorful t-shirt for kids.', '/static/images/products/kids_tshirt.jpg', 19.99, 3.00, 3),
 ('Kids'' Hoodie', 'Cozy hoodie to keep kids warm in cooler weather.', '/static/images/products/kids_hoodie.jpg', 29.99, 5.00, 3);
+
+INSERT INTO Product (name, description, photo, price, discount, category_id) VALUES
+('Men''s Casual Shirt', 'A comfortable cotton shirt for everyday wear.', '/static/images/products/mens_casual_shirt.jpg', 29.99, 5.00, 1),
+('Men''s Denim Jacket', 'Classic denim jacket that goes with any outfit.', '/static/images/products/mens_denim_jacket.jpg', 49.99, 10.00, 1),
+('Men''s Formal Pants', 'Slim fit formal pants suitable for office wear.', '/static/images/products/mens_formal_pants.jpg', 39.99, 7.00, 1),
+('Women''s Summer Dress', 'Lightweight summer dress perfect for hot weather.', '/static/images/products/womens_summer_dress.jpg', 49.99, 10.00, 2),
+('Women''s Blouse', 'Elegant blouse suitable for work or casual outings.', '/static/images/products/womens_blouse.jpg', 39.99, 8.00, 2),
+('Women''s Leather Jacket', 'Stylish leather jacket for a chic look.', '/static/images/products/womens_leather_jacket.jpg', 99.99, 15.00, 2),
+('Kids'' T-Shirt', 'Fun and colorful t-shirt for kids.', '/static/images/products/kids_tshirt.jpg', 19.99, 3.00, 3),
+('Kids'' Hoodie', 'Cozy hoodie to keep kids warm in cooler weather.', '/static/images/products/kids_hoodie.jpg', 29.99, 5.00, 3),
+('Kids'' Sneakers', 'Comfortable sneakers for active children.', '/static/images/products/kids_sneakers.jpg', 39.99, 6.00, 3);
 	
 SELECT * FROM Category WHERE id = 1;
 

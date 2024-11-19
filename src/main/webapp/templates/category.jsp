@@ -194,7 +194,7 @@
                                         <span class="price">$ <%= product.getPrice() %></span>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-block btn-success">Add to cart</a>
+                                <a href="addToCart?id=<%= product.getId() %>" class="btn btn-block btn-success">Add to cart</a>
                             </figcaption>
                         </figure>
                     </div>

@@ -39,13 +39,6 @@
      // Assuming `singleProduct` is set in the request scope
      Product singleProduct = (Product) request.getAttribute("product");
 
-     if (singleProduct == null) {
-         out.println("<h2>Product not found</h2>");
-         return; // Exit if product is not found
-     }
-
-
-
  %>
 
  <section class="section-content padding-y bg">
@@ -74,7 +67,47 @@
 
                          <!-- item-option-select -->
                          <hr>
-
+                         <hr>
+                         <div class="row">
+                             <div class="item-option-select">
+                                 <h6>Choose Color</h6>
+                                 <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+                                     <label class="btn btn-light">
+                                         <input type="radio" name="radio_color"> Silver
+                                     </label>
+                                     <label class="btn btn-light">
+                                         <input type="radio" name="radio_color" > Gray
+                                     </label>
+                                     <label class="btn btn-light active">
+                                         <input type="radio" name="radio_color checked"> Gold
+                                     </label>
+                                     <label class="btn btn-light">
+                                         <input type="radio" name="radio_color"> Black
+                                     </label>
+                                 </div>
+                             </div>
+                         </div> <!-- row.// -->
+                         <div class="row">
+                             <div class="item-option-select">
+                                 <h6>Select Size</h6>
+                                 <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+                                     <label class="btn btn-light">
+                                         <input type="radio" name="radio_color"> S
+                                     </label>
+                                     <label class="btn btn-light active">
+                                         <input type="radio" name="radio_color" checked> M
+                                     </label>
+                                     <label class="btn btn-light">
+                                         <input type="radio" name="radio_color"> L
+                                     </label>
+                                     <label class="btn btn-light">
+                                         <input type="radio" name="radio_color"> XL
+                                     </label>
+                                 </div>
+                             </div>
+                         </div> <!-- row.// -->
+                         <hr>
+                         <a href=addToCart?id=<%= singleProduct.getId() %>" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
 
                      </article> <!-- product-info-aside .// -->
                  </main> <!-- col.// -->
