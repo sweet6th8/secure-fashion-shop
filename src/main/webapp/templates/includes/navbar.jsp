@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Category" %>
 
@@ -42,28 +43,29 @@
       <div class="dropdown-menu">
          <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=all">All products</a>
 
-                        <%
-                            // Get the list of categories from the request attribute
+        <%
+          // Get the list of categories from the request attribute
 
-                                List<Category> categoryList = (List<Category>) application.getAttribute("categoryList");
+          List<Category> categoryList = (List<Category>) application.getAttribute("categoryList");
 
-                            if (categoryList != null) {
-                                for (Category category : categoryList) {
-                        %>
-                            <li>
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=<%= category.getId() %>">
-                                    <%= category.getTitle() %>
-                                </a>
-                            </li>
-                        <%
-                                }
-                            } else {
-                        %>
-                            <li>No categories available.</li>
-                        <%
-                            }
-                        %>
+          if (categoryList != null) {
+            for (Category category : categoryList) {
+        %>
 
+        <li>
+
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=<%= category.getId() %>">
+            <%= category.getTitle() %>
+          </a>
+        </li>
+        <%
+          }
+        } else {
+        %>
+        <li>No categories available.</li>
+        <%
+          }
+        %>
 
       </div>
     </div>  <!-- category-wrap.// -->
