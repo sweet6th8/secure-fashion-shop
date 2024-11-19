@@ -1,12 +1,15 @@
 package controller;
 
 
+import dao.CategoryDAO;
 import dao.ProductDAO;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Category;
 import model.Product;
 
 import java.io.IOException;
@@ -22,14 +25,17 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductDAO productDAO = new ProductDAO();
         List<Product> productList = productDAO.getAllProducts();
+        CategoryDAO categoryDAO = new CategoryDAO();
+        List<Category> categoryList = categoryDAO.getAllCategories();
 
         if (productList == null || productList.isEmpty()) {
             System.out.println("No products found!");
         } else {
             System.out.println("Number of products: " + productList.size());
         }
-
+        ServletContext context = getServletContext();
         request.setAttribute("productList", productList);
+        context.setAttribute("categoryList", categoryList);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 

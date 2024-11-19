@@ -11,20 +11,19 @@ import model.Product;
 import java.io.IOException;
 import java.util.List;
 
-//Tìm kiếm theo tên product
-@WebServlet("/search")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/filter")
+public class FilterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html; charset=UTF-8");
-        req.setCharacterEncoding("UTF-8");// tìm tên tiếng việt
-        String txtSearch = req.getParameter("txt");
+        String minPrice = req.getParameter("minPrice");
+        String maxPrice = req.getParameter("maxPrice");
+        System.out.println("minPrice: " + minPrice);  // Debugging line
+        System.out.println("maxPrice: " + maxPrice);  // Debugging line
+
         ProductDAO dao = new ProductDAO();
-        List<Product> products = dao.searchProductByName(txtSearch);
-
-
+        List<Product> products = dao.filteringProductByPrice(Double.parseDouble(minPrice), Double.parseDouble(maxPrice));
         req.setAttribute("productList", products);
-        req.setAttribute("txtS", txtSearch);
+
         req.getRequestDispatcher("/templates/category.jsp").forward(req, resp);
 
     }

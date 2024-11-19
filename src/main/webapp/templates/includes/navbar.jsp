@@ -47,8 +47,6 @@
 
                                 List<Category> categoryList = (List<Category>) application.getAttribute("categoryList");
 
-
-
                             if (categoryList != null) {
                                 for (Category category : categoryList) {
                         %>
@@ -74,7 +72,7 @@
   <div class="col-lg  col-md-6 col-sm-12 col">
     <form action="search" class="search" method="post">
       <div class="input-group w-100">
-          <input type="text" name="txt" class="form-control" style="width:60%;" placeholder="Search">
+          <input type="text" name="txt" class="form-control" style="width:60%;" placeholder="Search" value="${txtS}">
 
           <div class="input-group-append">
             <button class="btn btn-primary" type="submit">

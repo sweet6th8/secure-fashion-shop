@@ -9,8 +9,6 @@
 <title>GreatKart | One of the Biggest Online Shopping Platform</title>
  <!-- Favicon -->
        <link href="${pageContext.request.contextPath}/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-
-
     <!-- jQuery -->
        <script src="${pageContext.request.contextPath}/static/js/jquery-2.0.0.min.js" type="text/javascript"></script>
 
