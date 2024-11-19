@@ -1,1 +1,1 @@
-alert("loaded")
+alert("welcome to myWeb")

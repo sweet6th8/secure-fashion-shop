@@ -5,6 +5,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.Product" %>
 <%@ page import="model.Category" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -65,24 +66,21 @@
                             <div class="card-body">
                                 <ul class="list-menu">
                                     <li><a href="${pageContext.request.contextPath}/category?id=all">All products</a></li>
-                                    <%
-                                        List<Category> categories = (List<Category>) application.getAttribute("categoryList");
-                                       if (categories != null) {
-                                            for (Category category : categories) {
-                                    %>
-                                        <li>
-                                            <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=<%= category.getId() %>">
-                                                <%= category.getTitle() %>
-                                            </a>
-                                        </li>
-                                    <%
-                                            }
-                                        } else {
-                                    %>
-                                        <li>No categories available.</li>
-                                    <%
-                                        }
-                                    %>
+                                    <c:choose>
+                                        <c:when test="${not empty categoryList}">
+                                            <c:forEach var="category" items="${categoryList}">
+                                                <li>
+                                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=${category.id}">
+                                                       ${category.title}
+                                                    </a>
+                                                </li>
+                                            </c:forEach>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li>No categories available.</li>
+                                        </c:otherwise>
+                                    </c:choose>
+
                                 </ul>
                             </div>
                         </div>
@@ -194,7 +192,7 @@
                                         <span class="price">$ <%= product.getPrice() %></span>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-block btn-success">Add to cart</a>
+                                <a href="addToCart?id=<%= product.getId() %>" class="btn btn-block btn-success">Add to cart</a>
                             </figcaption>
                         </figure>
                     </div>
