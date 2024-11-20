@@ -21,7 +21,7 @@ public class login extends HttpServlet {
         String pass = req.getParameter("password");
         UserDAO udao = new UserDAO();
         try {
-            if (!udao.getLogin(email,pass)) {
+            if (!udao.getLogin(email, pass)) {
                 resp.sendRedirect(req.getContextPath() + "/templates/register.jsp");
                 return;
             }
@@ -39,11 +39,11 @@ public class login extends HttpServlet {
         ServletContext context = req.getServletContext();
         UserDAO udao = new UserDAO();
         try {
-            if (!udao.getLogin(email , pass)){
-context.setAttribute("message" ,message);
-
+            if (!udao.getLogin(email, pass)) {
+                context.setAttribute("message", message);
                 resp.sendRedirect(req.getContextPath() + "/templates/login.jsp");
-
+            } else {
+                resp.sendRedirect(req.getContextPath());
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

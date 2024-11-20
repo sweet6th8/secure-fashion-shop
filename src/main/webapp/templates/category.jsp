@@ -2,11 +2,6 @@
 Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người dùng chọn.-->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="model.Product" %>
-<%@ page import="model.Category" %>
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -184,11 +179,13 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                     <figure class="card card-product-grid">
                                         <div class="img-wrap">
                                             <a href="./product?id=${item.getId()}">
-                                                <img src="${pageContext.request.contextPath}${item.getPhoto()}" alt="${item.getName()}"></a>
+                                                <img src="${pageContext.request.contextPath}${item.getPhoto()}"
+                                                     alt="${item.getName()}"></a>
                                         </div>
                                         <figcaption class="info-wrap">
                                             <div class="fix-height">
-                                                <a href="./product?id=${item.getId()}" class="title">${item.getName()}</a>
+                                                <a href="./product?id=${item.getId()}"
+                                                   class="title">${item.getName()}</a>
                                                 <div class="price-wrap mt-2">
                                                     <span class="price">${ item.getPrice()}</span>
                                                 </div>

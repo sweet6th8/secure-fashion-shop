@@ -1,6 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="model.Product" %>
-<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -10,78 +8,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>GreatKart | One of the Biggest Online Shopping Platform</title>
 
-      <!-- Favicon -->
-       <link href="${pageContext.request.contextPath}/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- Favicon -->
+    <link href="${pageContext.request.contextPath}/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
 
     <!-- jQuery -->
-       <script src="${pageContext.request.contextPath}/static/js/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/static/js/jquery-2.0.0.min.js" type="text/javascript"></script>
 
     <!-- Bootstrap4 files -->
     <script src="${pageContext.request.contextPath}/static/js/bootstrap.bundle.min.js" type="text/javascript"></script>
     <link href="${pageContext.request.contextPath}/static/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 
-   <!-- Font awesome 5 -->
-       <link href="${pageContext.request.contextPath}/static/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+    <!-- Font awesome 5 -->
+    <link href="${pageContext.request.contextPath}/static/fonts/fontawesome/css/all.min.css" type="text/css"
+          rel="stylesheet">
 
-       <!-- Custom style -->
-       <link href="${pageContext.request.contextPath}/static/css/ui.css" rel="stylesheet" type="text/css"/>
-       <link href="${pageContext.request.contextPath}/static/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+    <!-- Custom style -->
+    <link href="${pageContext.request.contextPath}/static/css/ui.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/static/css/responsive.css" rel="stylesheet"
+          media="only screen and (max-width: 1200px)"/>
 
-       <!-- Custom javascript -->
-       <script src="${pageContext.request.contextPath}/static/js/script.js" type="text/javascript"></script>
+    <!-- Custom javascript -->
+    <script src="${pageContext.request.contextPath}/static/js/script.js" type="text/javascript"></script>
 </head>
 <body>
 <!-- Navbar -->
- <%@ include file="includes/navbar.jsp" %>
-<%
-    // Assuming `singleProduct` is set in the request scope
-    Product singleProduct = (Product) request.getAttribute("product");
+<%@ include file="includes/navbar.jsp" %>
 
-    if (singleProduct == null) {
-        out.println("<h2>Product not found</h2>");
-        return; // Exit if product is not found
-    }
-    request.setAttribute("item", singleProduct);
+<c:set value="${requestScope.product}" var="item"/>
+<!-- Main Content Area -->
+<section class="section-content padding-y bg">
+    <div class="container">
 
+        <!-- ============================ COMPONENT 1 ================================= -->
+        <c:choose>
+            <c:when test="${item!= null}">
+                <div class="card">
+                    <div class="row no-gutters">
+                        <aside class="col-md-6">
+                            <article class="gallery-wrap">
+                                <div class="img-big-wrap">
+                                    <a href="#"><img src="${pageContext.request.contextPath}${item.getPhoto()}"
+                                                     alt="${ item.getName()}"></a>
+                                </div> <!-- img-big-wrap.// -->
+                            </article> <!-- gallery-wrap .end// -->
+                        </aside>
+                        <main class="col-md-6 border-left">
+                            <article class="content-body">
 
-%>
- <!-- Main Content Area -->
- <section class="section-content padding-y bg">
-     <div class="container">
+                                <h2 class="title">${item.getName()}</h2>
 
-         <!-- ============================ COMPONENT 1 ================================= -->
-         <div class="card">
-             <div class="row no-gutters">
-                 <aside class="col-md-6">
-                     <article class="gallery-wrap">
-                         <div class="img-big-wrap">
-                             <a href="#"><img src="${pageContext.request.contextPath}${item.getPhoto()}" alt="${ item.getName()}"></a>
-                         </div> <!-- img-big-wrap.// -->
-                     </article> <!-- gallery-wrap .end// -->
-                 </aside>
-                 <main class="col-md-6 border-left">
-                     <article class="content-body">
+                                <div class="mb-3">
+                                    <var class="price h4">${ item.getPrice()}</var>
+                                </div>
 
-                         <h2 class="title">${item.getName()}</h2>
+                                <p>${item.getDescription()}</p>
 
-                         <div class="mb-3">
-                             <var class="price h4">${ item.getPrice()}</var>
-                         </div>
+                                <!-- item-option-select -->
+                                <hr>
+                            </article> <!-- product-info-aside .// -->
+                        </main> <!-- col.// -->
+                    </div> <!-- row.// -->
+                </div>
+                <!-- card.// -->
+            </c:when>
+            <c:otherwise>
+                <h2>Product not found</h2>
 
-                         <p>${item.getDescription()}</p>
-
-                         <!-- item-option-select -->
-                         <hr>
-                     </article> <!-- product-info-aside .// -->
-                 </main> <!-- col.// -->
-             </div> <!-- row.// -->
-         </div> <!-- card.// -->
-         <br>
-     </div> <!-- container .// -->
- </section>
- <!-- ========================= SECTION CONTENT END// ========================= -->
- <!-- Footer -->
- <%@ include file="includes/footer.jsp" %>
- </body>
+            </c:otherwise>
+        </c:choose>
+        <br>
+    </div> <!-- container .// -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- Footer -->
+<%@ include file="includes/footer.jsp" %>
+</body>
 
