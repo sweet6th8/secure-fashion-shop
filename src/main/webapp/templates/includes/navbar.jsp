@@ -96,6 +96,7 @@
                             <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
                             <span class="badge badge-pill badge-danger notify">0</span>
                         </a>
+                       <img class="ml-3" src="${pageContext.request.contextPath}/static/images/avatars/guest.png" style="width:50px; height: 50px;" alt="guest">
                     </div> <!-- widgets-wrap.// -->
                 </div> <!-- col.// -->
             </div> <!-- row.// -->

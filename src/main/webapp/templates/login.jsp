@@ -45,15 +45,15 @@
 
 </head>
 <%
-  String errorMessage = (String) application.getAttribute("error");
-
+  String errorMessage = (String) application.getAttribute("message");
+  request.setAttribute("message" , errorMessage);
 %>
 <body>
   <section class="section-conten padding-y" style="min-height:84vh">
     <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
       <div class="card-body">
         <h4 class="card-title mb-4">Sign in</h4>
-        <form action="login" method="GET">
+        <form action="login" method="POST">
           <div class="form-group">
             <input type="email" class="form-control" placeholder="Email Address" name="email">
           </div> <!-- form-group// -->
@@ -67,8 +67,9 @@
             <button type="submit" class="btn btn-primary btn-block"> Login </button>
           </div> <!-- form-group// -->
           <!-- Hiển thị thông báo lỗi nếu có -->
-          <c:if test="${not empty errorMessage}">
-            <p style="color: red;">${errorMessage}</p>
+
+          <c:if test="${ not  empty message}">
+            <p style="color: red;">${message} !</p>
           </c:if>
         </form>
       </div> <!-- card-body.// -->

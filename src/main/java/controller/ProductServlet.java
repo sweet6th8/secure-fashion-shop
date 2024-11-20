@@ -25,10 +25,11 @@ public class ProductServlet extends HttpServlet {
             // Lấy thông tin sản phẩm từ ProductDAO
             ProductDAO productDAO = new ProductDAO();
             Product product = productDAO.getProductById(Integer.parseInt(productId));
-
             // Kiểm tra nếu sản phẩm tồn tại
             if (product != null) {
                 // Thiết lập thuộc tính cho request
+                System.out.println(product.getName());
+
                 request.setAttribute("product", product);
                 // Chuyển hướng đến product-detail.jsp
                 request.getRequestDispatcher("/templates/product-detail.jsp").forward(request, response);

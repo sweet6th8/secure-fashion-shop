@@ -1,6 +1,7 @@
 package controller;
 
 import dao.UserDAO;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -34,10 +35,14 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String pass = req.getParameter("password");
+        String message = "Sai thông tin tài khoản mật khẩu ";
+        ServletContext context = req.getServletContext();
         UserDAO udao = new UserDAO();
         try {
-            if (udao.getLogin(email , pass)){
-                HttpSession session = req.getSession();
+            if (!udao.getLogin(email , pass)){
+context.setAttribute("message" ,message);
+
+                resp.sendRedirect(req.getContextPath() + "/templates/login.jsp");
 
             }
         } catch (SQLException e) {

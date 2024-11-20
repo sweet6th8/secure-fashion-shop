@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -33,21 +34,19 @@
 <body>
 <!-- Navbar -->
  <%@ include file="includes/navbar.jsp" %>
+<%
+    // Assuming `singleProduct` is set in the request scope
+    Product singleProduct = (Product) request.getAttribute("product");
 
+    if (singleProduct == null) {
+        out.println("<h2>Product not found</h2>");
+        return; // Exit if product is not found
+    }
+    request.setAttribute("item", singleProduct);
+
+
+%>
  <!-- Main Content Area -->
- <%
-     // Assuming `singleProduct` is set in the request scope
-     Product singleProduct = (Product) request.getAttribute("product");
-
-     if (singleProduct == null) {
-         out.println("<h2>Product not found</h2>");
-         return; // Exit if product is not found
-     }
-
-
-
- %>
-
  <section class="section-content padding-y bg">
      <div class="container">
 
@@ -57,34 +56,28 @@
                  <aside class="col-md-6">
                      <article class="gallery-wrap">
                          <div class="img-big-wrap">
-                             <a href="#"><img src="<%= singleProduct.getPhoto() %>" alt="<%= singleProduct.getName() %>"></a>
+                             <a href="#"><img src="${pageContext.request.contextPath}${item.getPhoto()}" alt="${ item.getName()}"></a>
                          </div> <!-- img-big-wrap.// -->
                      </article> <!-- gallery-wrap .end// -->
                  </aside>
                  <main class="col-md-6 border-left">
                      <article class="content-body">
 
-                         <h2 class="title"><%= singleProduct.getName() %></h2>
+                         <h2 class="title">${item.getName()}</h2>
 
                          <div class="mb-3">
-                             <var class="price h4">$ <%= singleProduct.getPrice() %></var>
+                             <var class="price h4">${ item.getPrice()}</var>
                          </div>
 
-                         <p><%= singleProduct.getDescription() %></p>
+                         <p>${item.getDescription()}</p>
 
                          <!-- item-option-select -->
                          <hr>
-
-
                      </article> <!-- product-info-aside .// -->
                  </main> <!-- col.// -->
              </div> <!-- row.// -->
          </div> <!-- card.// -->
-
          <br>
-
-
-
      </div> <!-- container .// -->
  </section>
  <!-- ========================= SECTION CONTENT END// ========================= -->

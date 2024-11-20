@@ -29,7 +29,7 @@
                     <div class="col-md-3">
                         <div class="card card-product-grid">
                             <div class="img-wrap">
-                                <a href="./product?id=${product.getId()}"><img src="${product.getPhoto()}" alt="${product.getName()}"></a>
+                                <a href="./product?id=${product.getId()}"><img src="${pageContext.request.contextPath}${product.getPhoto()}" alt="${product.getName()}"></a>
                             </div>
                             <figcaption class="info-wrap">
                                 <a href="./product?id=${product.getId()}>" class="title">${product.getName()}</a>
