@@ -201,6 +201,7 @@
                         } else {
                     %>
                     <div class="col-md-12">
+
                         <p>No products found.</p>
                     </div>
                     <%

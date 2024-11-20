@@ -51,7 +51,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="product" items="${cartItems}">
+                        <c:forEach var="product" items="${applicationScope.cartItems}">
                             <tr>
                                 <td>
                                     <figure class="itemside align-items-center">

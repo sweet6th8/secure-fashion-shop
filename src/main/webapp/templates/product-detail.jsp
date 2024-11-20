@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -33,14 +35,7 @@
 <body>
 <!-- Navbar -->
  <%@ include file="includes/navbar.jsp" %>
-
- <!-- Main Content Area -->
- <%
-     // Assuming `singleProduct` is set in the request scope
-     Product singleProduct = (Product) request.getAttribute("product");
-
- %>
-
+<c:set var="singleProduct" value="${requestScope.product}" />
  <section class="section-content padding-y bg">
      <div class="container">
 
@@ -50,20 +45,20 @@
                  <aside class="col-md-6">
                      <article class="gallery-wrap">
                          <div class="img-big-wrap">
-                             <a href="#"><img src="<%= singleProduct.getPhoto() %>" alt="<%= singleProduct.getName() %>"></a>
+                             <a href="#"><img src="${pageContext.request.contextPath}${singleProduct.getPhoto()}" alt="${singleProduct.getName()}"></a>
                          </div> <!-- img-big-wrap.// -->
                      </article> <!-- gallery-wrap .end// -->
                  </aside>
                  <main class="col-md-6 border-left">
                      <article class="content-body">
 
-                         <h2 class="title"><%= singleProduct.getName() %></h2>
+                         <h2 class="title"><c:out value="${singleProduct.getName()}"/></h2>
 
                          <div class="mb-3">
-                             <var class="price h4">$ <%= singleProduct.getPrice() %></var>
+                             <var class="price h4"> ${singleProduct.getPrice()}</var>
                          </div>
 
-                         <p><%= singleProduct.getDescription() %></p>
+                         <p>${singleProduct.getDescription()}</p>
 
                          <!-- item-option-select -->
                          <hr>
@@ -92,22 +87,22 @@
                                  <h6>Select Size</h6>
                                  <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
                                      <label class="btn btn-light">
-                                         <input type="radio" name="radio_color"> S
+                                         <input type="radio" name="radio_size"> S
                                      </label>
                                      <label class="btn btn-light active">
-                                         <input type="radio" name="radio_color" checked> M
+                                         <input type="radio" name="radio_size" checked> M
                                      </label>
                                      <label class="btn btn-light">
-                                         <input type="radio" name="radio_color"> L
+                                         <input type="radio" name="radio_size"> L
                                      </label>
                                      <label class="btn btn-light">
-                                         <input type="radio" name="radio_color"> XL
+                                         <input type="radio" name="radio_size"> XL
                                      </label>
                                  </div>
                              </div>
                          </div> <!-- row.// -->
                          <hr>
-                         <a href=addToCart?id=<%= singleProduct.getId() %>" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+                         <a href="addToCart?id=${singleProduct.getId()}&size=radio_size&color=radio_color" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
 
                      </article> <!-- product-info-aside .// -->
                  </main> <!-- col.// -->
