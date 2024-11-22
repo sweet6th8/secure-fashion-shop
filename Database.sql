@@ -38,8 +38,8 @@ INSERT INTO Category (title, description) VALUES
 
 -- Insert sample products related to clothing
 INSERT INTO Product (name, description, photo, price, discount, category_id) VALUES
-('Men''s Casual Shirt', 'A comfortable cotton shirt for everyday wear.', '/static/images/products/mens_casual_shirt.jpg', 29.99, 5.00, 1),
-('Men''s Denim Jacket', 'Classic denim jacket that goes with any outfit.', '/static/images/products/mens_denim_jacket.jpg', 49.99, 10.00, 1),
+('Men''s Casual Shirt', 'A comfortable cotton shirt for everyday wear.', '/static/images/products/AoPolo.jpg', 29.99, 5.00, 1),
+('Men''s Denim Jacket', 'Classic denim jacket that goes with any outfit.', '/static/images/products/AoKhoacLong.jpg', 49.99, 10.00, 1),
 ('Women''s Summer Dress', 'Lightweight summer dress perfect for hot weather.', '/static/images/products/womens_summer_dress.jpg', 49.99, 10.00, 2),
 ('Women''s Blouse', 'Elegant blouse suitable for work or casual outings.', '/static/images/products/womens_blouse.jpg', 39.99, 8.00, 2),
 ('Kids'' T-Shirt', 'Fun and colorful t-shirt for kids.', '/static/images/products/kids_tshirt.jpg', 19.99, 3.00, 3),

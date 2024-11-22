@@ -1,8 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List" %>
-<%@ page import="model.Category" %>
-
-
 <header class="section-header">
     <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
         <div class="container">
@@ -44,17 +40,12 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=all">All
                                 products</a>
-
-                            <%
-                                List<Category> categoryList = (List<Category>) application.getAttribute("categoryList");
-                            %>
-
+                            <c:set var="categoryList" value="${applicationScope.categoryList}"/>
                             <c:if test="${categoryList != null}">
                                 <c:forEach var="item" items="${categoryList}">
                                     <li>
                                         <a class="dropdown-item"
-                                           href="${pageContext.request.contextPath}/category?id=${ item.getId()}">
-                                                ${ item.getTitle()}
+                                           href="${pageContext.request.contextPath}/category?id=${ item.getId()}"> ${ item.getTitle()}
                                         </a>
                                     </li>
                                 </c:forEach>
@@ -96,7 +87,19 @@
                             <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
                             <span class="badge badge-pill badge-danger notify">0</span>
                         </a>
-                       <img class="ml-3" src="${pageContext.request.contextPath}/static/images/avatars/guest.png" style="width:50px; height: 50px;" alt="guest">
+                        <c:set var="user" value="${sessionScope.user}"/>
+                        <c:choose>
+                            <c:when test="${user != null}">
+                                <p style="height: 50px ; width: 50px ; border-radius: 60%; background-color: #1a56e9;
+                               margin: 0 20px;text-align: center;font-size: 30px;">
+                                        ${user.getUsername().toUpperCase().charAt(0)}</p>
+                            </c:when>
+                            <c:otherwise>
+
+                                <img style="height: 50px ; width: 50px ; border-radius: 60%; background-color: #1a56e9; margin: 0 20px;"
+                                        src="${pageContext.request.contextPath}/static/images/avatars/guest.png">
+                            </c:otherwise>
+                        </c:choose>
                     </div> <!-- widgets-wrap.// -->
                 </div> <!-- col.// -->
             </div> <!-- row.// -->

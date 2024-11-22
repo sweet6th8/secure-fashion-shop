@@ -8,34 +8,48 @@ import java.sql.*;
 public class UserDAO {
     public UserDAO() {
     }
-    public boolean registerUsser (User user) throws SQLException {
-        int gender =(user.isGender()) ? 1 : 0;
+
+    public boolean registerUsser(User user) throws SQLException {
+        int gender = (user.isGender()) ? 1 : 0;
 
         String sql = "insert into ListUser  (username, password, email, fullName, address, phone,gender) " +
-                "VALUES ('"+user.getUsername()+"','" +user.getPassword()+"','" + user.getEmail()+"','" +
-        user.getFullName()+"','"+ user.getAddress()+"','"+user.getPhone()+"'," + gender+")";
+                "VALUES ('" + user.getUsername() + "','" + user.getPassword() + "','" + user.getEmail() + "','" +
+                user.getFullName() + "','" + user.getAddress() + "','" + user.getPhone() + "'," + gender + ")";
         try (Connection connection = DBConnection.getConnection()) {
-             Statement statement = connection.createStatement();
-          statement.executeQuery(sql);
+            Statement statement = connection.createStatement();
+            statement.executeQuery(sql);
             System.out.println("thêm user vào db thành công !");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
         return true;
     }
-    public boolean getLogin (String email , String password) throws SQLException {
-        String sql = "Select  email , password from ListUser where email ='" + email+"'";
+
+    public User getLogin(String email, String password) throws SQLException {
+        String sql = "Select   * from ListUser where email ='" + email + "'";
+        User user = new User();
         Connection connection = DBConnection.getConnection();
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sql);
         while (rs.next()) {
-            if (!rs.getString(1).equals(email) || !rs.getString(2).equals(password)) {
-                return  false;
+            String userEmail = rs.getString(4);
+            String userPassword = rs.getString(3);
+            if (!userEmail.equals(email) || !userPassword.equals(password)) {
+                System.out.println("user is not exist");
+                return null;
             }
-        }
+            user.setUsername(rs.getString(2));
+            user.setEmail(userEmail);
+            user.setPassword(userPassword);
+            user.setFullName(rs.getString(5));
+            user.setAddress(rs.getString(6));
+            user.setPhone(rs.getString(7));
+            user.setGender(rs.getBoolean(8));
 
-        return true;
+        }
+        System.out.println(user.isGender());
+
+        return user;
     }
 // Thêm người dùng
 //    public void addUser(User user) {
