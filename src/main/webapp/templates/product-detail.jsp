@@ -34,13 +34,10 @@
 <body>
 <!-- Navbar -->
 <%@ include file="includes/navbar.jsp" %>
-
 <c:set value="${requestScope.product}" var="item"/>
 <!-- Main Content Area -->
 <section class="section-content padding-y bg">
     <div class="container">
-
-        <!-- ============================ COMPONENT 1 ================================= -->
         <c:choose>
             <c:when test="${item!= null}">
                 <div class="card">
@@ -55,16 +52,56 @@
                         </aside>
                         <main class="col-md-6 border-left">
                             <article class="content-body">
-
                                 <h2 class="title">${item.getName()}</h2>
-
                                 <div class="mb-3">
-                                    <var class="price h4">${ item.getPrice()}</var>
+                                    <var class="price h4">${item.getPrice()}</var>
                                 </div>
-
                                 <p>${item.getDescription()}</p>
-
                                 <!-- item-option-select -->
+                                <hr>
+                                <hr>
+                                <div class="row">
+                                    <div class="item-option-select">
+                                        <h6>Choose Color</h6>
+                                        <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-light">
+                                                <input type="radio" name="radio_color"> Silver
+                                            </label>
+                                            <label class="btn btn-light">
+                                                <input type="radio" name="radio_color"> Gray
+                                            </label>
+                                            <label class="btn btn-light active">
+                                                <input type="radio" name="radio_color checked"> Gold
+                                            </label>
+                                            <label class="btn btn-light">
+                                                <input type="radio" name="radio_color"> Black
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div> <!-- row.// -->
+                                <div class="row">
+                                    <div class="item-option-select">
+                                        <h6>Select Size</h6>
+                                        <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-light">
+                                                <input type="radio" name="radio_size"> S
+                                            </label>
+                                            <label class="btn btn-light active">
+                                                <input type="radio" name="radio_size" checked> M
+                                            </label>
+                                            <label class="btn btn-light">
+                                                <input type="radio" name="radio_size"> L
+                                            </label>
+                                            <label class="btn btn-light">
+                                                <input type="radio" name="radio_size"> XL
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div> <!-- row.// -->
+                                <hr>
+                                <a href="addToCart?id=${singleProduct.getId()}&size=radio_size&color=radio_color"
+                                   class="btn  btn-primary"> <span class="text">Add to cart</span> <i
+                                        class="fas fa-shopping-cart"></i> </a>
                                 <hr>
                             </article> <!-- product-info-aside .// -->
                         </main> <!-- col.// -->
@@ -74,14 +111,11 @@
             </c:when>
             <c:otherwise>
                 <h2>Product not found</h2>
-
             </c:otherwise>
         </c:choose>
         <br>
     </div> <!-- container .// -->
 </section>
-<!-- ========================= SECTION CONTENT END// ========================= -->
 <!-- Footer -->
 <%@ include file="includes/footer.jsp" %>
 </body>
-
