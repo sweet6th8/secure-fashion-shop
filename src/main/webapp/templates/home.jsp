@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="model.Product" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!-- Nội dung của home.jsp -->
 <section class="section-intro padding-y-sm">
@@ -19,37 +18,31 @@
         </header>
 
         <div class="row">
-            <%
-                // Lấy danh sách sản phẩm từ request
-                List<Product> productList = (List<Product>) request.getAttribute("productList");
+            <c:choose>
+                <c:when test="${not empty productList}">
+                    <c:forEach var="product" items="${productList}">
+                        <div class="col-md-3">
+                            <div class="card card-product-grid">
+                                <div class="img-wrap">
+                                    <a href="./product?id=${product.id}">
+                                        <img src="${product.photo}" alt="${product.name}">
+                                    </a>
+                                </div>
 
-                // Kiểm tra xem danh sách sản phẩm có null hay không
-                if (productList != null && !productList.isEmpty()) {
-                    for (Product product : productList) {
-            %>
-                    <div class="col-md-3">
-                        <div class="card card-product-grid">
-                            <div class="img-wrap">
-                              <a href="./product?id=<%= product.getId() %>" ><img src="<%= product.getPhoto() %>" alt="<%= product.getName() %>"></a>
+                                <figcaption class="info-wrap">
+                                    <a href="./product?id=${product.id}" class="title">${product.name}</a>
+                                    <div class="price mt-1">$ ${product.price}</div>
+                                </figcaption>
                             </div>
-
-
-                            <figcaption class="info-wrap">
-                                <a href="./product?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
-                                <div class="price mt-1">$<%= product.getPrice() %></div>
-                            </figcaption>
                         </div>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <div class="col-md-12">
+                        <p>No products available.</p>
                     </div>
-            <%
-                    } // Kết thúc vòng lặp
-                } else {
-            %>
-                <div class="col-md-12">
-                    <p>No products available.</p>
-                </div>
-            <%
-                } // Kết thúc kiểm tra
-            %>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </section>

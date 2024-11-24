@@ -1,5 +1,3 @@
-<!--Chức năng: Hiển thị nội dung giỏ hàng của người dùng.
-    Nội dung: Danh sách sản phẩm trong giỏ, số lượng, tổng giá trị và các nút để cập nhật hoặc thanh toán.-->
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -33,7 +31,6 @@
 <body>
 <%@ include file="/templates/includes/navbar.jsp" %>
 
-
 <section class="section-content padding-y bg">
     <div class="container">
 
@@ -51,14 +48,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="product" items="${applicationScope.cartItems}">
+                        <c:forEach var="cartItem" items="${cart.items}">
                             <tr>
                                 <td>
                                     <figure class="itemside align-items-center">
-                                        <div class="aside"><img src="<c:out value='${product.imageUrl}'/>" class="img-sm"></div>
+                                        <div class="aside"><img src="<c:out value='${cartItem.product.imageUrl}'/>" class="img-sm"></div>
                                         <figcaption class="info">
-                                            <a href="#" class="title text-dark"><c:out value='${product.name}'/></a>
-                                            <p class="text-muted small"><c:out value='${product.details}'/></p>
+                                            <a href="#" class="title text-dark"><c:out value='${cartItem.product.name}'/></a>
+                                            <p class="text-muted small"><c:out value='${cartItem.product.details}'/></p>
                                         </figcaption>
                                     </figure>
                                 </td>
@@ -68,7 +65,7 @@
                                             <div class="input-group-prepend">
                                                 <button class="btn btn-light" type="button"> <i class="fa fa-minus"></i> </button>
                                             </div>
-                                            <input type="text" class="form-control" value="<c:out value='${product.quantity}'/>">
+                                            <input type="number" class="form-control" value="<c:out value='${cartItem.quantity}'/>" min="1">
                                             <div class="input-group-append">
                                                 <button class="btn btn-light" type="button"> <i class="fa fa-plus"></i> </button>
                                             </div>
@@ -77,12 +74,15 @@
                                 </td>
                                 <td>
                                     <div class="price-wrap">
-                                        <var class="price"><c:out value='${product.price}'/></var>
+                                        <var class="price"><c:out value='${cartItem.product.price}'/></var>
                                         <small class="text-muted"> each </small>
                                     </div>
                                 </td>
                                 <td class="text-right">
-                                    <a href="removeFromCart?id=<c:out value='${product.id}'/>" class="btn btn-danger"> Remove</a>
+                                    <form action="removeFromCart" method="POST">
+                                        <input type="hidden" name="cartItemId" value="<c:out value='${cartItem.product.id}'/>">
+                                        <button type="submit" class="btn btn-danger"> Remove</button>
+                                    </form>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -99,7 +99,7 @@
                             <dd class="text-right"> <strong><c:out value='${totalPrice}'/> USD</strong> </dd>
                         </dl>
                         <hr>
-                        <a href="./checkout.html" class="btn btn-primary btn-block">Proceed to checkout</a>
+                        <a href="checkout" class="btn btn-primary btn-block">Proceed to checkout</a>
                     </div>
                 </div>
             </aside>

@@ -13,6 +13,7 @@ import model.Category;
 import model.Product;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 
 //Chức năng: Hiển thị danh sách sản phẩm theo danh mục (ví dụ: quần áo nam, quần áo nữ).
@@ -35,12 +36,12 @@ public class CategoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+        Connection connection = (Connection) getServletContext().getAttribute("DBConnection");
         // Get the category ID from the request
         String categoryId = request.getParameter("id");
 
 
-        ProductDAO productDAO = new ProductDAO();
+        ProductDAO productDAO = new ProductDAO(connection);
         List<Product> products;
 
         // If a category ID is provided, fetch products for that category

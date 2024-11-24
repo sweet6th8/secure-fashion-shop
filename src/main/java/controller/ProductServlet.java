@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Product;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 //Chức năng: Hiển thị thông tin chi tiết của một sản phẩm cụ thể.
 //Xử lý: Nhận ID sản phẩm từ yêu cầu, lấy thông tin sản phẩm từ ProductDAO,
@@ -21,9 +22,11 @@ public class ProductServlet extends HttpServlet {
         // Nhận ID sản phẩm từ yêu cầu
         String productId = request.getParameter("id");
 
+        Connection connection = (Connection) getServletContext().getAttribute("DBConnection");
+
         if (productId != null) {
             // Lấy thông tin sản phẩm từ ProductDAO
-            ProductDAO productDAO = new ProductDAO();
+            ProductDAO productDAO = new ProductDAO(connection);
             Product product = productDAO.getProductById(Integer.parseInt(productId));
 
             // Kiểm tra nếu sản phẩm tồn tại

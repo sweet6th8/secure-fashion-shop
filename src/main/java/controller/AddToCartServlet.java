@@ -1,40 +1,43 @@
 package controller;
 
-import dao.ProductDAO;
-import jakarta.servlet.ServletContext;
+import dao.CartDAO;
+import dao.CartItemDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.CartItem;
-import model.Product;
+import jakarta.servlet.http.HttpSession;
+import model.Cart;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
 
-@WebServlet("/addToCart")
+@WebServlet("/add-to-cart")
 public class AddToCartServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
-        String size = req.getParameter("size");
-        ProductDAO productDAO = new ProductDAO();
-        Product product = productDAO.getProductById(Integer.parseInt(id));
-        ServletContext context = getServletContext();
-        List<CartItem> cart = (List<CartItem>) context.getAttribute("cartItems");
-        if (cart == null && product != null) {
-            cart = new ArrayList<>();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        int userId = (int) session.getAttribute("userId");
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
 
+        // Kết nối cơ sở dữ liệu
+        Connection connection = (Connection) getServletContext().getAttribute("DBConnection");
+        CartDAO cartDAO = new CartDAO(connection);
+        CartItemDAO cartItemDAO = new CartItemDAO(connection);
 
+        // Kiểm tra xem người dùng đã có giỏ hàng chưa, nếu chưa tạo mới
+        Cart cart = cartDAO.getCartByUserId(userId);
+        if (cart == null) {
+            cartDAO.createCart(userId);
+            cart = cartDAO.getCartByUserId(userId);
         }
-        PrintWriter writer = resp.getWriter();
-        writer.println("cart = " + cart);
 
+        // Thêm sản phẩm vào giỏ hàng
+        cartItemDAO.addCartItem(cart.getUserId(), productId, quantity);
 
-
-
+        // Chuyển hướng người dùng về trang giỏ hàng
+        response.sendRedirect("cart");
     }
 }

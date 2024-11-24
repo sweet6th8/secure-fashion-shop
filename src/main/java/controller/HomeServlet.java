@@ -13,6 +13,7 @@ import model.Category;
 import model.Product;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 
 
@@ -23,7 +24,9 @@ public class HomeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductDAO productDAO = new ProductDAO();
+
+        Connection connection = (Connection) getServletContext().getAttribute("DBConnection");
+        ProductDAO productDAO = new ProductDAO(connection);
         List<Product> productList = productDAO.getAllProducts();
         CategoryDAO categoryDAO = new CategoryDAO();
         List<Category> categoryList = categoryDAO.getAllCategories();

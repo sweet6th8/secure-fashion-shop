@@ -1,4 +1,5 @@
 ﻿CREATE DATABASE ClothingShopWeb;
+
 -- Tạo bảng User
 CREATE TABLE [User] (
     id INT PRIMARY KEY IDENTITY(1,1), -- ID tự tăng
@@ -30,6 +31,20 @@ CREATE TABLE Product (
     FOREIGN KEY (category_id) REFERENCES Category(id) -- Khóa ngoại tới Category
 );
 
+CREATE TABLE Cart (
+    cart_id INT PRIMARY KEY IDENTITY(1,1),
+    user_id INT NOT NULL
+);
+
+CREATE TABLE cart_item (
+    cart_item_id INT PRIMARY KEY IDENTITY(1,1),
+    cart_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    FOREIGN KEY (cart_id) REFERENCES cart(cart_id),
+    FOREIGN KEY (product_id) REFERENCES product(id)
+);
+
 -- Insert sample clothing categories
 INSERT INTO Category (title, description) VALUES
 ('Men''s Clothing', 'A variety of clothing options for men including shirts, pants, and outerwear.'),
@@ -56,10 +71,4 @@ INSERT INTO Product (name, description, photo, price, discount, category_id) VAL
 ('Kids'' Hoodie', 'Cozy hoodie to keep kids warm in cooler weather.', '/static/images/products/kids_hoodie.jpg', 29.99, 5.00, 3),
 ('Kids'' Sneakers', 'Comfortable sneakers for active children.', '/static/images/products/kids_sneakers.jpg', 39.99, 6.00, 3);
 	
-SELECT * FROM Category WHERE id = 1;
-
-SELECT * FROM Product
-ORDER BY id
-OFFSET 0 ROWS
-FETCH NEXT 2 ROWS ONLY;
 
