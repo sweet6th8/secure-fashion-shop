@@ -1,4 +1,5 @@
 package controller;
+import Util.validation;
 import dao.UserDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,7 +15,8 @@ import java.util.ArrayList;
 @WebServlet(urlPatterns = {"/templates/register"})
 public class register extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String FirstName = req.getParameter("FirstName");
         String LastName = req.getParameter("LastName");
         String Email = req.getParameter("Email");
@@ -23,7 +25,12 @@ public class register extends HttpServlet {
         String checkPassword = req.getParameter("CheckPassword");
         String city = req.getParameter("city");
         String phone = req.getParameter("phone");
-
+      if (!  validation.isValidEmail(Email)) {
+          String message = "Invalid Email";
+          req.setAttribute("IEmail", message);
+          req.getRequestDispatcher("/templates/register.jsp").forward(req, resp);
+          return;
+      }
         User user = new User();
         user.setFullName(FirstName.concat(" " + LastName));
         user.setGender(gender);
@@ -33,7 +40,7 @@ public class register extends HttpServlet {
         user.setUsername(FirstName);
         user.setAddress(city);
         user.setFavoriteProducts(new ArrayList<Product>());
-
+        user.setPassword(password);
         // call user dao
         UserDAO userDAO = new UserDAO();
         try {
@@ -41,7 +48,6 @@ public class register extends HttpServlet {
                 resp.sendRedirect(req.getContextPath() + "/templates/login.jsp");
                 return;
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

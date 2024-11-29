@@ -5,6 +5,7 @@
 html {
   font-family: "Inter", sans-serif;
   font-size: 15px;
+  box-sizing: border-box;
 }
 
 /* ========================
@@ -347,27 +348,18 @@ article:after,
   opacity: 0.6;
   transition: 0.5s;
   background: aqua;
-  /* For browsers that do not support gradients */
-  /* For Safari 5.1 to 6.0 */
-  /* For Opera 11.1 to 12.0 */
-  /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, #3167eb, aqua);
-  /* Standard syntax */
 }
 .overlay-gradient:hover:before {
   opacity: 0.9;
 }
-
-/* --------------------- titles ---------------------- */
 .section-heading {
   margin-bottom: 20px;
   margin-top: 15px;
 }
-
 .section-title {
   color: #212529;
 }
-
 .title-text {
   margin-top: 30px;
   margin-bottom: 10px;
@@ -390,30 +382,22 @@ article:after,
 .white {
   color: #fff;
 }
-
 .dark {
   color: #212529;
 }
-
 .black {
   color: #000;
 }
-
 p:last-child {
   margin-bottom: 0;
+  margin-left: 10px;
 }
-
-/* ==================  title helpers ================ */
 .rtl {
   direction: rtl;
 }
-
 .ltr {
   direction: ltr;
 }
-
-/* ================== SECTIONS =================== */
-/* ================== header main ==================  */
 .header-top-light .nav-link {
   color: #969696;
 }
@@ -492,6 +476,7 @@ p:last-child {
 }
 
 .footer-bottom {
+  width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -500,9 +485,6 @@ p:last-child {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
-/* ================== COMPONENTS =================== */
-/* ================ OWL SLIDER BANNER ================ */
 .slider-banner-owl .owl-nav .owl-prev, .slider-banner-owl .owl-nav .owl-next {
   padding: 16px 7px;
   color: #FFF;
@@ -510,7 +492,6 @@ p:last-child {
   background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   z-index: 9;
-  position: absolute;
 }
 .slider-banner-owl .owl-nav .owl-prev {
   left: 0;

@@ -21,7 +21,6 @@ public class ProductDAO {
         String sql = "INSERT INTO products (name, description, photo, price, discount, category_id) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setString(1, product.getName());
             statement.setString(2, product.getDescription());
             statement.setString(3, product.getPhoto());
@@ -29,7 +28,6 @@ public class ProductDAO {
             statement.setDouble(5, product.getDiscount());
             statement.setInt(6, product.getCategory().getId()); // Assuming Category has a method getId()
             statement.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -41,7 +39,6 @@ public class ProductDAO {
         String sql = "SELECT * FROM Product WHERE id = ?";
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -52,12 +49,10 @@ public class ProductDAO {
                 product.setPhoto(resultSet.getString("photo"));
                 product.setPrice(resultSet.getDouble("price"));
                 product.setDiscount(resultSet.getDouble("discount"));
-
                 int categoryId = resultSet.getInt("category_id");
                 Category category = getCategoryById(categoryId); // Helper method to fetch Category
                 product.setCategory(category);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

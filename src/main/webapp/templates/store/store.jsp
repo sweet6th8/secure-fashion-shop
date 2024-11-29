@@ -7,29 +7,25 @@
      <meta http-equiv="cache-control" content="max-age=604800" />
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <title>Our store</title>
-
-       <!-- Favicon -->
-        <link href="${pageContext.request.contextPath}/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-
-
-     <!-- jQuery -->
-        <script src="${pageContext.request.contextPath}/static/js/jquery-2.0.0.min.js" type="text/javascript"></script>
-
-     <!-- Bootstrap4 files -->
-     <script src="${pageContext.request.contextPath}/static/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-     <link href="${pageContext.request.contextPath}/static/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-
-    <!-- Font awesome 5 -->
-        <link href="${pageContext.request.contextPath}/static/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
-
-        <!-- Custom style -->
-        <link href="${pageContext.request.contextPath}/static/css/ui.css" rel="stylesheet" type="text/css"/>
-        <link href="${pageContext.request.contextPath}/static/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-
-        <!-- Custom javascript -->
-        <script src="${pageContext.request.contextPath}/static/js/script.js" type="text/javascript"></script>
- </head>
+        <jsp:include page="../headerResource.jsp"/>
 </head>
+<style>
+
+    html {
+        box-sizing: border-box;
+    }
+    p:last-child {
+        width: fit-content;
+        margin-left: 10px;
+    }
+    .footer-bottom {
+        max-width: 100%;
+    }
+    .row {
+        width: 100%;
+    }
+    .brand-wrap .logo {margin-left: 10px;}
+</style>
 <body>
     <%@ include file="/templates/includes/navbar.jsp" %>
 <!-- ========================= SECTION PAGETOP ========================= -->

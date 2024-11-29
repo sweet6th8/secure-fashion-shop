@@ -28,11 +28,6 @@ public class HomeServlet extends HttpServlet {
         CategoryDAO categoryDAO = new CategoryDAO();
         List<Category> categoryList = categoryDAO.getAllCategories();
 
-        if (productList == null || productList.isEmpty()) {
-            System.out.println("No products found!");
-        } else {
-            System.out.println("Number of products: " + productList.size());
-        }
         ServletContext context = getServletContext();
         request.setAttribute("productList", productList);
         context.setAttribute("categoryList", categoryList);
