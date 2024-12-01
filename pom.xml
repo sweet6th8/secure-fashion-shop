@@ -41,6 +41,19 @@
             <version>1.2</version>
         </dependency>
 
+        <!-- Connection Pool -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>12.2.0.jre11</version> <!-- Chọn phiên bản tương thích với JDK của bạn -->
+        </dependency>
+
+
 
     </dependencies>
 

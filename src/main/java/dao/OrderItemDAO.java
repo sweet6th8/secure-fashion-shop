@@ -1,15 +1,5 @@
 package dao;
 
-import model.OrderItem;
-import dao.DBConnection;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class OrderItemDAO {
 
     // Thêm sản phẩm vào đơn hàng

@@ -14,7 +14,7 @@ public class UserDAO {
         String sql = "insert into ListUser  (username, password, email, fullName, address, phone,gender) " +
                 "VALUES ('"+user.getUsername()+"','" +user.getPassword()+"','" + user.getEmail()+"','" +
         user.getFullName()+"','"+ user.getAddress()+"','"+user.getPhone()+"'," + gender+")";
-        try (Connection connection = DBConnection.getConnection()) {
+        try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {
              Statement statement = connection.createStatement();
           statement.executeQuery(sql);
             System.out.println("thêm user vào db thành công !");
@@ -26,7 +26,7 @@ public class UserDAO {
     }
     public boolean getLogin (String email , String password) throws SQLException {
         String sql = "Select  email , password from ListUser where email ='" + email+"'";
-        Connection connection = DBConnection.getConnection();
+        Connection connection = DBConnectionPool.getDataSource().getConnection();
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sql);
         while (rs.next()) {
