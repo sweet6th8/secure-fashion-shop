@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/reset.css">
 </head>
 <body>
+<%@ include file="/templates/includes/navbarNotSearch.jsp" %>
   <section class="section-conten padding-y" style="min-height:84vh">
     <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
       <div class="card-body">

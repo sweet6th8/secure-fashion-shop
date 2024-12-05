@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<header class="section-header">
+<header class="section-header container-fluid">
     <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,9 +75,16 @@
                     <c:set var="user" value="${sessionScope.user}"/>
                     <c:choose>
                         <c:when test="${user != null}">
-                            <p style="height: 50px ; width: 50px ; border-radius: 60%; background-color: #1a56e9;
-                               margin: 0 20px;text-align: center;font-size: 30px;">
-                                    ${user.getUsername().toUpperCase().charAt(0)}</p>
+
+                            <div class="dropdown">
+                                <button class="dropdown-button user rounded-circle">${user.getUsername().toUpperCase().charAt(0)}</button>
+                                <div class="dropdown-menu">
+                                    <a href="#option1">Edit profile</a>
+                                    <a href="#option2">Option 2</a>
+                                    <a href="${pageContext.request.contextPath}/secure/history">History</a>
+                                    <a href="${pageContext.request.contextPath}/secure/logout">Log out</a>
+                                </div>
+                            </div>
                         </c:when>
                         <c:otherwise>
                             <div class="widget-header">

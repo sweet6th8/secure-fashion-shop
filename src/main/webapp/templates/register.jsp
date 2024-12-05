@@ -14,7 +14,7 @@
     <%@include file="headerResource.jsp"%>
   </head>
   <body>
-    <section class="section-content">
+    <section class="section-content container-fluid">
       <div class="card mx-auto" style="max-width: 520px; margin-top: 40px">
         <article class="card-body">
           <header class="mb-4"><h4 class="card-title">Sign up</h4></header>

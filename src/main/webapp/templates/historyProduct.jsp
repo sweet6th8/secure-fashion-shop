@@ -10,13 +10,13 @@
     <jsp:include page="headerResource.jsp"/>
 </head>
 <body>
-<%@ include file="/templates/includes/navbar.jsp" %>
+<%@ include file="/templates/includes/navbarNotSearch.jsp" %>
 <section class="section-content">
     <div class="container p-4">
-        <div class="row ">
+        <div class="row mt-4">
             <div class="col-md-12">
-                <div class="header">
-                    <ul class="sidenav d-flex gap-4 m-2 nav-underline">
+                <div class="header mt-4">
+                    <ul class="sidenav d-flex gap-4 m-4 nav-underline">
                         <a onclick="openTab(0)" href="#" class="nav-item nav-link fw-bold fs-3 text-black-50">ALL</a>
                         <a onclick="openTab(1)" href="#" class="nav-item nav-link fw-bold fs-3 text-black-50">SHIP</a>
                         <a onclick="openTab(2)" href="#" class="nav-item nav-link fw-bold fs-3 text-black-50">DONE</a>

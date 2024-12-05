@@ -1,6 +1,4 @@
-
-<!-- ========================= FOOTER ========================= -->
-<footer class="section-footer border-top">
+<footer class="section-footer border-top container-fluid">
 	<section class="footer-bottom border-top row">
 		<div class="col-md-2">
 			<p class="text-muted"> &copy 2019 Company name </p>
@@ -17,4 +15,3 @@
 		</div>
 	</section>
 </footer>
-<!-- ========================= FOOTER END // ========================= --
