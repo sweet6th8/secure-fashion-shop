@@ -1,4 +1,6 @@
-
+.section-content {
+    height: 100%;
+}
 /* Tabs */
 .tabs {
     display: flex;
@@ -22,11 +24,12 @@
 
 .tab-content {
     display: none;
-    height: 600px;
 }
 
 .tab-content.active {
     display: block;
+    height: 100%;
+
 }
 
 .col-md-12 a {

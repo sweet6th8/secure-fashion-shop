@@ -23,36 +23,10 @@
                         <a onclick="openTab(3)" href="#" class="nav-item nav-link fw-bold fs-3 text-black-50">CANCEL</a>
                         <a onclick="openTab(4)" href="#" class="nav-item nav-link fw-bold fs-3 text-black-50">REFUND</a>
                     </ul>
-                    <div id="ALL" class="tab-content">
-                        <c:forEach var="item" items="${applicationScope.products}">
-                            <div class="card mb-3" style="max-width: 100%; max-height: 400px; ">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img src="${pageContext.request.contextPath}${item.getPhoto()}"
-                                             class="img-thumbnail rounded-start" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body" style="height: 60%; ">
-                                            <p class="status">
-                                                COMPLETE
-                                            </p>
-                                            <h5 class="card-title fa-2x">${item.getName()}</h5>
-                                            <p class=" card-textfa-2">${item.getDescription()} </p>
-                                            <p class="card-text fa-2"><small class="text-body-secondary">Quantity :
-                                                ?? </small></p>
 
-                                        </div>
-                                        <div class="card-footer d-flex justify-content-between align-items-md-end ">
-                                            <p class="fa-2x"> Order total : ${item.getPrice()}</p>
-                                            <a href="#" class="btn btn-primary" style="float: right">Buy again</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </c:forEach>
-                    </div>
-                    <div id="SHIP" class="tab-content"><c:forEach var="item" items="${applicationScope.products}">
+                </div>
+                <div id="ALL" class="tab-content">
+                    <c:forEach var="item" items="${applicationScope.products}">
                         <div class="card mb-3" style="max-width: 100%; max-height: 400px; ">
                             <div class="row g-0">
                                 <div class="col-md-4">
@@ -79,20 +53,46 @@
                         </div>
 
                     </c:forEach>
+                </div>
+                <div id="SHIP" class="tab-content"><c:forEach var="item" items="${applicationScope.products}">
+                    <div class="card mb-3" style="max-width: 100%; max-height: 400px; ">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="${pageContext.request.contextPath}${item.getPhoto()}"
+                                     class="img-thumbnail rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body" style="height: 60%; ">
+                                    <p class="status">
+                                        COMPLETE
+                                    </p>
+                                    <h5 class="card-title fa-2x">${item.getName()}</h5>
+                                    <p class=" card-textfa-2">${item.getDescription()} </p>
+                                    <p class="card-text fa-2"><small class="text-body-secondary">Quantity :
+                                        ?? </small></p>
+
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-md-end ">
+                                    <p class="fa-2x"> Order total : ${item.getPrice()}</p>
+                                    <a href="#" class="btn btn-primary" style="float: right">Buy again</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div id="DONE" class="tab-content">
-                    </div>
-                    <div id="CANCEL" class="tab-content">
-                    </div>
-                    <div id="REFUND" class="tab-content">
-                    </div>
+
+                </c:forEach>
+                </div>
+                <div id="DONE" class="tab-content">
+                </div>
+                <div id="CANCEL" class="tab-content">
+                </div>
+                <div id="REFUND" class="tab-content">
                 </div>
             </div>
         </div>
     </div>
 </section>
 <script>
-    console.log("check event")
     const tab = document.getElementsByClassName("tab-content");
     const tabLink = document.getElementsByClassName("tab-btn");
     const listLink = Array.from(tabLink);
@@ -106,6 +106,5 @@
     }
     openTab(0);
 </script>
-<jsp:include page="../templates/includes/footer.jsp"/>
 </body>
 </html>
