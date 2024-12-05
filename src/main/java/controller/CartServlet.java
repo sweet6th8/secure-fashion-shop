@@ -28,7 +28,7 @@ public class CartServlet extends HttpServlet {
 
             // Đặt giỏ hàng vào request và chuyển hướng đến trang hiển thị giỏ hàng
             request.setAttribute("cart", cart);
-            request.getRequestDispatcher("/WEB-INF/views/cart.jsp").forward(request, response);
+            request.getRequestDispatcher("templates/cart.jsp").forward(request, response);
         } catch (Exception e) {
             throw new ServletException("Error connecting to the database", e);
         }

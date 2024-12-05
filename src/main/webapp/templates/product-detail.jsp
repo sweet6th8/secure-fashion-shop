@@ -102,8 +102,15 @@
                              </div>
                          </div> <!-- row.// -->
                          <hr>
-                         <a href="addToCart?id=${singleProduct.getId()}&size=radio_size&color=radio_color" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
-
+<%--                         <a href="addToCart" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>--%>
+                         <form action="${pageContext.request.contextPath}/addToCart" method="post">
+                             <input type="hidden" name="productId" value="${singleProduct.getId()}">
+                             <input type="number" name="quantity" min="1" value="1" class="form-control mb-2" required>
+                             <button type="submit" class="btn btn-primary">
+                                 <span class="text">Add to cart</span>
+                                 <i class="fas fa-shopping-cart"></i>
+                             </button>
+                         </form>
                      </article> <!-- product-info-aside .// -->
                  </main> <!-- col.// -->
              </div> <!-- row.// -->

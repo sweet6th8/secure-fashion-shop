@@ -14,12 +14,20 @@ import model.Cart;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet("/add-to-cart")
+@WebServlet("/addToCart")
 public class AddToCartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (!"POST".equalsIgnoreCase(request.getMethod())) {
+            response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, "Only POST requests are allowed");
+            return;
+        }
         try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {
-            HttpSession session = request.getSession();
+            HttpSession session = request.getSession(false); // Get session without creating a new one
+            if (session == null || session.getAttribute("userId") == null) {
+                response.sendRedirect(request.getContextPath() + "/templates/login.jsp"); // Redirect to login page
+                return;
+            }
             int userId = (int) session.getAttribute("userId");
             int productId = Integer.parseInt(request.getParameter("productId"));
             int quantity = Integer.parseInt(request.getParameter("quantity"));
