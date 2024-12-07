@@ -2,7 +2,6 @@ package controller;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -11,7 +10,7 @@ import model.User;
 import java.io.IOException;
 
 @WebFilter("/secure/*")
-public class filter  implements Filter {
+public class Filter implements jakarta.servlet.Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

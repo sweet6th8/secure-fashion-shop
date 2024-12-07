@@ -72,8 +72,15 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+public String getFirstName() {
+        String [] names = getFullName().split(" ",2);
+    return names[0];
 
-
+    }
+public String getLastName() {
+        String [] names = getFullName().split(" ",2);
+        return names[1];
+}
 
     public boolean isGender() {
         return gender;

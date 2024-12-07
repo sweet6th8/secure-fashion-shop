@@ -21,8 +21,8 @@
                             <div class="dropdown">
                                 <button class="dropdown-button user rounded-circle">${user.getUsername().toUpperCase().charAt(0)}</button>
                                 <div class="dropdown-menu">
-                                    <a href="#option1">Edit profile</a>
-                                    <a href="#option2">Option 2</a>
+                                    <a href="${pageContext.request.contextPath}/templates/edit.jsp">Edit profile</a>
+                                    <a href="${pageContext.request.contextPath}/secure/saved">Saved</a>
                                     <a href="${pageContext.request.contextPath}/secure/history">History</a>
                                     <a href="${pageContext.request.contextPath}/secure/logout">Log out</a>
                                 </div>

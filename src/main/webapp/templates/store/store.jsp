@@ -58,7 +58,7 @@
                             </div>
                         </div>
                     </article>
-                    <!-- Các filter cho sizes và price range có thể giữ nguyên -->
+                    <!-- Các Filter cho sizes và price range có thể giữ nguyên -->
                     <article class="filter-group">
                         <header class="card-header">
                             <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">

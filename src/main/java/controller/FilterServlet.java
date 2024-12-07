@@ -11,7 +11,7 @@ import model.Product;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/filter")
+@WebServlet("/Filter")
 public class FilterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
