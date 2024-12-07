@@ -1,46 +1,20 @@
 package model;
-
 public class CartItem {
-    private int productId; // ID sản phẩm
-    private String productName; // Tên sản phẩm
-    private double price; // Giá sản phẩm
-    private int quantity; // Số lượng sản phẩm
+    private Product product;  // Đối tượng Product chứa thông tin chi tiết của sản phẩm
+    private int quantity;      // Số lượng sản phẩm trong giỏ hàng
 
-    public CartItem(int productId, String productName, double price, int quantity) {
-        this.productId = productId;
-        this.productName = productName;
-        this.price = price;
+    public CartItem(Product product, int quantity) {
+        this.product = product;
         this.quantity = quantity;
     }
 
-    // Tính tổng giá cho mục
-    public double getTotalPrice() {
-        return price * quantity;
+    // Getters and setters
+    public Product getProduct() {
+        return product;
     }
 
-    // Getter và Setter
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getQuantity() {
@@ -50,4 +24,16 @@ public class CartItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    // Tính giá sau khi áp dụng giảm giá
+    public double getDiscountedPrice() {
+        double discountAmount = product.getPrice() * (product.getDiscount() / 100.0);
+        return product.getPrice() - discountAmount;
+    }
+
+    // Tính tổng giá cho mục này (giá sau giảm * số lượng)
+    public double getTotalPrice() {
+        return getDiscountedPrice() * quantity;
+    }
 }
+

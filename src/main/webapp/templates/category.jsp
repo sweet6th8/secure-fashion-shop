@@ -1,21 +1,46 @@
 <!--Chức năng: Hiển thị sản phẩm theo danh mục (ví dụ: quần áo nam, nữ, trẻ em).
-Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người dùng chọn.-->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người dùng chọn.-->
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Product" %>
+<%@ page import="model.Category" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Our store</title>
-<jsp:include page="headerResource.jsp"/>
-</head>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <title>Our store</title>
+
+       <!-- Favicon -->
+        <link href="${pageContext.request.contextPath}/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+
+     <!-- jQuery -->
+        <script src="${pageContext.request.contextPath}/static/js/jquery-2.0.0.min.js" type="text/javascript"></script>
+
+     <!-- Bootstrap4 files -->
+     <script src="${pageContext.request.contextPath}/static/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+     <link href="${pageContext.request.contextPath}/static/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font awesome 5 -->
+        <link href="${pageContext.request.contextPath}/static/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+
+        <!-- Custom style -->
+        <link href="${pageContext.request.contextPath}/static/css/ui.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/static/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+
+        <!-- Custom javascript -->
+        <script src="${pageContext.request.contextPath}/static/js/script.js" type="text/javascript"></script>
+ </head>
 </head>
 <body>
 
 
-<%@ include file="/templates/includes/navbar.jsp" %>
+    <%@ include file="/templates/includes/navbar.jsp" %>
 
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
@@ -40,16 +65,13 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                         <div class="filter-content collapse show" id="collapse_1">
                             <div class="card-body">
                                 <ul class="list-menu">
-                                    <li><a href="${pageContext.request.contextPath}/category?id=all">All products</a>
-                                    </li>
-                                    <c:set var="list" value="${applicationScope.categoryList}"/>
+                                    <li><a href="${pageContext.request.contextPath}/category?id=all">All products</a></li>
                                     <c:choose>
-                                        <c:when test="${list!= null}">
-                                            <c:forEach var="item" items="${list}">
+                                        <c:when test="${not empty categoryList}">
+                                            <c:forEach var="category" items="${categoryList}">
                                                 <li>
-                                                    <a class="dropdown-item"
-                                                       href="${pageContext.request.contextPath}/category?id=${item.getId()}">
-                                                            ${ item.getTitle()}
+                                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=${category.id}">
+                                                       ${category.title}
                                                     </a>
                                                 </li>
                                             </c:forEach>
@@ -58,6 +80,7 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                             <li>No categories available.</li>
                                         </c:otherwise>
                                     </c:choose>
+
                                 </ul>
                             </div>
                         </div>
@@ -95,8 +118,7 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                     <form action="filter" method="post">
                         <article class="filter-group">
                             <header class="card-header">
-                                <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true"
-                                   class="">
+                                <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
                                     <i class="icon-control fa fa-chevron-down"></i>
                                     <h6 class="title">Price range</h6>
                                 </a>
@@ -106,31 +128,27 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label>Min</label>
-                                            <label>
-                                                <select name="minPrice" class="mr-2 form-control">
-                                                    <option value="0">$0</option>
-                                                    <option value="50">$50</option>
-                                                    <option value="100">$100</option>
-                                                    <option value="150">$150</option>
-                                                    <option value="200">$200</option>
-                                                    <option value="500">$500</option>
-                                                    <option value="1000">$1000</option>
-                                                </select>
-                                            </label>
+                                            <select name="minPrice" class="mr-2 form-control">
+                                                <option value="0">$0</option>
+                                                <option value="50">$50</option>
+                                                <option value="100">$100</option>
+                                                <option value="150">$150</option>
+                                                <option value="200">$200</option>
+                                                <option value="500">$500</option>
+                                                <option value="1000">$1000</option>
+                                            </select>
                                         </div>
                                         <div class="form-group text-right col-md-6">
                                             <label>Max</label>
-                                            <label>
-                                                <select name="maxPrice" class="mr-2 form-control">
-                                                    <option value="50">$50</option>
-                                                    <option value="100">$100</option>
-                                                    <option value="150">$150</option>
-                                                    <option value="200">$200</option>
-                                                    <option value="500">$500</option>
-                                                    <option value="1000">$1000</option>
-                                                    <option value="2000">$2000+</option>
-                                                </select>
-                                            </label>
+                                            <select name="maxPrice" class="mr-2 form-control">
+                                                <option value="50">$50</option>
+                                                <option value="100">$100</option>
+                                                <option value="150">$150</option>
+                                                <option value="200">$200</option>
+                                                <option value="500">$500</option>
+                                                <option value="1000">$1000</option>
+                                                <option value="2000">$2000+</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-block btn-primary">Apply</button>
@@ -141,46 +159,58 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
 
                 </div>
             </aside>
-            <c:set var="products" value="${requestScope.productList}"/>
+
             <main class="col-md-9">
                 <header class="border-bottom mb-4 pb-3">
                     <div class="form-inline">
+                        <%
+                            // Get the product list from the request
+                            List<Product> productList = (List<Product>) request.getAttribute("productList");
 
-                        <span class="mr-md-auto"><b><c:out value="${products.size()}"/> </b> Items found</span>
+                            // Get the count of items
+                            int itemCount = (productList != null) ? productList.size() : 0; // Ensure null check to avoid NullPointerException
+                        %>
+                        <span class="mr-md-auto"><b><%= itemCount %></b> Items found</span>
                     </div>
                 </header>
+
                 <div class="row">
-                    <c:choose>
-                        <c:when test="${products!= null}">
-                            <c:forEach var="item" items="${products}">
-                                <div class="col-md-4">
-                                    <figure class="card card-product-grid">
-                                        <div class="img-wrap">
-                                            <a href="./product?id=${item.getId()}">
-                                                <img src="${pageContext.request.contextPath}${item.getPhoto()}"
-                                                     alt="${item.getName()}"></a>
-                                        </div>
-                                        <figcaption class="info-wrap">
-                                            <div class="fix-height">
-                                                <a href="./product?id=${item.getId()}"
-                                                   class="title">${item.getName()}</a>
-                                                <div class="price-wrap mt-2">
-                                                    <span class="price">${ item.getPrice()}</span>
-                                                </div>
-                                            </div>
-                                            <a href="#" class="btn btn-block btn-success">Add to cart</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </c:forEach>
-                        </c:when>
-                        <c:otherwise>
-                            <div class="col-md-12">
-                                <p>No products found.</p>
+                    <%
+                        // If productList is not null, iterate over it and display products
+                        if (productList != null) {
+                            for (Product product : productList) {
+                    %>
+                    <div class="col-md-4">
+                        <figure class="card card-product-grid">
+                            <div class="img-wrap">
+                               <a href="./product?id=<%= product.getId() %>" ><img src="<%= product.getPhoto() %>" alt="<%= product.getName() %>"></a>
                             </div>
-                        </c:otherwise>
-                    </c:choose>
+                            <figcaption class="info-wrap">
+                                <div class="fix-height">
+                                    <a href="./product?id=<%= product.getId() %>" class="title"><%= product.getName() %></a>
+                                    <div class="price-wrap mt-2">
+                                        <span class="price">$ <%= product.getPrice() %></span>
+                                    </div>
+                                </div>
+                                <a href="addToCart?id=<%= product.getId() %>" class="btn btn-block btn-success">Add to cart</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <%
+                            }
+                        } else {
+                    %>
+                    <div class="col-md-12">
+
+                        <p>No products found.</p>
+                    </div>
+                    <%
+                        }
+                    %>
                 </div>
+
+
+
                 <nav class="mt-4" aria-label="Page navigation sample">
                     <ul class="pagination">
                         <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
@@ -195,6 +225,6 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
     </div>
 </section>
 
-<%@ include file="/templates/includes/footer.jsp" %>
+    <%@ include file="/templates/includes/footer.jsp" %>
 </body>
 </html>

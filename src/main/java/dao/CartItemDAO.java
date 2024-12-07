@@ -1,79 +1,86 @@
 package dao;
 
+import model.CartItem;
+import model.Product;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
 public class CartItemDAO {
 
-    // Thêm một mục vào giỏ hàng
-//    public void addCartItem(CartItem item, int cartId) {
-//        String sql = "INSERT INTO cart_items (cart_id, product_id, product_name, price, quantity) VALUES (?, ?, ?, ?, ?)";
-//        try (Connection connection = DatabaseConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql)) {
-//
-//            statement.setInt(1, cartId); // ID của giỏ hàng
-//            statement.setInt(2, item.getProductId());
-//            statement.setString(3, item.getProductName());
-//            statement.setDouble(4, item.getPrice());
-//            statement.setInt(5, item.getQuantity());
-//            statement.executeUpdate();
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    // Lấy tất cả các mục trong giỏ hàng theo cartId
-//    public List<CartItem> getCartItemsByCartId(int cartId) {
-//        List<CartItem> items = new ArrayList<>();
-//        String sql = "SELECT * FROM cart_items WHERE cart_id = ?";
-//        try (Connection connection = DatabaseConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql)) {
-//
-//            statement.setInt(1, cartId);
-//            ResultSet resultSet = statement.executeQuery();
-//
-//            while (resultSet.next()) {
-//                CartItem item = new CartItem(
-//                        resultSet.getInt("product_id"),
-//                        resultSet.getString("product_name"),
-//                        resultSet.getDouble("price"),
-//                        resultSet.getInt("quantity")
-//                );
-//                items.add(item);
-//            }
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return items;
-//    }
-//
-//    // Cập nhật số lượng của một mục trong giỏ hàng
-//    public void updateCartItemQuantity(int cartId, int productId, int quantity) {
-//        String sql = "UPDATE cart_items SET quantity = ? WHERE cart_id = ? AND product_id = ?";
-//        try (Connection connection = DatabaseConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql)) {
-//
-//            statement.setInt(1, quantity);
-//            statement.setInt(2, cartId);
-//            statement.setInt(3, productId);
-//            statement.executeUpdate();
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    // Xóa một mục khỏi giỏ hàng
-//    public void deleteCartItem(int cartId, int productId) {
-//        String sql = "DELETE FROM cart_items WHERE cart_id = ? AND product_id = ?";
-//        try (Connection connection = DatabaseConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql)) {
-//
-//            statement.setInt(1, cartId);
-//            statement.setInt(2, productId);
-//            statement.executeUpdate();
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private Connection connection;
+
+    public CartItemDAO(Connection connection) {
+        this.connection = connection;
+    }
+
+    // Lấy các mục trong giỏ hàng bằng cartId
+    public Map<Integer, CartItem> getCartItemsByCartId(int cartId) {
+        Map<Integer, CartItem> items = new HashMap<>();
+        String query = "SELECT * FROM cart_item WHERE cart_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, cartId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                int productId = rs.getInt("product_id");
+                int quantity = rs.getInt("quantity");
+
+                // Lấy thông tin sản phẩm từ cơ sở dữ liệu
+                ProductDAO productDao = new ProductDAO(connection);
+                Product product = productDao.getProductById(productId);
+
+                CartItem cartItem = new CartItem(product, quantity);
+                items.put(productId, cartItem);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
+    }
+
+    // Thêm mục vào giỏ hàng
+    public boolean addCartItem(int cartId, int productId, int quantity) {
+        String query = "INSERT INTO cart_item (cart_id, product_id, quantity) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, cartId);
+            stmt.setInt(2, productId);
+            stmt.setInt(3, quantity);
+            int rowsInserted = stmt.executeUpdate();
+            return rowsInserted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    // Cập nhật số lượng của mục trong giỏ hàng
+    public boolean updateCartItemQuantity(int cartItemId, int quantity) {
+        String query = "UPDATE cart_item SET quantity = ? WHERE cart_item_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, quantity);
+            stmt.setInt(2, cartItemId);
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    // Xóa mục khỏi giỏ hàng
+    public boolean deleteCartItem(int cartItemId) {
+        String query = "DELETE FROM cart_item WHERE cart_item_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, cartItemId);
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

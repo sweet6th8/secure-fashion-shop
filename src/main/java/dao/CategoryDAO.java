@@ -7,11 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDAO {
+    private Connection connection;
 
+    public CategoryDAO(Connection connection) {
+        this.connection = connection;
+    }
     public List<Category> getAllCategories() {
         List<Category> categoriesList = new ArrayList<>();
         String query = "SELECT * FROM Category";
-        try (Connection connection = DBConnection.getConnection();
+        try (Connection connection = DBConnectionPool.getDataSource().getConnection();
              Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(query)) {
 
