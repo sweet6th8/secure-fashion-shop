@@ -45,6 +45,22 @@ CREATE TABLE cart_item (
     FOREIGN KEY (product_id) REFERENCES product(id)
 );
 
+
+CREATE TABLE [dbo].[ListUser] (
+    [id] INT IDENTITY(1,1) NOT NULL,                    -- Tự động tăng ID
+    [username] NVARCHAR(50) NOT NULL,                  -- Tên người dùng (không được trống)
+    [password] NVARCHAR(255) NOT NULL,                 -- Mật khẩu (không được trống)
+    [email] NVARCHAR(255) NULL,                        -- Email (cho phép trống)
+    [fullName] NVARCHAR(255) NULL,                     -- Họ và tên (cho phép trống)
+    [address] NVARCHAR(255) NULL,                      -- Địa chỉ (cho phép trống)
+    [phone] NVARCHAR(20) NULL,                         -- Số điện thoại (cho phép trống)
+    [gender] BIT NOT NULL,                             -- Giới tính (1 = Nam, 0 = Nữ, không được trống)
+    
+    PRIMARY KEY CLUSTERED ([id] ASC),                  -- Khóa chính dạng Clustered
+    UNIQUE NONCLUSTERED ([email] ASC),                 -- Email là duy nhất, không trùng
+    UNIQUE NONCLUSTERED ([username] ASC)               -- Username là duy nhất, không trùng
+) ON [PRIMARY];    
+
 -- Insert sample clothing categories
 INSERT INTO Category (title, description) VALUES
 ('Men''s Clothing', 'A variety of clothing options for men including shirts, pants, and outerwear.'),
