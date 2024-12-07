@@ -1,8 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="model.Product" %>
-<%@ page import="model.Category" %>
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -10,41 +6,33 @@
 
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <title>Our store</title>
-
-       <!-- Favicon -->
-        <link href="${pageContext.request.contextPath}/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-
-
-     <!-- jQuery -->
-        <script src="${pageContext.request.contextPath}/static/js/jquery-2.0.0.min.js" type="text/javascript"></script>
-
-     <!-- Bootstrap4 files -->
-     <script src="${pageContext.request.contextPath}/static/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-     <link href="${pageContext.request.contextPath}/static/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-
-    <!-- Font awesome 5 -->
-        <link href="${pageContext.request.contextPath}/static/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
-
-        <!-- Custom style -->
-        <link href="${pageContext.request.contextPath}/static/css/ui.css" rel="stylesheet" type="text/css"/>
-        <link href="${pageContext.request.contextPath}/static/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-
-        <!-- Custom javascript -->
-        <script src="${pageContext.request.contextPath}/static/js/script.js" type="text/javascript"></script>
- </head>
+        <jsp:include page="../headerResource.jsp"/>
 </head>
+<style>
+
+    html {
+        box-sizing: border-box;
+    }
+    p:last-child {
+        width: fit-content;
+        margin-left: 10px;
+    }
+    .footer-bottom {
+        max-width: 100%;
+    }
+    .row {
+        width: 100%;
+    }
+    .brand-wrap .logo {margin-left: 10px;}
+</style>
 <body>
-
-
     <%@ include file="/templates/includes/navbar.jsp" %>
-
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
     <div class="container">
         <h2 class="title-page">Our Store</h2>
     </div>
 </section>
-
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
     <div class="container">
@@ -62,19 +50,13 @@
                             <div class="card-body">
                                 <ul class="list-menu">
                                     <li><a href="${pageContext.request.contextPath}/store">All products</a></li>
-                                    <%
-                                        List<Category> categories = (List<Category>) request.getAttribute("links");
-                                        for (Category category : categories) {
-                                    %>
-                                    <li><a href="<%= category.getUrl() %>"><%= category.getCategoryName() %></a></li>
-                                    <%
-                                        }
-                                    %>
+                                    <c:forEach var="category" items="${requestScope.links}">
+                                        <li><a href="${category.getUrl()}">${category.getCategoryName()}</a></li>
+                                    </c:forEach>
                                 </ul>
                             </div>
                         </div>
                     </article>
-
                     <!-- Các filter cho sizes và price range có thể giữ nguyên -->
                     <article class="filter-group">
                         <header class="card-header">
@@ -104,7 +86,6 @@
                             </div>
                         </div>
                     </article>
-
                     <article class="filter-group">
                         <header class="card-header">
                             <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
@@ -144,43 +125,34 @@
                             </div>
                         </div>
                     </article>
-
                 </div>
             </aside>
-
             <main class="col-md-9">
                 <header class="border-bottom mb-4 pb-3">
                     <div class="form-inline">
                         <span class="mr-md-auto"><b><%= request.getAttribute("product_count") %></b> Items found</span>
                     </div>
                 </header>
-
                 <div class="row">
-                    <%
-                        List<Product> products = (List<Product>) request.getAttribute("products");
-                        for (Product product : products) {
-                    %>
-                    <div class="col-md-4">
-                        <figure class="card card-product-grid">
-                            <div class="img-wrap">
-                                <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
-                            </div>
-                            <figcaption class="info-wrap">
-                                <div class="fix-height">
-                                    <a href="./product-detail.jsp" class="title"><%= product.getProductName() %></a>
-                                    <div class="price-wrap mt-2">
-                                        <span class="price">$ <%= product.getPrice() %></span>
-                                    </div>
+                    <c:forEach items="${requestScope.products}" var="product">
+                        <div class="col-md-4">
+                            <figure class="card card-product-grid">
+                                <div class="img-wrap">
+                                    <img src="${ product.getImageUrl()}" alt="${product.getProductName()}">
                                 </div>
-                                <a href="#" class="btn btn-block btn-success">Added to cart</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <%
-                        }
-                    %>
+                                <figcaption class="info-wrap">
+                                    <div class="fix-height">
+                                        <a href="./product-detail.jsp" class="title">${product.getProductName()}</a>
+                                        <div class="price-wrap mt-2">
+                                            <span class="price">${product.getPrice()}</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn btn-block btn-success">Added to cart</a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </c:forEach>
                 </div>
-
                 <nav class="mt-4" aria-label="Page navigation sample">
                     <ul class="pagination">
                         <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>

@@ -11,7 +11,6 @@ public class Order {
     private Date orderDate; // Ngày đặt hàng
     private String shippingAddress; // Địa chỉ giao hàng
     private List<OrderItem> items; // Danh sách các mục trong đơn hàng
-
     // Constructor
     public Order() {}
 
