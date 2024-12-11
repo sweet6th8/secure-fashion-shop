@@ -10,7 +10,9 @@
   .slider-main .item-slide {
     height: auto;
   }
-
+.section-content {
+  margin-top: 100px;
+}
   .table-shopping-cart tr td:first-child {
     width: 250px;
   }

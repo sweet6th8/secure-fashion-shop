@@ -12,22 +12,26 @@ import java.util.List;
 
 public class ProductDAO {
 
-    public ProductDAO(){
+    private Connection connection;
 
+    // Constructor chứa tham số Connection
+    public ProductDAO(Connection connection) {
+        this.connection = connection;
     }
 
     // Thêm sản phẩm
     public void addProduct(Product product) {
         String sql = "INSERT INTO products (name, description, photo, price, discount, category_id) VALUES (?, ?, ?, ?, ?, ?)";
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+
             statement.setString(1, product.getName());
             statement.setString(2, product.getDescription());
             statement.setString(3, product.getPhoto());
             statement.setDouble(4, product.getPrice());
             statement.setDouble(5, product.getDiscount());
-            statement.setInt(6, product.getCategory().getId()); // Assuming Category has a method getId()
+            statement.setInt(6, product.getCategory().getId());
             statement.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -37,8 +41,8 @@ public class ProductDAO {
     public Product getProductById(int id) {
         Product product = null;
         String sql = "SELECT * FROM Product WHERE id = ?";
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -49,10 +53,12 @@ public class ProductDAO {
                 product.setPhoto(resultSet.getString("photo"));
                 product.setPrice(resultSet.getDouble("price"));
                 product.setDiscount(resultSet.getDouble("discount"));
+
                 int categoryId = resultSet.getInt("category_id");
                 Category category = getCategoryById(categoryId); // Helper method to fetch Category
                 product.setCategory(category);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -63,8 +69,7 @@ public class ProductDAO {
     public List<Product> getAllProducts() {
         List<Product> products = new ArrayList<>();
         String sql = "SELECT * FROM Product";
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql);
+        try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
@@ -92,8 +97,7 @@ public class ProductDAO {
     // Cập nhật thông tin sản phẩm
     public void updateProduct(Product product) {
         String sql = "UPDATE products SET name = ?, description = ?, photo = ?, price = ?, discount = ?, category_id = ? WHERE id = ?";
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, product.getName());
             statement.setString(2, product.getDescription());
@@ -112,8 +116,7 @@ public class ProductDAO {
     // Xóa sản phẩm
     public void deleteProduct(int id) {
         String sql = "DELETE FROM products WHERE id = ?";
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setInt(1, id);
             statement.executeUpdate();
@@ -123,12 +126,11 @@ public class ProductDAO {
         }
     }
 
-    // Helper method to fetch a Category by ID
+    // Helper method để lấy thông tin Category theo ID
     private Category getCategoryById(int categoryId) {
         Category category = null;
         String sql = "SELECT * FROM Category WHERE id = ?";
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setInt(1, categoryId);
             ResultSet resultSet = statement.executeQuery();
@@ -146,41 +148,36 @@ public class ProductDAO {
         return category;
     }
 
-    // Method to get products by category ID
+    // Lấy sản phẩm theo Category ID
     public List<Product> getProductsByCategoryId(int categoryId) {
         List<Product> productList = new ArrayList<>();
-        String sql = "SELECT * FROM Product WHERE category_id = ?"; // Update your SQL according to your database schema
+        String sql = "SELECT * FROM Product WHERE category_id = ?";
 
-        try (Connection conn = DBConnection.getConnection(); // Assuming you have a method to get a DB connection
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
             pstmt.setInt(1, categoryId);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                // Assuming your Product class has a constructor that takes these parameters
                 Product product = new Product();
                 product.setId(rs.getInt("id"));
                 product.setName(rs.getString("name"));
                 product.setPrice(rs.getDouble("price"));
-                product.setPhoto(rs.getString("photo")); // Assuming 'photo' is a column in your products table
+                product.setPhoto(rs.getString("photo"));
                 productList.add(product);
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Handle exceptions appropriately in a real application
+            e.printStackTrace();
         }
 
         return productList;
     }
 
-
-
     // Tìm kiếm sản phẩm theo tên
     public List<Product> searchProductByName(String name) {
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM Product WHERE name like ?";
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, "%" + name + "%");
             ResultSet resultSet = statement.executeQuery();
@@ -194,7 +191,7 @@ public class ProductDAO {
                 product.setDiscount(resultSet.getDouble("discount"));
 
                 int categoryId = resultSet.getInt("category_id");
-                Category category = getCategoryById(categoryId); // Helper method to fetch Category
+                Category category = getCategoryById(categoryId);
                 product.setCategory(category);
 
                 list.add(product);
@@ -210,8 +207,7 @@ public class ProductDAO {
     public List<Product> filteringProductByPrice(double minPrice, double maxPrice) {
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM Product WHERE price BETWEEN ? AND ?";
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setDouble(1, minPrice);
             statement.setDouble(2, maxPrice);
@@ -226,7 +222,7 @@ public class ProductDAO {
                 product.setDiscount(resultSet.getDouble("discount"));
 
                 int categoryId = resultSet.getInt("category_id");
-                Category category = getCategoryById(categoryId); // Helper method to fetch Category
+                Category category = getCategoryById(categoryId);
                 product.setCategory(category);
 
                 list.add(product);
@@ -235,9 +231,6 @@ public class ProductDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(list);
         return list;
     }
-
-
 }

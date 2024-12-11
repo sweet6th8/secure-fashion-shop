@@ -14,12 +14,13 @@
     <%@include file="headerResource.jsp"%>
   </head>
 <body>
+<jsp:include page="includes/navbarNotSearch.jsp"/>
 <c:set var="user" value="${sessionScope.user}"/>
-<section class="section-content container-fluid">
-  <div class="card mx-auto" style="max-width: 520px; margin-top: 40px">
+<section class="section-content container-fluid" style="margin-top: 100px">
+  <div class="card mx-auto " style="max-width: 520px">
     <article class="card-body">
       <header class="mb-4"><h4 class="card-title">Edit profile</h4></header>
-      <form action="register" method="POST">
+      <form action="eidt" method="POST">
         <div class="form-row">
           <div class="col form-group">
             <label>First namne </label>
@@ -141,7 +142,7 @@
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block">
-            Register
+            Update Profile
           </button>
         </div>
       </form>
@@ -149,23 +150,9 @@
     <!-- card-body.// -->
   </div>
   <!-- card .// -->
-  <p class="text-center mt-4">
-    Have an account? <a href="login.jsp">Log In</a>
-  </p>
-  <c:set var="message" value="${requestScope.IEmail}"/>
-  <c:if test="${not empty message  }">
-    <p> ${message}</p>
-  </c:if>
   <br /><br />
 </section>
-<footer class="section-footer border-top padding-y">
-  <div class="container">
-    <p class="float-md-right">&copy Copyright 2019 All rights reserved</p>
-    <p>
-      <a href="#">Terms and conditions</a>
-    </p>
-  </div>
-</footer>
+<jsp:include page="includes/footer.jsp"/>
 <script src="${pageContext.request.contextPath}/static/js/register.js"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@ public class UserDAO {
         String sql = "insert into ListUser  (username, password, email, fullName, address, phone,gender) " +
                 "VALUES (?,?,?,?,?,?,?)";
 
-        try (Connection connection = DBConnection.getConnection()) {
+        try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
@@ -28,7 +28,7 @@ public class UserDAO {
 
     public User getLogin(String email, String password) throws SQLException {
         User user = new User();
-        Connection connection = DBConnection.getConnection();
+        Connection connection = DBConnectionPool.getDataSource().getConnection();
         Statement statement = connection.createStatement();
         PreparedStatement ps = connection.prepareStatement("select * from ListUser where email = ? and password = ?");
         ps.setString(1, email);

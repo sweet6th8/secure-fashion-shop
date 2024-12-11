@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head><title>Title</title>
     <meta charset="utf-8"/>
@@ -104,6 +105,7 @@
         listTab[index].classList.add("active");
         listLink[index].classList.add("bg-primary");
     }
+
     openTab(0);
 </script>
 </body>

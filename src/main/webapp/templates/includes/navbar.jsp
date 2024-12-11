@@ -7,11 +7,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarTop4">
             <ul class="navbar-nav mr-auto ml-1">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link"> English </a>
+                <li class="nav-item ">
+                    <a href="${pageContext.request.contextPath}/language?lang=vi" class="nav-link"> VN </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link"> USD </a>
+                <li class="nav-item">
+                    <a href="${pageContext.request.contextPath}/language?lang=en    " class="nav-link"> US </a>
                 </li>
             </ul>
             <ul class="navbar-nav mr-1">
@@ -28,18 +28,19 @@
                 </a>
             </div>
             <div class="col-lg col-sm col-md col-6 flex-grow-0">
+
                 <div class="category-wrap dropdown d-inline-block float-right">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bars"></i> All category
                     </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/category?id=all">All
-                            products</a>
+                    <ul class="dropdown-menu" style="left: 0;">
+                        <li> <a class="dropdown-item border-bottom" href="${pageContext.request.contextPath}/category?id=all">All
+                            products</a></li>
                         <c:set var="categoryList" value="${applicationScope.categoryList}"/>
                         <c:if test="${categoryList != null}">
                             <c:forEach var="item" items="${categoryList}">
                                 <li>
-                                    <a class="dropdown-item"
+                                    <a class="dropdown-item border-bottom"
                                        href="${pageContext.request.contextPath}/category?id=${ item.getId()}"> ${ item.getTitle()}
                                     </a>
                                 </li>
@@ -48,7 +49,7 @@
                         <c:if test="${categoryList == null}">
                             <li>No categories available.</li>
                         </c:if>
-                    </div>
+                    </ul>
                 </div>
             </div>
             <a href="${pageContext.request.contextPath}/category?id=all" class="btn btn-outline-primary">Store</a>
@@ -68,7 +69,7 @@
             </div>
             <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
                 <div class="d-flex justify-content-end mb-3 mb-lg-0">
-                    <a href="./cart.html" class="widget-header pl-3 mr-3">
+                    <a href="${pageContext.request.contextPath}/secure/cart?userId=${sessionScope.user.getId()}" class="widget-header pl-3 mr-3">
                         <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
                         <span class="badge badge-pill badge-danger notify">0</span>
                     </a>
@@ -78,12 +79,12 @@
 
                             <div class="dropdown">
                                 <button class="dropdown-button user rounded-circle">${user.getUsername().toUpperCase().charAt(0)}</button>
-                                <div class="dropdown-menu">
-                                    <a href="${pageContext.request.contextPath}/templates/edit.jsp">Edit profile</a>
-                                    <a href="${pageContext.request.contextPath}/secure/saved">Saved</a>
-                                    <a href="${pageContext.request.contextPath}/secure/history">History</a>
-                                    <a href="${pageContext.request.contextPath}/secure/logout">Log out</a>
-                                </div>
+                                <ul class="dropdown-menu ">
+                                   <li class="text-center border-bottom" > <a class="dropdown-item "  href="${pageContext.request.contextPath}/templates/edit.jsp">Edit profile</a></li>
+                                   <li class="text-center border-bottom"> <a class="dropdown-item "  href="${pageContext.request.contextPath}/secure/saved">Saved</a></li>
+                                 <li class="text-center border-bottom">   <a class="dropdown-item "  href="${pageContext.request.contextPath}/secure/history">History</a></li>
+                                    <li class="text-center border-bottom"> <a class="dropdown-item "  href="${pageContext.request.contextPath}/secure/logout">Log out</a></li>
+                                </ul>
                             </div>
                         </c:when>
                         <c:otherwise>

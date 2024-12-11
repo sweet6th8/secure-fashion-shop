@@ -33,15 +33,8 @@
         rel="stylesheet"
         media="only screen and (max-width: 1200px)"
 />
-<script
-        src="${basePath}/js/script.js"
-        type="text/javascript"
-></script>
-<script
-        src="${basePath}/js/navbar.js"
-        type="text/javascript"
-></script>
+
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/reset.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/navbar.css">
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

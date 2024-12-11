@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>GreatKart | One of the Biggest Online Shopping Platform</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/reset.css">
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/navbar.css">
     <jsp:include page="headerResource.jsp"/>
 
 

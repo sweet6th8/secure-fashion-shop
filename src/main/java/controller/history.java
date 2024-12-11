@@ -1,4 +1,5 @@
 package controller;
+import dao.DBConnectionPool;
 import dao.ProductDAO;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpSession;
 import model.Product;
 import model.User;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 @WebServlet(urlPatterns = {"/secure/history"})
 public class history extends HttpServlet {
@@ -23,7 +25,12 @@ public class history extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/templates/login.jsp");
 
         } else {
-            ProductDAO pd = new ProductDAO();
+            ProductDAO pd = null;
+            try {
+                pd = new ProductDAO(DBConnectionPool.getDataSource().getConnection());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             List<Product> products = pd.getAllProducts();
             ServletContext context = req.getServletContext();
             context.setAttribute("products", products);
