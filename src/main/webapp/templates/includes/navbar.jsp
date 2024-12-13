@@ -68,11 +68,11 @@
             </div>
             <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
                 <div class="d-flex justify-content-end mb-3 mb-lg-0">
-                    <a href="./cart.html" class="widget-header pl-3 mr-3">
+                    <a href="cart" class="widget-header pl-3 mr-3">
                         <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
                         <span class="badge badge-pill badge-danger notify">0</span>
                     </a>
-                    <c:set var="user" value="${sessionScope.user}"/>
+                    <c:set var="user" value="${user}"/>
                     <c:choose>
                         <c:when test="${user != null}">
 

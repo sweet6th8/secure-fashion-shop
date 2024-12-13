@@ -2,7 +2,6 @@ package controller;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -26,5 +25,7 @@ public class filter  implements Filter {
             chain.doFilter(request, response);
 
         }
+
+
     }
 }
