@@ -38,7 +38,7 @@ public class login extends HttpServlet {
             String email = req.getParameter("email");
             String pass = req.getParameter("password");
             String message = "Sai thông tin tài khoản mật khẩu ";
-            UserDAO udao = new UserDAO(connection);
+            UserDAO udao = new UserDAO();
             HttpSession session = req.getSession();
             try {
                 User user = udao.getLogin(email, pass);
