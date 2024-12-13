@@ -11,6 +11,8 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/templates/CreatePassword"})
 public class CreatePassword extends HttpServlet {
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.sendRedirect(req.getContextPath() + "/templates/login.jsp");
