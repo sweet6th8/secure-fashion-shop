@@ -1,101 +1,42 @@
 package dao;
 
-public class OrderDAO {
+import java.sql.*;
 
-    // Thêm đơn hàng
-//    public void addOrder(Order order) {
-//        String sql = "INSERT INTO orders (user_id, total_amount, payment_method, status) VALUES (?, ?, ?, ?)";
-//        try (Connection connection = DatabaseConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql)) {
-//
-//            statement.setInt(1, order.getUserId());
-//            statement.setDouble(2, order.getTotalAmount());
-//            statement.setString(3, order.getPaymentMethod());
-//            statement.setString(4, order.getStatus());
-//            statement.executeUpdate();
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    // Lấy đơn hàng theo ID
-//    public Order getOrderById(int id) {
-//        Order order = null;
-//        String sql = "SELECT * FROM orders WHERE id = ?";
-//        try (Connection connection = DatabaseConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql)) {
-//
-//            statement.setInt(1, id);
-//            ResultSet resultSet = statement.executeQuery();
-//            if (resultSet.next()) {
-//                order = new Order();
-//                order.setId(resultSet.getInt("id"));
-//                order.setUserId(resultSet.getInt("user_id"));
-//                order.setTotalAmount(resultSet.getDouble("total_amount"));
-//              //  order.setPaymentMethod(resultSet.getString("payment_method"));
-//                order.setStatus(resultSet.getString("status"));
-//            }
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return order;
-//    }
-//
-//    // Lấy tất cả đơn hàng
-//    public List<Order> getAllOrders() {
-//        List<Order> orders = new ArrayList<>();
-//        String sql = "SELECT * FROM orders";
-//        try (Connection connection = DatabaseConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql);
-//             ResultSet resultSet = statement.executeQuery()) {
-//
-//            while (resultSet.next()) {
-//                Order order = new Order();
-//                order.setId(resultSet.getInt("id"));
-//                order.setUserId(resultSet.getInt("user_id"));
-//                order.setTotalAmount(resultSet.getDouble("total_amount"));
-//               // order.setPaymentMethod(resultSet.getString("payment_method"));
-//                order.setStatus(resultSet.getString("status"));
-//                orders.add(order);
-//            }
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return orders;
-//    }
-//
-//    // Cập nhật thông tin đơn hàng
-//    public void updateOrder(Order order) {
-//        String sql = "UPDATE orders SET user_id = ?, total_amount = ?, payment_method = ?, status = ? WHERE id = ?";
-//        try (Connection connection = DatabaseConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql)) {
-//
-//            statement.setInt(1, order.getUserId());
-//            statement.setDouble(2, order.getTotalAmount());
-//            statement.setString(3, order.getPaymentMethod());
-//            statement.setString(4, order.getStatus());
-//            statement.setInt(5, order.getId());
-//            statement.executeUpdate();
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    // Xóa đơn hàng
-//    public void deleteOrder(int id) {
-//        String sql = "DELETE FROM orders WHERE id = ?";
-//        try (Connection connection = DatabaseConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql)) {
-//
-//            statement.setInt(1, id);
-//            statement.executeUpdate();
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
+public class OrderDAO {
+    private Connection conn;
+
+    public OrderDAO(Connection connection) {
+        this.conn = connection;
+    }
+
+    // Tạo đơn hàng mới
+    public int createOrder(int userId, double totalPrice, String status) {
+        String sql = "INSERT INTO Orders (user_id, total_price, status) VALUES (?, ?, ?)";
+        try ( PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            stmt.setInt(1, userId);
+            stmt.setDouble(2, totalPrice);
+            stmt.setString(3, status);
+            stmt.executeUpdate();
+
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) return rs.getInt(1); // Trả về orderId
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1; // Lỗi
+    }
+
+    // Thêm item vào đơn hàng
+    public void addOrderItem(int orderId, int productId, int quantity, double price) {
+        String sql = "INSERT INTO Order_Items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)";
+        try ( PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, orderId);
+            stmt.setInt(2, productId);
+            stmt.setInt(3, quantity);
+            stmt.setDouble(4, price);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

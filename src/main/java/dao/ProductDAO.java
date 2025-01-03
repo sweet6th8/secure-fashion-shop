@@ -21,17 +21,15 @@ public class ProductDAO {
 
     // Thêm sản phẩm
     public void addProduct(Product product) {
-        String sql = "INSERT INTO products (name, description, photo, price, discount, category_id) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO product (name, description, photo, price, stock, category_id) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setString(1, product.getName());
             statement.setString(2, product.getDescription());
             statement.setString(3, product.getPhoto());
             statement.setDouble(4, product.getPrice());
-            statement.setDouble(5, product.getDiscount());
+            statement.setInt(5, product.getStock());
             statement.setInt(6, product.getCategory().getId());
             statement.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -40,9 +38,8 @@ public class ProductDAO {
     // Lấy sản phẩm theo ID
     public Product getProductById(int id) {
         Product product = null;
-        String sql = "SELECT * FROM Product WHERE id = ?";
+        String sql = "SELECT * FROM product WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -52,13 +49,12 @@ public class ProductDAO {
                 product.setDescription(resultSet.getString("description"));
                 product.setPhoto(resultSet.getString("photo"));
                 product.setPrice(resultSet.getDouble("price"));
-                product.setDiscount(resultSet.getDouble("discount"));
+                product.setStock(resultSet.getInt("stock"));
 
                 int categoryId = resultSet.getInt("category_id");
-                Category category = getCategoryById(categoryId); // Helper method to fetch Category
+                Category category = getCategoryById(categoryId);
                 product.setCategory(category);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -71,7 +67,6 @@ public class ProductDAO {
         String sql = "SELECT * FROM Product";
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
-
             while (resultSet.next()) {
                 Product product = new Product();
                 product.setId(resultSet.getInt("id"));
@@ -79,7 +74,7 @@ public class ProductDAO {
                 product.setDescription(resultSet.getString("description"));
                 product.setPhoto(resultSet.getString("photo"));
                 product.setPrice(resultSet.getDouble("price"));
-                product.setDiscount(resultSet.getDouble("discount"));
+                product.setStock(resultSet.getInt("stock"));
 
                 int categoryId = resultSet.getInt("category_id");
                 Category category = getCategoryById(categoryId);
@@ -87,7 +82,6 @@ public class ProductDAO {
 
                 products.add(product);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -96,18 +90,16 @@ public class ProductDAO {
 
     // Cập nhật thông tin sản phẩm
     public void updateProduct(Product product) {
-        String sql = "UPDATE products SET name = ?, description = ?, photo = ?, price = ?, discount = ?, category_id = ? WHERE id = ?";
+        String sql = "UPDATE product SET name = ?, description = ?, photo = ?, price = ?, stock = ?, category_id = ? WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setString(1, product.getName());
             statement.setString(2, product.getDescription());
             statement.setString(3, product.getPhoto());
             statement.setDouble(4, product.getPrice());
-            statement.setDouble(5, product.getDiscount());
+            statement.setInt(5, product.getStock());
             statement.setInt(6, product.getCategory().getId());
             statement.setInt(7, product.getId());
             statement.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -115,12 +107,10 @@ public class ProductDAO {
 
     // Xóa sản phẩm
     public void deleteProduct(int id) {
-        String sql = "DELETE FROM products WHERE id = ?";
+        String sql = "DELETE FROM product WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setInt(1, id);
             statement.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -129,9 +119,8 @@ public class ProductDAO {
     // Helper method để lấy thông tin Category theo ID
     private Category getCategoryById(int categoryId) {
         Category category = null;
-        String sql = "SELECT * FROM Category WHERE id = ?";
+        String sql = "SELECT * FROM categories WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setInt(1, categoryId);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -139,9 +128,7 @@ public class ProductDAO {
                 category.setId(resultSet.getInt("id"));
                 category.setTitle(resultSet.getString("title"));
                 category.setDescription(resultSet.getString("description"));
-                // Set other Category fields if necessary
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -151,34 +138,30 @@ public class ProductDAO {
     // Lấy sản phẩm theo Category ID
     public List<Product> getProductsByCategoryId(int categoryId) {
         List<Product> productList = new ArrayList<>();
-        String sql = "SELECT * FROM Product WHERE category_id = ?";
-
+        String sql = "SELECT * FROM product WHERE category_id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-
             pstmt.setInt(1, categoryId);
             ResultSet rs = pstmt.executeQuery();
-
             while (rs.next()) {
                 Product product = new Product();
                 product.setId(rs.getInt("id"));
                 product.setName(rs.getString("name"));
                 product.setPrice(rs.getDouble("price"));
                 product.setPhoto(rs.getString("photo"));
+                product.setStock(rs.getInt("stock"));
                 productList.add(product);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return productList;
     }
 
     // Tìm kiếm sản phẩm theo tên
     public List<Product> searchProductByName(String name) {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT * FROM Product WHERE name like ?";
+        String sql = "SELECT * FROM product WHERE name LIKE ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setString(1, "%" + name + "%");
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -188,7 +171,7 @@ public class ProductDAO {
                 product.setDescription(resultSet.getString("description"));
                 product.setPhoto(resultSet.getString("photo"));
                 product.setPrice(resultSet.getDouble("price"));
-                product.setDiscount(resultSet.getDouble("discount"));
+                product.setStock(resultSet.getInt("stock"));
 
                 int categoryId = resultSet.getInt("category_id");
                 Category category = getCategoryById(categoryId);
@@ -196,41 +179,32 @@ public class ProductDAO {
 
                 list.add(product);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return list;
     }
-
-    // Lọc sản phẩm theo giá
-    public List<Product> filteringProductByPrice(double minPrice, double maxPrice) {
-        List<Product> list = new ArrayList<>();
-        String sql = "SELECT * FROM Product WHERE price BETWEEN ? AND ?";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-
-            statement.setDouble(1, minPrice);
-            statement.setDouble(2, maxPrice);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                Product product = new Product();
-                product.setId(resultSet.getInt("id"));
-                product.setName(resultSet.getString("name"));
-                product.setDescription(resultSet.getString("description"));
-                product.setPhoto(resultSet.getString("photo"));
-                product.setPrice(resultSet.getDouble("price"));
-                product.setDiscount(resultSet.getDouble("discount"));
-
-                int categoryId = resultSet.getInt("category_id");
-                Category category = getCategoryById(categoryId);
-                product.setCategory(category);
-
-                list.add(product);
+    // Phương thức close để đóng kết nối
+    public void close() {
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace(); // Log lỗi khi đóng kết nối thất bại
             }
+        }
+    }
+    // Update product stock in the database
+    public void updateProductStock(Product product) {
+        // Corrected table name to match the rest of the DAO
+        String query = "UPDATE product SET stock = ? WHERE id = ?";
 
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, product.getStock()); // Update stock
+            stmt.setInt(2, product.getId());    // Product ID
+            stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return list;
     }
 }

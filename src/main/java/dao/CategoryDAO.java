@@ -14,7 +14,7 @@ public class CategoryDAO {
     }
     public List<Category> getAllCategories() {
         List<Category> categoriesList = new ArrayList<>();
-        String query = "SELECT * FROM Category";
+        String query = "SELECT * FROM Categories";
         try (Connection connection = DBConnectionPool.getDataSource().getConnection();
              Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(query)) {

@@ -49,7 +49,7 @@ public class register extends HttpServlet {
             // call user dao
             UserDAO userDAO = new UserDAO(connection);
             try {
-                if (userDAO.registerUsser(user)) {
+                if (userDAO.registerUser(user)) {
                     resp.sendRedirect(req.getContextPath() + "/templates/login.jsp");
                     return;
                 }

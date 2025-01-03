@@ -1,11 +1,11 @@
 package dao;
 
 
-
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
 
 public class DBConnectionPool {
     private static HikariDataSource dataSource;
@@ -14,9 +14,9 @@ public class DBConnectionPool {
         try {
             // Cấu hình HikariCP
             HikariConfig config = new HikariConfig();
-            config.setJdbcUrl("jdbc:sqlserver://ACER:1433;databaseName=ClothingShopWeb;encrypt=false");
-            config.setUsername("nhutanh");
-            config.setPassword("nhutanh02042004");
+            config.setJdbcUrl("jdbc:sqlserver://localhost:1433;databaseName=ClothingShopWeb;encrypt=false");
+            config.setUsername("sa");
+            config.setPassword("123456");
 
             // Các cấu hình Connection Pool
             config.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -44,6 +44,15 @@ public class DBConnectionPool {
     public static void shutdown() {
         if (dataSource != null) {
             dataSource.close();
+        }
+
+
+    }
+    public static void main(String[] args) {
+        try (Connection conn = DBConnectionPool.getDataSource().getConnection()) {
+            System.out.println("Database connection successful!");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

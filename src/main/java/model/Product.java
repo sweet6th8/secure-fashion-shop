@@ -4,21 +4,21 @@ public class Product {
     private int id; // ID sản phẩm
     private String name; // Tên sản phẩm
     private String description; // Mô tả sản phẩm
-    private String photo; // URL ảnh sản phẩm (ánh xạ từ cột `photo`)
+    private String photo; // URL ảnh sản phẩm
     private double price; // Giá sản phẩm
-    private double discount; // Giảm giá
+    private int stock; // Số lượng tồn kho
     private Category category; // Đối tượng Category ánh xạ từ category_id
 
     public Product() {
     }
 
-    public Product(int id, String name, String description, String photo, double price, double discount, Category category) {
+    public Product(int id, String name, String description, String photo, double price, int stock, Category category) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.photo = photo;
         this.price = price;
-        this.discount = discount;
+        this.stock = stock;
         this.category = category;
     }
 
@@ -63,12 +63,12 @@ public class Product {
         this.price = price;
     }
 
-    public double getDiscount() {
-        return discount;
+    public int getStock() {
+        return stock;
     }
 
-    public void setDiscount(double discount) {
-        this.discount = discount;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public Category getCategory() {
@@ -77,5 +77,27 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    // Các phương thức tiện ích
+    // Kiểm tra xem sản phẩm còn trong kho hay không
+    public boolean isInStock() {
+        return stock > 0;
+    }
+
+    // Giảm số lượng tồn kho
+    public void reduceStock(int quantity) {
+        if (quantity > stock) {
+            throw new IllegalArgumentException("Not enough stock available.");
+        }
+        this.stock -= quantity;
+    }
+
+    // Tăng số lượng tồn kho (nếu cần)
+    public void increaseStock(int quantity) {
+        if (quantity < 0) {
+            throw new IllegalArgumentException("Quantity must be positive.");
+        }
+        this.stock += quantity;
     }
 }

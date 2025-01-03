@@ -1,16 +1,23 @@
+// CartItem.java
 package model;
 
 public class CartItem {
-    private Product product;  // Sản phẩm trong giỏ hàng
-    private int quantity;     // Số lượng của sản phẩm trong giỏ hàng
+    private Product product;
+    private int quantity;
 
+    // Constructor
     public CartItem(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }
 
+    // Getters and Setters
     public Product getProduct() {
         return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getQuantity() {
@@ -21,13 +28,13 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    // Tính tổng giá trị của sản phẩm (giá sau khi giảm giá * số lượng)
+    // Calculate total price
     public double getTotalPrice() {
-        return product.getPrice() * quantity * (1 - product.getDiscount());
+        return product.getPrice() * quantity;
     }
 
-    // Lấy giá sau giảm giá của sản phẩm
-    public double getDiscountedPrice() {
-        return product.getPrice() * (1 - product.getDiscount());
+    // Get Product ID (add this method)
+    public int getProductId() {
+        return product.getId(); // Retrieve the Product ID
     }
 }

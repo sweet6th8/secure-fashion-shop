@@ -1,20 +1,24 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>GreatKart | One of the Biggest Online Shopping Platform</title>
-<jsp:include page="headerResource.jsp"/>
+    <title>GreatKart | Shopping Cart</title>
+    <jsp:include page="headerResource.jsp"/>
+    <script src="js/cart.js"></script> <!-- Thêm liên kết file JavaScript -->
 </head>
 <body>
 <%@ include file="/templates/includes/navbar.jsp" %>
+
 <section class="section-content padding-y bg">
     <div class="container">
+        <!-- Messaging Area -->
+        <div id="cartMessage" class="alert" style="display: none;"></div>
 
-        <!-- Cart Section -->
         <div class="row">
             <aside class="col-lg-9">
                 <div class="card">
@@ -24,65 +28,80 @@
                             <th scope="col">Product</th>
                             <th scope="col" width="120">Quantity</th>
                             <th scope="col" width="120">Price</th>
-                            <th scope="col" class="text-right" width="200"> </th>
+                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
-
-
-                        <c:forEach var="cartItem" items="${cart.items.values()}">
-                            <pre>${cartItem}</pre>
-
+                        <c:if test="${not empty cart.items}">
+                            <c:forEach var="cartItem" items="${cart.items.values()}">
+                                <tr id="row-${fn:escapeXml(cartItem.product.id)}">
+                                    <td>
+                                        <figure class="itemside align-items-center">
+                                            <figcaption class="info">
+                                                <a href="#" class="title text-dark">
+                                                    <c:out value="${cartItem.product.name}"/>
+                                                </a>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td>
+                                        <input
+                                                type="number"
+                                                onchange="updateQuantity('<c:out value="${fn:escapeXml(cartItem.product.id)}"/>', this)"
+                                                class="form-control"
+                                                value="${cartItem.quantity}"
+                                                min="1">
+                                    </td>
+                                    <td>
+                                        <div class="price-wrap">
+                        <span id="item-total-${fn:escapeXml(cartItem.product.id)}">
+                            <fmt:formatNumber value="${cartItem.totalPrice}" pattern="#0.00"/>
+                        </span>
+                                            USD
+                                            <small class="text-muted"> ${cartItem.product.price} each </small>
+                                        </div>
+                                    </td>
+                                    <td class="text-right">
+                                        <button
+                                                onclick="removeItem('<c:out value="${fn:escapeXml(cartItem.product.id)}"/>', document.getElementById('row-${fn:escapeXml(cartItem.product.id)}'))"
+                                                class="btn btn-danger">Remove</button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </c:if>
+                        <c:if test="${empty cart.items}">
                             <tr>
-                                <td>
-                                    <figure class="itemside align-items-center">
-<%--                                        <div class="aside"><img src="<c:out value='${cartItem.product.photo}'/>" class="img-sm"></div>--%>
-                                        <figcaption class="info">
-                                            <a href="#" class="title text-dark"><c:out value='${cartItem.product.name}'/></a>
-                                        </figcaption>
-                                    </figure>
-                                </td>
-                                <td>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" value="<c:out value='${cartItem.product.quantity}'/>" min="1">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="price-wrap">
-                                        <var class="price"><c:out value='${cartItem.getTotalPrice}'/></var>
-                                        <small class="text-muted"> ${cartItem.product.price} each </small>
-                                    </div>
-                                </td>
-                                <td class="text-right">
-                                    <form action="removeFromCart" method="POST">
-                                        <input type="hidden" name="productId" value="<c:out value='${cartItem.product.id}'/>">
-                                        <button type="submit" class="btn btn-danger"> Remove</button>
-                                    </form>
+                                <td colspan="4" class="text-center">
+                                    <p>Your cart is empty. <a href="/">Start shopping now!</a></p>
                                 </td>
                             </tr>
-                        </c:forEach>
+                        </c:if>
                         </tbody>
                     </table>
                 </div>
             </aside>
-
             <aside class="col-lg-3">
                 <div class="card">
                     <div class="card-body">
                         <dl class="dlist-align">
                             <dt>Total:</dt>
-                            <dd class="text-right"> <strong><c:out value='${totalPrice}'/> USD</strong> </dd>
+                            <dd class="text-right">
+                                <strong id="totalPrice">
+                                    <fmt:formatNumber value="${cart.totalPrice}" pattern="#0.00"/> USD
+                                </strong>
+                            </dd>
                         </dl>
                         <hr>
-                        <a href="checkout" class="btn btn-primary btn-block">Proceed to checkout</a>
+
+                        <a href="place-order" class="btn btn-primary btn-block"> Checkout </a>
+                        <a href="${pageContext.request.contextPath}" class="btn btn-light btn-block">Continue Shopping</a>
                     </div>
                 </div>
             </aside>
-
         </div>
-
     </div>
 </section>
+
 <%@ include file="/templates/includes/footer.jsp" %>
 </body>
 </html>

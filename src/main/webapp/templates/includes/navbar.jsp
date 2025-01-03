@@ -70,7 +70,11 @@
             <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
                 <div class="d-flex justify-content-end mb-3 mb-lg-0">
                     <a href="${pageContext.request.contextPath}/secure/cart?userId=${sessionScope.user.getId()}" class="widget-header pl-3 mr-3">
-                        <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+                        <a href="cart" aria-label="Go to shopping cart">
+                            <div class="icon icon-sm rounded-circle border">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
+                        </a>
                         <span class="badge badge-pill badge-danger notify">0</span>
                     </a>
                     <c:set var="user" value="${sessionScope.user}"/>
