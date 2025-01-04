@@ -100,4 +100,17 @@ public class Product {
         }
         this.stock += quantity;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", photo='" + photo + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", category=" + category +
+                '}';
+    }
 }

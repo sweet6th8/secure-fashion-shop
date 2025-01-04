@@ -19,8 +19,7 @@ public class ProductDAO {
         this.connection = connection;
     }
 
-    // Thêm sản phẩm
-    public void addProduct(Product product) {
+    public boolean addProduct(Product product) {
         String sql = "INSERT INTO product (name, description, photo, price, stock, category_id) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, product.getName());
@@ -29,11 +28,14 @@ public class ProductDAO {
             statement.setDouble(4, product.getPrice());
             statement.setInt(5, product.getStock());
             statement.setInt(6, product.getCategory().getId());
-            statement.executeUpdate();
+            int rowsInserted = statement.executeUpdate();
+            return rowsInserted > 0;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
+
 
     // Lấy sản phẩm theo ID
     public Product getProductById(int id) {
