@@ -26,6 +26,7 @@ public class Cart {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null.");
         }
+
         if (quantity <= 0) {
             throw new IllegalArgumentException("Quantity must be greater than zero.");
         }
@@ -33,18 +34,22 @@ public class Cart {
         // Check stock availability and update the cart
         items.compute(product.getId(), (productId, existingItem) -> {
             if (existingItem == null) {
-                // Add a new product to the cart
+                // Validate initial quantity
                 if (quantity > product.getStock()) {
                     throw new IllegalArgumentException("Insufficient stock. Requested: " + quantity + ", Available: " + product.getStock());
                 }
                 return new CartItem(product, quantity);
             }
 
-            // Update the quantity of an existing product in the cart
+            // Calculate the new quantity
             int newQuantity = existingItem.getQuantity() + quantity;
+
+            // Validate new quantity against stock
             if (newQuantity > product.getStock()) {
                 throw new IllegalArgumentException("Insufficient stock. Requested: " + newQuantity + ", Available: " + product.getStock());
             }
+
+            // Update existing item
             existingItem.setQuantity(newQuantity);
             return existingItem;
         });

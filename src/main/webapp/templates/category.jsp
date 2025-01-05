@@ -58,36 +58,8 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                         </div>
                     </article>
 
-                    <!-- Các Filter cho sizes và price range có thể giữ nguyên -->
-                    <article class="filter-group">
-                        <header class="card-header">
-                            <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
-                                <i class="icon-control fa fa-chevron-down"></i>
-                                <h6 class="title">Sizes</h6>
-                            </a>
-                        </header>
-                        <div class="filter-content collapse show" id="collapse_4">
-                            <div class="card-body">
-                                <label class="checkbox-btn">
-                                    <input type="checkbox">
-                                    <span class="btn btn-light"> XS </span>
-                                </label>
-                                <label class="checkbox-btn">
-                                    <input type="checkbox">
-                                    <span class="btn btn-light"> SM </span>
-                                </label>
-                                <label class="checkbox-btn">
-                                    <input type="checkbox">
-                                    <span class="btn btn-light"> LG </span>
-                                </label>
-                                <label class="checkbox-btn">
-                                    <input type="checkbox">
-                                    <span class="btn btn-light"> XXL </span>
-                                </label>
-                            </div>
-                        </div>
-                    </article>
-                    <form action="filter" method="post">
+
+                    <form action="Filter" method="post">
                         <article class="filter-group">
                             <header class="card-header">
                                 <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true"
@@ -147,7 +119,7 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                 <div class="col-md-4">
                                     <figure class="card card-product-grid">
                                         <div class="img-wrap">
-                                            <a href="./product?id=${product.getId()}"><img src="${pageContext.request.contextPath}${product.getPhoto()}"
+                                            <a href="./product?id=${product.getId()}"><img src="${pageContext.request.contextPath}/${product.getPhoto()}"
                                                                                             alt="${product.getName()}"></a>
                                         </div>
                                         <figcaption class="info-wrap">
@@ -158,8 +130,17 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                                     <span class="price">$ ${product.getPrice()}</span>
                                                 </div>
                                             </div>
-                                            <a href="addToCart?id=${product.getId()}" class="btn btn-block btn-success">Add
-                                                to cart</a>
+<%--                                            <a href="addToCart?id=${product.getId()}" class="btn btn-block btn-success">Add--%>
+<%--                                                to cart</a>--%>
+                                            <form action="cart" method="post">
+                                                <input type="hidden" name="action" value="addToCart">
+                                                <input type="hidden" name="productId" value="${product.getId()}">
+                                                <input type="hidden" name="quantity" min="1" value="1" class="form-control mb-2" required>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <span class="text">Add to cart</span>
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                            </form>
                                         </figcaption>
                                     </figure>
                                 </div>

@@ -12,7 +12,7 @@
 <%@ include file="templates/includes/navbar.jsp" %>
 <!-- Main Content Area -->
 <div class="container">
-    <h1>${requestScope.welcome}</h1>
+<%--    <h1>${requestScope.welcome}</h1>--%>
     <jsp:include page="templates/home.jsp">
         <jsp:param name="contentPage" value="/templates/home.jsp"/>
     </jsp:include>

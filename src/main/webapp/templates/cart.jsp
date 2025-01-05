@@ -25,7 +25,8 @@
                     <table class="table table-borderless table-shopping-cart">
                         <thead class="text-muted">
                         <tr class="small text-uppercase">
-                            <th scope="col">Product</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Image</th>
                             <th scope="col" width="120">Quantity</th>
                             <th scope="col" width="120">Price</th>
                             <th scope="col"></th>
@@ -42,6 +43,16 @@
                                                     <c:out value="${cartItem.product.name}"/>
                                                 </a>
                                             </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td>
+                                        <figure class="itemside align-items-center">
+                                            <div class="aside">
+                                                <img src="<c:out value='${cartItem.product.photo}'/>"
+                                                     class="img-sm img-thumbnail"
+                                                     alt="<c:out value='${cartItem.product.photo}'/>">
+                                            </div>
+
                                         </figure>
                                     </td>
                                     <td>

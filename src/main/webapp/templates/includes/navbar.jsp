@@ -54,7 +54,7 @@
             </div>
             <a href="${pageContext.request.contextPath}/category?id=all" class="btn btn-outline-primary">Store</a>
             <div class="col-lg  col-md-6 col-sm-12 col">
-                <form action="search" class="search" method="post">
+                <form action="${pageContext.request.contextPath}/search" class="search" method="post">
                     <div class="input-group w-100">
                         <input type="text" name="txt" class="form-control" style="width:60%;" placeholder="Search"
                                value="${txtS}">

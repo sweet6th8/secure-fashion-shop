@@ -56,83 +56,83 @@
           </div>
         </article>
 
-        <!-- Contact Info Form -->
-        <article class="card mb-4">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Contact info</h4>
-            <form action="" method="POST">
-              <div class="row">
-                <div class="form-group col-sm-6">
-                  <label>First name</label>
-                  <input type="text" placeholder="Type here" class="form-control" name="firstName">
-                </div>
-                <div class="form-group col-sm-6">
-                  <label>Last name</label>
-                  <input type="text" placeholder="Type here" class="form-control" name="lastName">
-                </div>
-                <div class="form-group col-sm-6">
-                  <label>Phone</label>
-                  <input type="text" value="+998" class="form-control" name="phone">
-                </div>
-                <div class="form-group col-sm-6">
-                  <label>Email</label>
-                  <input type="email" placeholder="example@gmail.com" class="form-control" name="email">
-                </div>
-              </div> <!-- row -->
-            </form>
-          </div>
-        </article>
+<%--        <!-- Contact Info Form -->--%>
+<%--        <article class="card mb-4">--%>
+<%--          <div class="card-body">--%>
+<%--            <h4 class="card-title mb-4">Contact info</h4>--%>
+<%--            <form action="" method="POST">--%>
+<%--              <div class="row">--%>
+<%--                <div class="form-group col-sm-6">--%>
+<%--                  <label>First name</label>--%>
+<%--                  <input type="text" placeholder="Type here" class="form-control" name="firstName">--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-sm-6">--%>
+<%--                  <label>Last name</label>--%>
+<%--                  <input type="text" placeholder="Type here" class="form-control" name="lastName">--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-sm-6">--%>
+<%--                  <label>Phone</label>--%>
+<%--                  <input type="text" value="+998" class="form-control" name="phone">--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-sm-6">--%>
+<%--                  <label>Email</label>--%>
+<%--                  <input type="email" placeholder="example@gmail.com" class="form-control" name="email">--%>
+<%--                </div>--%>
+<%--              </div> <!-- row -->--%>
+<%--            </form>--%>
+<%--          </div>--%>
+<%--        </article>--%>
 
-        <!-- Delivery Info Form -->
-        <article class="card mb-4">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Delivery info</h4>
-            <form action="" method="POST">
-              <div class="row">
-                <div class="form-group col-sm-6">
-                  <label>Country*</label>
-                  <select name="country" class="form-control">
-                    <option value="India">India</option>
-                    <option value="United States">United States</option>
-                    <option value="France">France</option>
-                    <option value="Italy">Italy</option>
-                  </select>
-                </div>
-                <div class="form-group col-sm-6">
-                  <label>State*</label>
-                  <input type="text" placeholder="Type here" class="form-control" name="state">
-                </div>
-                <div class="form-group col-sm-8">
-                  <label>Street*</label>
-                  <input type="text" placeholder="Type here" class="form-control" name="street">
-                </div>
-                <div class="form-group col-sm-4">
-                  <label>Building</label>
-                  <input type="text" placeholder="" class="form-control" name="building">
-                </div>
-                <div class="form-group col-sm-4">
-                  <label>House</label>
-                  <input type="text" placeholder="Type here" class="form-control" name="house">
-                </div>
-                <div class="form-group col-sm-4">
-                  <label>Postal code</label>
-                  <input type="text" placeholder="" class="form-control" name="postalCode">
-                </div>
-                <div class="form-group col-sm-4">
-                  <label>Zip</label>
-                  <input type="text" placeholder="" class="form-control" name="zip">
-                </div>
-              </div> <!-- row -->
-            </form>
-          </div>
-        </article>
+<%--        <!-- Delivery Info Form -->--%>
+<%--        <article class="card mb-4">--%>
+<%--          <div class="card-body">--%>
+<%--            <h4 class="card-title mb-4">Delivery info</h4>--%>
+<%--            <form action="" method="POST">--%>
+<%--              <div class="row">--%>
+<%--                <div class="form-group col-sm-6">--%>
+<%--                  <label>Country*</label>--%>
+<%--                  <select name="country" class="form-control">--%>
+<%--                    <option value="India">India</option>--%>
+<%--                    <option value="United States">United States</option>--%>
+<%--                    <option value="France">France</option>--%>
+<%--                    <option value="Italy">Italy</option>--%>
+<%--                  </select>--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-sm-6">--%>
+<%--                  <label>State*</label>--%>
+<%--                  <input type="text" placeholder="Type here" class="form-control" name="state">--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-sm-8">--%>
+<%--                  <label>Street*</label>--%>
+<%--                  <input type="text" placeholder="Type here" class="form-control" name="street">--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-sm-4">--%>
+<%--                  <label>Building</label>--%>
+<%--                  <input type="text" placeholder="" class="form-control" name="building">--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-sm-4">--%>
+<%--                  <label>House</label>--%>
+<%--                  <input type="text" placeholder="Type here" class="form-control" name="house">--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-sm-4">--%>
+<%--                  <label>Postal code</label>--%>
+<%--                  <input type="text" placeholder="" class="form-control" name="postalCode">--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-sm-4">--%>
+<%--                  <label>Zip</label>--%>
+<%--                  <input type="text" placeholder="" class="form-control" name="zip">--%>
+<%--                </div>--%>
+<%--              </div> <!-- row -->--%>
+<%--            </form>--%>
+<%--          </div>--%>
+<%--        </article>--%>
 
         <!-- Payment Methods -->
         <article class="accordion" id="accordion_pay">
           <div class="card">
             <header class="card-header">
               <img src="${pageContext.request.contextPath}/static/images/misc/payment-paypal.png" class="float-right" height="24">
-              <label class="form-check collapsed" data-toggle="collapse" data-target="#pay_paynet">
+              <label class="form-check collapsed" data-toggle="collapse" data-target="#pay_paypal">
                 <input class="form-check-input" name="payment-option" checked type="radio" value="option2">
                 <h6 class="form-check-label"> Paypal </h6>
               </label>

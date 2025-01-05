@@ -41,12 +41,10 @@
                 </div>
 
                 <!-- Product ID -->
-                <p>Debug Product: ${PRODUCT}</p>
-                <p>Debug id : ${PRODUCT.id}</p>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label class="control-label">Mã sản phẩm</label>
-                        <input class="form-control" type="text" name="id"
+                        <input class="form-control" type="text" name="id" readonly
                                value="${PRODUCT.id}" />
                     </div>
                 </div>

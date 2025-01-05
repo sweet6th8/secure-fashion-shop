@@ -209,4 +209,33 @@ public class ProductDAO {
             e.printStackTrace();
         }
     }
+
+
+    public List<Product> filteringProductByPrice(double minPrice, double maxPrice) {
+        List<Product> filteredProducts = new ArrayList<>();
+        String sql = "SELECT * FROM product WHERE price BETWEEN ? AND ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setDouble(1, minPrice);
+            statement.setDouble(2, maxPrice);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Product product = new Product();
+                product.setId(resultSet.getInt("id"));
+                product.setName(resultSet.getString("name"));
+                product.setDescription(resultSet.getString("description"));
+                product.setPhoto(resultSet.getString("photo"));
+                product.setPrice(resultSet.getDouble("price"));
+                product.setStock(resultSet.getInt("stock"));
+
+                int categoryId = resultSet.getInt("category_id");
+                Category category = getCategoryById(categoryId);
+                product.setCategory(category);
+
+                filteredProducts.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return filteredProducts;
+    }
 }

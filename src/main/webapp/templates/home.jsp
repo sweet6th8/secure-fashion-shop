@@ -23,7 +23,7 @@
                             <div class="card card-product-grid">
                                 <div class="img-wrap">
                                     <a href="./product?id=${product.id}">
-                                        <img src="${pageContext.request.contextPath}${product.photo}" alt="${product.name}">
+                                        <img src="${pageContext.request.contextPath}/${product.photo}" alt="${product.name}">
                                     </a>
                                 </div>
 

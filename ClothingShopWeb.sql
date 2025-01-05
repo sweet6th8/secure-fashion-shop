@@ -36,7 +36,7 @@ CREATE TABLE Categories
     description NVARCHAR(MAX)                  -- Mô tả danh mục
 );
 
-
+SELECT * FROM Product
 -- Tạo bảng Product
 CREATE TABLE Product
 (
