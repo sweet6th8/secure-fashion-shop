@@ -143,7 +143,7 @@
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
 <!-- Footer -->
-<script src="${pageContext.request.contextPath}/js/navbar.js"></script>
+<%--<script src="${pageContext.request.contextPath}/js/navbar.js"></script>--%>
 <%@ include file="includes/footer.jsp" %>
 </body>
 
