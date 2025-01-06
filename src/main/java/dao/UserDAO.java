@@ -11,7 +11,7 @@ import java.util.List;
 
 public class UserDAO {
 
-    private static final String SQL_INSERT_USER = "INSERT INTO [dbo].[User] (username, password, email, fullName, address, phone, gender) VALUES (?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT_USER = "INSERT INTO [dbo].[User] (username, password, email, fullName, address, phone, gender,role) VALUES (?,?,?,?,?,?,?,?)";
     private static final String SQL_LOGIN_USER = "SELECT * FROM [dbo].[User] WHERE email = ? AND password = ?";
 
     private final Connection connection;
@@ -24,6 +24,7 @@ public class UserDAO {
         int gender = user.isGender() ? 1 : 0;
 
         try (PreparedStatement ps = connection.prepareStatement(SQL_INSERT_USER)) {
+            String role = "User";
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getEmail());
@@ -31,6 +32,7 @@ public class UserDAO {
             ps.setString(5, user.getAddress());
             ps.setString(6, user.getPhone());
             ps.setInt(7, gender);
+            ps.setString(8, role);
             ps.executeUpdate();
             System.out.println("Successfully added user to the database!");
             return true;
@@ -64,6 +66,7 @@ public class UserDAO {
         user.setAddress(rs.getString("address"));
         user.setPhone(rs.getString("phone"));
         user.setGender(rs.getBoolean("gender"));
+        user.setRole(rs.getString("role"));
         return user;
     }
 

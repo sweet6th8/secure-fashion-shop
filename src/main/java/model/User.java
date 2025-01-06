@@ -11,12 +11,22 @@ public class User {
     private String address; // Địa chỉ
     private String phone; // Số điện thoại
     private boolean gender ;
+    private String role ;
     private ArrayList<Product> FavoriteProducts ;
 
     // Constructor
     public User() {}
 
     // Getter và Setter
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public int getId() {
         return id;
     }

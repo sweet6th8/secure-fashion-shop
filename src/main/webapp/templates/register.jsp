@@ -14,6 +14,8 @@
     <%@include file="headerResource.jsp"%>
   </head>
   <body>
+<jsp:include page="includes/navbar.jsp"/>
+
     <section class="section-content container-fluid">
       <div class="card mx-auto" style="max-width: 520px; margin-top: 40px">
         <article class="card-body">

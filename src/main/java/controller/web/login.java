@@ -37,23 +37,35 @@ public class login extends HttpServlet {
 
             String email = req.getParameter("email");
             String pass = req.getParameter("password");
-            String message = "Sai thông tin tài khoản mật khẩu ";
             UserDAO udao = new UserDAO(connection);
             HttpSession session = req.getSession();
             try {
                 User user = udao.getLogin(email, pass);
-                System.out.println(user);
-                int userId = user.getId();
-                if (user != null) {
 
+                if (user == null) {
+                    String message = "Sai thông tin tài khoản mật khẩu ";
+                    req.setAttribute("message", message);
+                    req.getRequestDispatcher("/templates/login.jsp").forward(req,resp);
+
+                } else {
+                    int userId = user.getId();
+                    String role = user.getRole();
+
+                    session.setAttribute("role", role);
                     session.setAttribute("userId", userId);
 
                     session.setAttribute("user", user);
+
+                    if (role.equals("Admin")) {
+                        System.out.println(role);
+
+                        resp.sendRedirect(getServletContext().getContextPath() + "/secure/admin");
+                    }
+                    else {
+                        resp.sendRedirect(req.getContextPath());
+
+                    }
                     // fix here, tam thoi dung sendRedirect nen luu user trong session
-                    resp.sendRedirect(req.getContextPath());
-                } else {
-                    req.setAttribute("message", message);
-                    req.getRequestDispatcher("/templates/login.jsp").forward(req,resp);
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);

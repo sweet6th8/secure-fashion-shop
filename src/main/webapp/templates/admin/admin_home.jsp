@@ -1,5 +1,7 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
+<c:set var="basePath" value="${pageContext.request.contextPath}/static"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Main CSS-->
-        <link rel="stylesheet" type="text/css" href="view/assets/admin/css/main.css">
+        <link rel="stylesheet" type="text/css" href="${basePath}/admin/css/main.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <!-- or -->
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -24,6 +26,7 @@
 
     <body onload="time()" class="app sidebar-mini rtl">
         <!-- Navbar-->
+        <p>${requestScope.message}</p>
         <%@include file="../../common/admin/sidebar.jsp"%>
         <main class="app-content">
             <div class="row">

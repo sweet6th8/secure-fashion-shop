@@ -107,3 +107,6 @@ INSERT INTO product VALUES
 ('Men''s Polo Star', 'Stylish leather jacket for a chic look.', '/static/images/products/Mens_Polo.jpg', 99.99, 15, 2),
 ('Men''s sport Paint', 'Fun and colorful t-shirt for kids.', '/static/images/products/Mens_pants.jpg', 19.99, 3, 3),
 ('Kids'' Sneakers', 'Comfortable sneakers for active children.', '/static/images/products/kids_sneakers.jpg', 39.99, 6, 3);
+
+ALTER TABLE [DBO].[User]
+add Role nvarchar(20)
