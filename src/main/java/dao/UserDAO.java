@@ -11,8 +11,8 @@ import java.util.List;
 
 public class UserDAO {
 
-    private static final String SQL_INSERT_USER = "INSERT INTO ListUser (username, password, email, fullName, address, phone, gender) VALUES (?,?,?,?,?,?,?)";
-    private static final String SQL_LOGIN_USER = "SELECT * FROM ListUser WHERE email = ? AND password = ?";
+    private static final String SQL_INSERT_USER = "INSERT INTO [dbo].[User] (username, password, email, fullName, address, phone, gender) VALUES (?,?,?,?,?,?,?)";
+    private static final String SQL_LOGIN_USER = "SELECT * FROM [dbo].[User] WHERE email = ? AND password = ?";
 
     private final Connection connection;
 
@@ -68,7 +68,7 @@ public class UserDAO {
     }
 
     public List<User> getAllUsers() throws SQLException {
-        String SQL_GET_ALL_USERS = "SELECT * FROM ListUser";
+        String SQL_GET_ALL_USERS = "SELECT * FROM [dbo].[User]";
         List<User> users = new ArrayList<>();
 
         try (PreparedStatement ps = connection.prepareStatement(SQL_GET_ALL_USERS);
@@ -85,7 +85,7 @@ public class UserDAO {
     }
 
     public User getUserById(int userId) throws SQLException {
-        String SQL_GET_USER_BY_ID = "SELECT * FROM ListUser WHERE id = ?";
+        String SQL_GET_USER_BY_ID = "SELECT * FROM [dbo].[User] WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(SQL_GET_USER_BY_ID)) {
             ps.setInt(1, userId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -101,7 +101,7 @@ public class UserDAO {
 
 
     public boolean updateUser(User user) throws SQLException {
-        String SQL_UPDATE_USER = "UPDATE ListUser SET username = ?, password = ?, email = ?, fullName = ?, address = ?, phone = ?, gender = ? WHERE id = ?";
+        String SQL_UPDATE_USER = "UPDATE [dbo].[User] SET username = ?, password = ?, email = ?, fullName = ?, address = ?, phone = ?, gender = ? WHERE id = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(SQL_UPDATE_USER)) {
             ps.setString(1, user.getUsername());
@@ -122,7 +122,7 @@ public class UserDAO {
 
 
     public boolean deleteUser(int userId) throws SQLException {
-        String SQL_DELETE_USER = "DELETE FROM ListUser WHERE id = ?";
+        String SQL_DELETE_USER = "DELETE FROM User WHERE id = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(SQL_DELETE_USER)) {
             ps.setInt(1, userId);

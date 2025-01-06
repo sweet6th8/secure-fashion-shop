@@ -48,7 +48,7 @@
                                     <td>
                                         <figure class="itemside align-items-center">
                                             <div class="aside">
-                                                <img src="<c:out value='${cartItem.product.photo}'/>"
+                                                <img src="${pageContext.request.contextPath}${cartItem.product.photo}"
                                                      class="img-sm img-thumbnail"
                                                      alt="<c:out value='${cartItem.product.photo}'/>">
                                             </div>

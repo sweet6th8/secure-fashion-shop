@@ -1,33 +1,7 @@
 ﻿CREATE
 DATABASE ClothingShopWeb;
-USE
-master;
-GO
-ALTER
-DATABASE ClothingShopWeb SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-GO
-DROP
-DATABASE ClothingShopWeb;
-USE
-ClothingShopWeb
--- Tạo bảng User
 
-SELECT *
-FROM ListUser
-SELECT *
-FROM Product
-SELECT *
-FROM Carts
-DELETE
-FROM Carts
-SELECT *
-FROM carts
-WHERE user_id = 1;
-SELECT *
-FROM cart_items
-WHERE cart_id = 7;
-SELECT *
-FROM Product;
+USE ClothingShopWeb
 -- Tạo bảng Category
 CREATE TABLE Categories
 (
@@ -36,7 +10,7 @@ CREATE TABLE Categories
     description NVARCHAR(MAX)                  -- Mô tả danh mục
 );
 
-SELECT * FROM Product
+
 -- Tạo bảng Product
 CREATE TABLE Product
 (
@@ -69,61 +43,25 @@ CREATE TABLE Cart_items
     FOREIGN KEY (product_id) REFERENCES Product (id) ON DELETE CASCADE -- Liên kết sản phẩm
 );
 
+-- Tạo bảng User
 
-CREATE TABLE [dbo].[ListUser]
+CREATE TABLE [dbo].[User]
 (
-    [
-    id]
-    INT
-    IDENTITY
-(
-    1,
-    1
-) NOT NULL, -- Tự động tăng ID
-    [username] NVARCHAR
-(
-    50
-) NOT NULL, -- Tên người dùng (không được trống)
-    [password] NVARCHAR
-(
-    255
-) NOT NULL, -- Mật khẩu (không được trống)
-    [email] NVARCHAR
-(
-    255
-) NULL, -- Email (cho phép trống)
-    [fullName] NVARCHAR
-(
-    255
-) NULL, -- Họ và tên (cho phép trống)
-    [address] NVARCHAR
-(
-    255
-) NULL, -- Địa chỉ (cho phép trống)
-    [phone] NVARCHAR
-(
-    20
-) NULL, -- Số điện thoại (cho phép trống)
-    [gender] BIT NOT NULL, -- Giới tính (1 = Nam, 0 = Nữ, không được trống)
+    id INT IDENTITY ( 1, 1) NOT NULL, -- Tự động tăng ID
+    username NVARCHAR(50) NOT NULL, -- Tên người dùng (không được trống)
+    password NVARCHAR(255) NOT NULL, -- Mật khẩu (không được trống)
+    email NVARCHAR(255) NULL, -- Email (cho phép trống)
+    fullName NVARCHAR(255) NULL, -- Họ và tên (cho phép trống)
+    address NVARCHAR(255) NULL, -- Địa chỉ (cho phép trống)
+    phone NVARCHAR(20) NULL, -- Số điện thoại (cho phép trống)
+    gender BIT NOT NULL, -- Giới tính (1 = Nam, 0 = Nữ, không được trống)
 
     PRIMARY KEY CLUSTERED
-(
-[
-    id]
-    ASC
-), -- Khóa chính dạng Clustered
+( id ASC), -- Khóa chính dạng Clustered
+  UNIQUE NONCLUSTERED
+(email ASC), -- Email là duy nhất, không trùng
     UNIQUE NONCLUSTERED
-(
-[
-    email]
-    ASC
-), -- Email là duy nhất, không trùng
-    UNIQUE NONCLUSTERED
-(
-[
-    username]
-    ASC
-) -- Username là duy nhất, không trùng
+(username ASC) -- Username là duy nhất, không trùng
     ) ON [PRIMARY];
 
 CREATE TABLE Orders
@@ -134,7 +72,7 @@ CREATE TABLE Orders
     status      NVARCHAR(50) NOT NULL,              -- Trạng thái đơn hàng (Pending, Paid, Cancelled...)
     created_at  DATETIME DEFAULT GETDATE(),         -- Thời gian tạo
     updated_at  DATETIME DEFAULT GETDATE(),         -- Thời gian cập nhật
-    FOREIGN KEY (user_id) REFERENCES [ListUser](id) -- Khóa ngoại tới bảng User
+    FOREIGN KEY (user_id) REFERENCES [dbo].[User](id) -- Khóa ngoại tới bảng User
 );
 
 CREATE TABLE Order_Items
@@ -148,10 +86,6 @@ CREATE TABLE Order_Items
     FOREIGN KEY (product_id) REFERENCES Product (id)                 -- Liên kết sản phẩm
 );
 
-SELECT *
-FROM Orders;
-SELECT *
-FROM Order_Items;
 
 -- Insert sample clothing categories
 INSERT INTO Categories (title, description)
@@ -160,42 +94,16 @@ VALUES ('Men''s Clothing', 'A variety of clothing options for men including shir
        ('Kids'' Clothing', 'Trendy and durable clothing for kids of all ages.');
 
 -- Insert sample products related to clothing
-INSERT INTO Product (name, description, photo, price, stock, category_id)
-VALUES ('Men''s Casual Shirt', 'A comfortable cotton shirt for everyday wear.',
-        '/static/images/products/mens_casual_shirt.jpg', 29.99, 5, 1),
-       ('Men''s Denim Jacket', 'Classic denim jacket that goes with any outfit.',
-        '/static/images/products/mens_denim_jacket.jpg', 49.99, 10, 1),
-       ('Women''s Summer Dress', 'Lightweight summer dress perfect for hot weather.',
-        '/static/images/products/womens_summer_dress.jpg', 49.99, 10, 2),
-       ('Women''s Blouse', 'Elegant blouse suitable for work or casual outings.',
-        '/static/images/products/womens_blouse.jpg', 39.99, 8, 2),
-       ('Kids'' T-Shirt', 'Fun and colorful t-shirt for kids.', '/static/images/products/kids_tshirt.jpg', 19.99, 3, 3),
-       ('Kids'' Hoodie', 'Cozy hoodie to keep kids warm in cooler weather.', '/static/images/products/kids_hoodie.jpg',
-        29.99, 5, 3);
-
-INSERT INTO Product (name, description, photo, price, stock, category_id)
-VALUES ('Men''s Casual Shirt', 'A comfortable cotton shirt for everyday wear.',
-        '/static/images/products/mens_casual_shirt.jpg', 29.99, 5, 1),
-       ('Men''s Denim Jacket', 'Classic denim jacket that goes with any outfit.',
-        '/static/images/products/mens_denim_jacket.jpg', 49.99, 10, 1),
-       ('Men''s Formal Pants', 'Slim fit formal pants suitable for office wear.',
-        '/static/images/products/mens_formal_pants.jpg', 39.99, 7, 1),
-       ('Women''s Summer Dress', 'Lightweight summer dress perfect for hot weather.',
-        '/static/images/products/womens_summer_dress.jpg', 49.99, 10, 2),
-       ('Women''s Blouse', 'Elegant blouse suitable for work or casual outings.',
-        '/static/images/products/womens_blouse.jpg', 39.99, 8, 2),
-       ('Women''s Leather Jacket', 'Stylish leather jacket for a chic look.',
-        '/static/images/products/womens_leather_jacket.jpg', 99.99, 15, 2),
-       ('Kids'' T-Shirt', 'Fun and colorful t-shirt for kids.', '/static/images/products/kids_tshirt.jpg', 19.99, 3, 3),
-       ('Kids'' Hoodie', 'Cozy hoodie to keep kids warm in cooler weather.', '/static/images/products/kids_hoodie.jpg',
-        29.99, 5, 3),
-       ('Kids'' Sneakers', 'Comfortable sneakers for active children.', '/static/images/products/kids_sneakers.jpg',
-        39.99, 6, 3);
-
-
-
-SELECT *
-FROM CartItem
-
-SELECT *
-FROM ListUser
+INSERT INTO product VALUES
+('Men''s Casual Shirt', 'A comfortable cotton shirt for everyday wear.', '/static/images/products/mens_casual_shirt.jpg', 29.99, 5, 1),
+('Men''s Denim Jacket', 'Classic denim jacket that goes with any outfit.', '/static/images/products/mens_denim_jacket.jpg', 49.99, 10, 1),
+('Women''s Summer Dress', 'Lightweight summer dress perfect for hot weather.', '/static/images/products/womens_summer_dress.jpg', 49.99, 10, 2),
+('Women''s Blouse', 'Elegant blouse suitable for work or casual outings.', '/static/images/products/womens_blouse.jpg', 39.99, 8, 2),
+('Kids'' T-Shirt', 'Fun and colorful t-shirt for kids.', '/static/images/products/kids_tshirt.jpg', 19.99, 3, 3),
+('Kids'' Hoodie', 'Cozy hoodie to keep kids warm in cooler weather.', '/static/images/products/kids_hoodie.jpg', 29.99, 5, 3),
+('Men''s Formal Pants', 'Slim fit formal pants suitable for office wear.', '/static/images/products/mens_formal_pants.jpg', 39.99, 7, 1),
+('Men''s New Seven', 'Lightweight summer dress perfect for hot weather.', '/static/images/products/Mens_New_Seven.jpg', 49.99, 10, 2),
+('Men''s T shirt', 'Elegant blouse suitable for work or casual outings.', '/static/images/products/Mens_I_Shirt.jpg', 39.99, 8, 2),
+('Men''s Polo Star', 'Stylish leather jacket for a chic look.', '/static/images/products/Mens_Polo.jpg', 99.99, 15, 2),
+('Men''s sport Paint', 'Fun and colorful t-shirt for kids.', '/static/images/products/Mens_pants.jpg', 19.99, 3, 3),
+('Kids'' Sneakers', 'Comfortable sneakers for active children.', '/static/images/products/kids_sneakers.jpg', 39.99, 6, 3);
