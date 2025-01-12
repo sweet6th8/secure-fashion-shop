@@ -149,8 +149,10 @@ public class CartServlet extends HttpServlet {
                 return;
             }
 
-            addItemToCart(userId, cartDAO, product, quantity);
+          Cart cart =   addItemToCart(userId, cartDAO, product, quantity);
+            request.getSession().setAttribute("cart", cart);
             System.out.println("Product added to cart. Redirecting to cart page.");
+
             redirectToPage(response, "/secure/cart");
         } catch (NumberFormatException e) {
             sendErrorResponse(response, HttpServletResponse.SC_BAD_REQUEST, ERROR_INVALID_INPUT);
@@ -195,7 +197,7 @@ public class CartServlet extends HttpServlet {
         }
     }
 
-    private void addItemToCart(int userId, CartDAO cartDAO, Product product, int quantity) throws SQLException {
+    private Cart addItemToCart(int userId, CartDAO cartDAO, Product product, int quantity) throws SQLException {
         Cart cart = cartDAO.getCartByUserId(userId);
         if (cart == null) {
             System.out.println("Creating a new cart for userId: " + userId);
@@ -205,6 +207,7 @@ public class CartServlet extends HttpServlet {
 
         cart.addItem(product, quantity);
         cartDAO.updateCart(cart);
+        return cart;
     }
 
     private void updateQuantity(HttpServletRequest request, HttpServletResponse response, int userId, CartDAO cartDAO) throws IOException {
@@ -238,12 +241,16 @@ public class CartServlet extends HttpServlet {
             cartDAO.updateCart(cart);
             double itemTotalPrice = cart.getItemTotalPrice(productId); // Ensure Cart class has this function
             double totalCartPrice = cart.getTotalPrice();
+            HttpSession session = request.getSession();
+            session.setAttribute("cart", cart);
 
             // Respond with both the updated individual item price and total price
             response.getWriter().write("{\"success\": true, \"updatedItemTotal\": " + itemTotalPrice + ", \"totalCartPrice\": " + totalCartPrice + "}");
         } catch (NumberFormatException e) {
             System.out.println("Invalid product ID or quantity format.");
             response.getWriter().write("{\"success\": false, \"message\": \"Invalid product ID or quantity.\"}");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -269,12 +276,14 @@ public class CartServlet extends HttpServlet {
             cart.removeItem(productId);
             cartDAO.updateCart(cart);
             double totalCartPrice = cart.getTotalPrice();
-
+request.getSession().setAttribute("cart", cart);
             // Respond with updated total price
             response.getWriter().write("{\"success\": true, \"totalCartPrice\": " + totalCartPrice + "}");
         } catch (NumberFormatException e) {
             System.out.println("Invalid product ID format.");
             response.getWriter().write("{\"success\": false, \"message\": \"Invalid product ID.\"}");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

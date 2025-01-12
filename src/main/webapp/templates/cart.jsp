@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>GreatKart | Shopping Cart</title>
     <jsp:include page="headerResource.jsp"/>
-    <script src="js/cart.js"></script> <!-- Thêm liên kết file JavaScript -->
+    <script src="${pageContext.request.contextPath}/static/js/cart.js"></script> <!-- Thêm liên kết file JavaScript -->
 </head>
 <body>
 <%@ include file="/templates/includes/navbar.jsp" %>
@@ -116,7 +116,7 @@
                         </dl>
                         <hr>
 
-                        <a href="place-order" class="btn btn-primary btn-block"> Checkout </a>
+                        <a href="${pageContext.request.contextPath}/place-order" class="btn btn-primary btn-block"> Checkout </a>
                         <a href="${pageContext.request.contextPath}" class="btn btn-light btn-block">Continue
                             Shopping</a>
                     </div>

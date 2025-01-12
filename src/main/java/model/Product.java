@@ -1,6 +1,8 @@
 package model;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private int id; // ID sản phẩm
     private String name; // Tên sản phẩm
     private String description; // Mô tả sản phẩm

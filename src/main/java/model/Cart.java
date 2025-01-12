@@ -16,6 +16,11 @@ public class Cart {
         this.items = new ConcurrentHashMap<>();
     }
 
+    public Cart(int userId) {
+        this.userId = userId;
+        this.items = new ConcurrentHashMap<>();
+    }
+
     // Create an unassigned cart (e.g., for a guest user)
     public static Cart createUnassignedCart(int userId) {
         return new Cart(UNASSIGNED_CART_ID, userId);
@@ -51,6 +56,7 @@ public class Cart {
 
             // Update existing item
             existingItem.setQuantity(newQuantity);
+            items.put(product.getId(), existingItem);
             return existingItem;
         });
     }
@@ -64,7 +70,17 @@ public class Cart {
         if (quantity <= 0 || quantity > item.getProduct().getStock()) {
             throw new IllegalArgumentException("Invalid quantity.");
         }
+
         item.setQuantity(quantity);
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "cartId=" + cartId +
+                ", userId=" + userId +
+                ", items=" + items +
+                '}';
     }
 
     // Remove an item from the cart

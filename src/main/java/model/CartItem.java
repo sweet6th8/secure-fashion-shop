@@ -11,6 +11,14 @@ public class CartItem {
         this.quantity = quantity;
     }
 
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "product=" + product +
+                ", quantity=" + quantity +
+                '}';
+    }
+
     // Getters and Setters
     public Product getProduct() {
         return product;

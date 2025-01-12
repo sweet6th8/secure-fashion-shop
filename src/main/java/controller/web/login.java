@@ -1,5 +1,6 @@
 package controller.web;
 
+import Util.GeneratePassword;
 import dao.CartDAO;
 import dao.DBConnectionPool;
 import dao.UserDAO;
@@ -42,8 +43,24 @@ public class login extends HttpServlet {
             UserDAO udao = new UserDAO(connection);
             HttpSession session = req.getSession();
             try {
-                User user = udao.getLogin(email, pass);
+                if (!udao.checkActive(email)) {
+                    String message = "Account is not active!";
+                    req.setAttribute("message", message);
+                    req.getRequestDispatcher("/templates/login.jsp").forward(req,resp);
+                }
+                if (!udao.checkEmailExist(email)) {
+                    String message = "Email is not exist!";
+                    req.setAttribute("message", message);
+                    req.getRequestDispatcher("/templates/login.jsp").forward(req,resp);
+                }
+                String realPass = udao.getPassword(email);
+             if (!GeneratePassword.checkPassword(pass, realPass)) {
+                 String message = "Sai thông tin tài khoản mật khẩu ";
+                 req.setAttribute("message", message);
+                 req.getRequestDispatcher("/templates/login.jsp").forward(req,resp);
 
+             }
+                User user = udao.getLogin(email,realPass);
                 if (user == null) {
                     String message = "Sai thông tin tài khoản mật khẩu ";
                     req.setAttribute("message", message);

@@ -147,7 +147,7 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                             </div>
                                                 <%--                                            <a href="addToCart?id=${product.getId()}" class="btn btn-block btn-success">Add--%>
                                                 <%--                                                to cart</a>--%>
-                                            <form action="/secure/cart" method="post">
+                                            <form action="${pageContext.request.contextPath}/secure/cart" method="post">
                                                 <input type="hidden" name="action" value="addToCart">
                                                 <input type="hidden" name="productId" value="${product.getId()}">
                                                 <input type="hidden" name="quantity" min="1" value="1"
@@ -156,6 +156,7 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                                     <span class="text"> <fmt:message key="btnAddToCart"/> </span>
                                                     <i class="fas fa-shopping-cart"></i>
                                                 </button>
+                                                <a href="${pageContext.request.contextPath}/secure/AddToSaved?productId=${product.getId()}" class="w-auto btn  float-right   "><i class="fas fa-heart float-right fa-2x text-light "></i></a>
                                             </form>
                                         </figcaption>
                                     </figure>
@@ -182,10 +183,7 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
         </div>
     </div>
 </section>
-<script
-        src="${pageContext.request.contextPath}/js/navbar.js"
-        type="text/javascript"
-></script>
+
 <%@ include file="/templates/includes/footer.jsp" %>
 </body>
 </html>

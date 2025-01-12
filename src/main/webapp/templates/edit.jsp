@@ -15,7 +15,7 @@
   </head>
 <body>
 <jsp:include page="includes/navbar.jsp"/>
-<c:set var="user" value="${sessionScope.user}"/>
+<c:set var="user" value="${requestScope.user}"/>
 <section class="section-content container-fluid" style="margin-top: 100px">
   <div class="card mx-auto " style="max-width: 520px">
     <article class="card-body">
@@ -28,7 +28,7 @@
                     name="FirstName"
                     type="text"
                     class="form-control"
-                    placeholder="${user.getFirstName()}"
+                    value="${user.getUsername()}"
                     maxlength="255"
                     autofocus
                     required
@@ -40,7 +40,7 @@
                     name="LastName"
                     type="text"
                     class="form-control"
-                    placeholder="${user.getLastName()}"
+                    value="${user.getUsername()}"
                     maxlength="255"
                     required
             />
@@ -53,7 +53,7 @@
                   name="Email"
                   type="email"
                   class="form-control"
-                  placeholder="${user.getEmail()}"
+                  value="${user.getEmail()}"
                   required
                   onChange="validateEmail()"
           />
@@ -63,7 +63,7 @@
         </div>
         <div class="form-group">
           <label>phone</label>
-          <input type="text" id="phone"       placeholder="${user.getPhone()}" oninput="validatePhone()"  required   class="form-control" />
+          <input type="text" id="phone"       value="${user.getPhone()}" oninput="validatePhone()"  required   class="form-control" />
           <span id="error-phone" style="color: red; display: none;"></span>
 
 
@@ -93,14 +93,13 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label>Country</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" value="${user.getAddress().split(",")[0]}" />
           </div>
           <div class="form-group col-md-6">
             <label>City</label>
             <input list="inputState" class="form-control" />
             <datalist name="city" id="inputState">
-              <option name="city" selected value="${user.getAddress()}"></option>
-              <option name="city"  value="Long An"></option>
+              <option name="city" selected  value="Long An"></option>
               <option name="city" value="Binh Dinh"></option>
               <option name="city" value="Quy Nhon"></option>
               <option name="city" value="Quang Ngai"></option>

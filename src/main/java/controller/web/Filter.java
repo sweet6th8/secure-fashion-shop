@@ -19,7 +19,7 @@ public class Filter implements jakarta.servlet.Filter {
         HttpSession session = req.getSession();
         try {
             String role = (String) session.getAttribute("role");
-            if (role.equals("Admin") || session.getAttribute("role").equals("User")) {
+            if (role.equals("Admin") || role.equals("User")) {
                 chain.doFilter(request, response);
 
             }

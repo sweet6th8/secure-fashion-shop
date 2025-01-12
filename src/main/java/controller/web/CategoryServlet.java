@@ -17,7 +17,7 @@ import java.util.List;
 //Chức năng: Hiển thị danh sách sản phẩm theo danh mục (ví dụ: quần áo nam, quần áo nữ).
 //Xử lý: Nhận ID danh mục từ yêu cầu, lấy danh sách sản phẩm theo danh mục từ ProductDAO,
 //thiết lập thuộc tính cho request và chuyển hướng đến category.jsp
-@WebServlet("/category")
+@WebServlet(urlPatterns = {"/category"})
 public class CategoryServlet extends HttpServlet {
 
 
@@ -26,7 +26,7 @@ public class CategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {
             String categoryId = request.getParameter("id");
-
+            categoryId = (categoryId == null) ? "all" : categoryId;
 
             ProductDAO productDAO = new ProductDAO(connection);
             List<Product> products;

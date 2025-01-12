@@ -11,15 +11,54 @@ import java.util.List;
 
 public class UserDAO {
 
-    private static final String SQL_INSERT_USER = "INSERT INTO [dbo].[User] (username, password, email, fullName, address, phone, gender,role,Img) VALUES (?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT_USER = "INSERT INTO [dbo].[User] (username, password, email, fullName, address, phone, gender,role,Img , Active) VALUES (?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_LOGIN_USER = "SELECT * FROM [dbo].[User] WHERE email = ? AND password = ?";
     private static final String SQL_UPDATE_PASSWORD = "UPDATE [dbo].[User] SET password = ? WHERE email = ?";
+    public static final String SQL_GET_PASSWORD = "SELECT password FROM [dbo].[User] WHERE email = ?";
+    public static final String SQL_GET_USERID = "SELECT id FROM [dbo].[User] WHERE email = ?";
+    public static final String SQL_CHECK_ACTIVE = "SELECT Active FROM [dbo].[User] WHERE email = ?";
+    public static final String SQL_UPDATE_ACTIVE ="UPDATE [dbo].[User]  SET ACTIVE = ? WHERE  id = ? ";
     private final Connection connection;
 
     public UserDAO(Connection connection) {
         this.connection = connection;
     }
+    public boolean updateActive (int id) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(SQL_UPDATE_ACTIVE);
+        ps.setBoolean(1, true);
+        ps.setInt(2, id);
+        System.out.println(ps.executeUpdate());
+        return ps.executeUpdate() > 0;
+    }
+    public boolean checkActive(String email) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(SQL_CHECK_ACTIVE);
+        ps.setString(1, email);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getBoolean(1);
+        }
+    return false;
+    }
+    public int getUserId(String email) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(SQL_GET_USERID);
+        ps.setString(1, email);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1);
 
+        }
+        return -1;
+    }
+    public String getPassword(String email) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(SQL_GET_PASSWORD);
+        ps.setString(1, email);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getString(1);
+
+        }
+        return null;
+    }
     public boolean updatePassword(String email, String password) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(SQL_UPDATE_PASSWORD);
         ps.setString(1, password);
@@ -38,6 +77,7 @@ public class UserDAO {
             ps.setInt(7, gender);
             ps.setString(8, role);
             ps.setString(9, Img);
+            ps.setBoolean(10,false);
             ps.executeUpdate();
             System.out.println("Successfully added user to the database!");
             return true;

@@ -10,7 +10,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>GreatKart | One of the Biggest Online Shopping Platform</title>
+    <title>Register your account </title>
     <%@include file="headerResource.jsp"%>
   </head>
   <body>
@@ -28,7 +28,7 @@
                   name="FirstName"
                   type="text"
                   class="form-control"
-                  placeholder=""
+                  placeholder="Enter your first name"
                   maxlength="255"
                   autofocus
                   required
@@ -40,7 +40,7 @@
                   name="LastName"
                   type="text"
                   class="form-control"
-                  placeholder=""
+                  placeholder="Enter your last name"
                   maxlength="255"
                   required
                 />
@@ -53,13 +53,14 @@
                 name="Email"
                 type="email"
                 class="form-control"
-                placeholder=""
+                placeholder="Enter your email address "
                 required
                 onChange="validateEmail()"
               />
               <p id="error-email" style="color: red; display: none">
                 Email invalid
               </p>
+              <p  style="color: red;">${message}</p>
             </div>
             <div class="form-group">
               <label>phone</label>
@@ -73,7 +74,7 @@
                 <input
                   name="gender"
                   class="custom-control-input"
-                  checked=""
+                  checked
                   type="radio"
                   value="1"
                 />
@@ -93,13 +94,15 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label>Country</label>
-                <input type="text" class="form-control" name="Country" />
+                <input type="text" class="form-control" name="Country" value="VN" />
               </div>
               <div class="form-group col-md-6">
                 <label>City</label>
-                <input list="inputState" class="form-control" name="City" />
+                <label>
+                  <input list="inputState" class="form-control" name="City" value="Ho Chi Minh" />
+                </label>
                 <datalist name="city" id="inputState">
-                  <option name="city" selected value="Long An"></option>
+                  <option name="city" value="Long An"></option>
                   <option name="city" value="Binh Dinh"></option>
                   <option name="city" value="Quy Nhon"></option>
                   <option name="city" value="Quang Ngai"></option>
@@ -117,6 +120,7 @@
                   name="password"
                   id="password"
                   class="form-control"
+                        placeholder="Enter your password"
                   onchange="validatePassword()"
                 />
                 <p id="password-error" style="color: red; display: none">
@@ -129,6 +133,7 @@
                 <input
                   id="Checkpassword"
                   name="Checkpassword"
+                  placeholder="Confirm your password"
                   class="form-control"
                   type="password"
                   required

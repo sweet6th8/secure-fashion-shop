@@ -1,5 +1,7 @@
 package controller.web;
 
+import dao.DBConnectionPool;
+import dao.UserDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,6 +12,8 @@ import jakarta.servlet.http.HttpSession;
 import model.User;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 @WebServlet(name = "EditServlet", urlPatterns = {"/secure/EditServlet"})
 @MultipartConfig(
@@ -19,6 +23,18 @@ import java.io.IOException;
 )
 
 public class EditProfile  extends HttpServlet {
+    private Connection con ;
+
+    @Override
+    public void init() throws ServletException {
+        try {
+            con = DBConnectionPool.getDataSource().getConnection();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String role = (String) session.getAttribute("role");
@@ -26,5 +42,15 @@ public class EditProfile  extends HttpServlet {
             request.setAttribute("message","Vui lòng đăng nhập vào tài khoản User");
             request.getRequestDispatcher("/templates/login.jsp").forward(request, response);
         }
+        try {
+            UserDAO udao   = new UserDAO(con);
+
+            User user = udao.getUserById(Integer.parseInt(request.getParameter("id")));
+
+            request.setAttribute("user",user);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        request.getRequestDispatcher("/templates/edit.jsp").forward(request, response);
     }
 }

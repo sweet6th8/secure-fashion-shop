@@ -86,6 +86,16 @@ CREATE TABLE Order_Items
     FOREIGN KEY (product_id) REFERENCES Product (id)                 -- Liên kết sản phẩm
 );
 
+CREATE TABLE Saved_Items
+(
+    id         INT PRIMARY KEY IDENTITY(1,1),                        -- ID tự tăng
+    user_id   INT            NOT NULL,                              -- Tham chiếu đến bảng Orders
+    product_id INT            NOT NULL,  
+	  Quantity INT            NOT NULL,  -- Tham chiếu đến bảng Product
+    FOREIGN KEY (user_id) REFERENCES [dbo].[User] (id) ON DELETE CASCADE, -- Liên kết đơn hàng
+    FOREIGN KEY (product_id) REFERENCES Product (id)                 -- Liên kết sản phẩm
+);
+
 
 -- Insert sample clothing categories
 INSERT INTO Categories (title, description)
@@ -111,8 +121,24 @@ GO
 ALTER TABLE [DBO].[User]
 add Role nvarchar(20)
 GO
+
 ALTER TABLE [DBO].[User]
 add Img nvarchar(255)
+
+Alter table [DBO].[User]
+add Active bit NOT NULL
+
 select * from [DBO].[User]
+
+SELECT * FROM Saved_Items
 -- reset id 
 DBCC CHECKIDENT (Product, RESEED, 0);
+DBCC CHECKIDENT ('[DBO].[User]', RESEED, 0);
+
+SELECT P.id , P.name , P.price  , P.photo   FROM Saved_Items S join Product P on P.id=S.product_id  where user_id = 2
+
+SELECT O.id , KH.fullName  , kh.phone , kh.address , O.created_at , O.total_price ,O.status  FROM 
+            Order_Items OI JOIN    Orders O on O.id = OI.order_id
+             JOIN product P ON P.id = OI.product_id 
+			 JOIN [dbo].[User] KH ON KH.id = O.user_id
+             WHERE O.user_id =  2

@@ -65,7 +65,17 @@ public class CartDAO {
         }
     }
 
-    public void updateCart(Cart cart) {
+    public void updateCart(Cart cart) throws SQLException {
+//        String query = "UPDATE cart_items SET quantity = ? WHERE cart_id = ? and product_id = ?";
+//        PreparedStatement stmt = connection.prepareStatement(query);
+//        for (CartItem item : cart.getItems().values()) {
+//            stmt.setInt(1, item.getQuantity());
+//
+//                    stmt.setInt(2, cart.getCartId());
+//                    stmt.setInt(3, item.getProduct().getId());
+//                    stmt.addBatch();
+//                }
+//        stmt.executeBatch();
         String deleteItems = "DELETE FROM cart_items WHERE cart_id = ?";
         String insertItem = "INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (?, ?, ?)";
         try (PreparedStatement deleteStmt = connection.prepareStatement(deleteItems)) {
@@ -77,9 +87,8 @@ public class CartDAO {
                     insertStmt.setInt(1, cart.getCartId());
                     insertStmt.setInt(2, item.getProduct().getId());
                     insertStmt.setInt(3, item.getQuantity());
-                    insertStmt.addBatch();
+                   insertStmt.executeUpdate();
                 }
-                insertStmt.executeBatch();
             }
         } catch (SQLException e) {
             e.printStackTrace();
