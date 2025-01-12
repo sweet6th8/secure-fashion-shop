@@ -113,4 +113,8 @@ public class Product {
                 ", category=" + category +
                 '}';
     }
+
+    public void setCategoryId(int categoryId) {
+        this.category.setId(categoryId);
+    }
 }

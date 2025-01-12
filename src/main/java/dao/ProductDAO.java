@@ -238,4 +238,78 @@ public class ProductDAO {
         }
         return filteredProducts;
     }
+    // Assuming Product has a Category property
+    private Product mapResultSetToProduct(ResultSet rs) throws Exception {
+        Product product = new Product();
+
+        // Map product attributes
+        product.setId(rs.getInt("id"));
+        product.setName(rs.getString("name"));
+        product.setPrice(rs.getDouble("price"));
+        product.setDescription(rs.getString("description"));
+        product.setPhoto(rs.getString("photo"));
+
+        // Map category ID - Initialize Category object to prevent NullPointerException
+        if (rs.getObject("category_id") != null) {
+            Category category = new Category();
+            category.setId(rs.getInt("category_id")); // Set category ID
+            product.setCategory(category); // Assuming Product has a 'setCategory' method
+        }
+
+        return product;
+    }
+    public List<Product> getAllProductsPaginated(int offset, int size) throws Exception {
+        String sql = "SELECT * FROM Product ORDER BY id OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, offset); // Set offset
+            stmt.setInt(2, size);   // Set the number of rows
+            try (ResultSet rs = stmt.executeQuery()) {
+                List<Product> products = new ArrayList<>();
+                while (rs.next()) {
+                    products.add(mapResultSetToProduct(rs));
+                }
+                return products;
+            }
+        }
+    }
+
+    public int countAllProducts() throws Exception {
+        String sql = "SELECT COUNT(*) AS total FROM Product";
+        try (PreparedStatement stmt = connection.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("total");
+            }
+            return 0;
+        }
+    }
+
+    public List<Product> getProductsByCategoryIdPaginated(int categoryId, int offset, int size) throws Exception {
+        String sql = "SELECT * FROM Product WHERE category_id = ? ORDER BY id OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, categoryId); // Set category ID
+            stmt.setInt(2, offset);     // Set offset
+            stmt.setInt(3, size);       // Set the number of rows
+            try (ResultSet rs = stmt.executeQuery()) {
+                List<Product> products = new ArrayList<>();
+                while (rs.next()) {
+                    products.add(mapResultSetToProduct(rs));
+                }
+                return products;
+            }
+        }
+    }
+
+    public int countProductsByCategoryId(int categoryId) throws Exception {
+        String sql = "SELECT COUNT(*) AS total FROM Product WHERE category_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, categoryId); // Set category ID
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("total");
+                }
+                return 0;
+            }
+        }
+    }
 }

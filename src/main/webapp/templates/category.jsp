@@ -169,13 +169,15 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                         </c:otherwise>
                     </c:choose>
                 </div>
-                <nav class="mt-4" aria-label="Page navigation sample">
+                <nav aria-label="Page navigation">
                     <ul class="pagination">
-                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        <c:forEach var="i" begin="1" end="${totalPages}">
+                            <li class="page-item ${i == currentPage ? 'active' : ''}">
+                                <a class="page-link" href="${pageContext.request.contextPath}/category?id=${param.id}&page=${i}&size=10">
+                                        ${i}
+                                </a>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </nav>
             </main>

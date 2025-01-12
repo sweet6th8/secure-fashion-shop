@@ -1,0 +1,1 @@
+bin\OpenPoseDemo.exe --image_dir examples\input_images --hand --write_json examples\output_json/ --write_images examples\output_images/ --display 0 --disable_blending
