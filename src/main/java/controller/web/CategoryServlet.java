@@ -22,34 +22,81 @@ public class CategoryServlet extends HttpServlet {
 
 
 
+//    @Override
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {
+//            String categoryId = request.getParameter("id");
+//
+//
+//            ProductDAO productDAO = new ProductDAO(connection);
+//            List<Product> products;
+//
+//            // If a category ID is provided, fetch products for that category
+//            // If the category ID is "all", fetch all products
+//            if ("all".equals(categoryId)) {
+//                products = productDAO.getAllProducts(); // Implement this method in ProductDAO
+//            } else if (categoryId != null) {
+//                // If a category ID is provided, fetch products for that category
+//                products = productDAO.getProductsByCategoryId(Integer.parseInt(categoryId));
+//            } else {
+//                products = null; // No specific category or all products requested
+//            }
+//            // Set product list in request attribute
+//            request.setAttribute("productList", products);
+//            // Forward the request to category.jsp to display products
+//            request.getRequestDispatcher("/templates/category.jsp").forward(request, response);
+//        } catch (Exception e) {
+//            throw new ServletException("Error connecting to the database", e);
+//        }
+//
+//
+//
+//    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {
             String categoryId = request.getParameter("id");
+<<<<<<< HEAD
             categoryId = (categoryId == null) ? "all" : categoryId;
+=======
+            String pageParam = request.getParameter("page"); // Get current page from request
+            String sizeParam = request.getParameter("size"); // Get page size (number of items per page)
+
+            int page = (pageParam != null) ? Integer.parseInt(pageParam) : 1; // Default to page 1
+            int size = (sizeParam != null) ? Integer.parseInt(sizeParam) : 10; // Default page size: 10
+            int offset = (page - 1) * size;
+>>>>>>> 0aa83980b2392a2ff9b4eedfda5a78eeca28c8a9
 
             ProductDAO productDAO = new ProductDAO(connection);
             List<Product> products;
+            int totalProducts;
 
-            // If a category ID is provided, fetch products for that category
-            // If the category ID is "all", fetch all products
+            // If the category ID is "all", fetch all products with pagination
             if ("all".equals(categoryId)) {
-                products = productDAO.getAllProducts(); // Implement this method in ProductDAO
+                products = productDAO.getAllProductsPaginated(offset, size); // Implement paginated method in ProductDAO
+                totalProducts = productDAO.countAllProducts(); // Implement method to count all products
             } else if (categoryId != null) {
-                // If a category ID is provided, fetch products for that category
-                products = productDAO.getProductsByCategoryId(Integer.parseInt(categoryId));
+                // Fetch products for the specific category with pagination
+                int categoryIdParsed = Integer.parseInt(categoryId);
+                products = productDAO.getProductsByCategoryIdPaginated(categoryIdParsed, offset, size);
+                totalProducts = productDAO.countProductsByCategoryId(categoryIdParsed); // Count products for category
             } else {
                 products = null; // No specific category or all products requested
+                totalProducts = 0;
             }
-            // Set product list in request attribute
+
+            int totalPages = (int) Math.ceil((double) totalProducts / size);
+
+            // Set attributes for the request
             request.setAttribute("productList", products);
-            // Forward the request to category.jsp to display products
+            request.setAttribute("currentPage", page);
+            request.setAttribute("totalPages", totalPages);
+
+            // Forward to JSP
             request.getRequestDispatcher("/templates/category.jsp").forward(request, response);
         } catch (Exception e) {
             throw new ServletException("Error connecting to the database", e);
         }
-
-
-
     }
 }

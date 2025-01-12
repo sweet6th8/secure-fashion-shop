@@ -13,6 +13,10 @@
             <img src="${Context}/static/images/banners/1.jpg" class="img-fluid rounded"
                  alt="Intro Banner">
         </div>
+        <!-- New Try On Button -->
+        <div class="text-center mt-3">
+            <a href="${Context}/templates/tryon.jsp" class="btn btn-primary">Try On</a>
+        </div>
     </div>
 </section>
 
