@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="static/admin/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/admin/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <!-- Font-icon css-->
@@ -24,6 +24,7 @@
         <ul class="app-breadcrumb breadcrumb side">
             <li class="breadcrumb-item active"><a href="#"><b>Danh sách người dùng</b></a></li>
         </ul>
+        <div>${requestScope.mess}</div>
         <div id="clock"></div>
     </div>
 
@@ -70,23 +71,23 @@
                                     </c:choose>
                                 </td>
                                 <td>
-                                    <a href="EditUserServlet?uid=${u.getId()}" class="btn btn-edit" title="Edit"><i class="fas fa-edit"></i></a>
-                                    <a href="DeleteUserServlet?uid=${u.getId()}" class="btn btn-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="${pageContext.request.contextPath}/secure/EditUserServlet?uid=${u.getId()}" class="btn btn-edit" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <a href="${pageContext.request.contextPath}/secure/DeleteUserServlet?uid=${u.getId()}" class="btn btn-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         </c:forEach>
                         <div class="modal fade" id="modal_box" role="dialog"></div>
                         <!-- Essential javascripts for application to work-->
-                        <script src="view/assets/admin/js/jquery-3.2.1.min.js"></script>
-                        <script src="view/assets/admin/js/popper.min.js"></script>
-                        <script src="view/assets/admin/js/bootstrap.min.js"></script>
+                        <script src="${pageContext.request.contextPath}/static/admin/js/jquery-3.2.1.min.js"></script>
+                        <script src="${pageContext.request.contextPath}/static/admin/js/popper.min.js"></script>
+                        <script src="${pageContext.request.contextPath}/static/admin/js/bootstrap.min.js"></script>
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-                        <script src="view/assets/admin/js/main.js"></script>
+                        <script src="${pageContext.request.contextPath}/static/admin/js/main.js"></script>
                         <!-- Page specific javascripts-->
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
                         <!-- Data table plugin-->
-                        <script type="text/javascript" src="view/assets/admin/js/plugins/jquery.dataTables.min.js"></script>
-                        <script type="text/javascript" src="view/assets/admin/js/plugins/dataTables.bootstrap.min.js"></script>
+                        <script type="text/javascript" src="${pageContext.request.contextPath}/static/admin/js/plugins/jquery.dataTables.min.js"></script>
+                        <script type="text/javascript" src="${pageContext.request.contextPath}/static/admin/js/plugins/dataTables.bootstrap.min.js"></script>
                         <script type="text/javascript">$('#sampleTable').DataTable();</script>
                         <script type="text/javascript">
                             function confirmDelete(modalID, uid) {

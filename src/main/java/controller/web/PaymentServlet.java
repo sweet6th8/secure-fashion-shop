@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.PayPalConfig;
 
 import java.io.IOException;
@@ -25,14 +26,18 @@ public class PaymentServlet extends HttpServlet {
         String successUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/SuccessServlet";
         String cancelUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/CancelServlet";
         String total = request.getParameter("total"); // Total price of the cart
-
+        HttpSession session = request.getSession();
+        Double result = Double.parseDouble(total);
+        if (session.getAttribute("lang").equals("vi_VN")){
+            result /= 25000;
+        }
         try {
             APIContext apiContext = PayPalConfig.getAPIContext();
 
             // Set payment details
             Amount amount = new Amount();
             amount.setCurrency("USD");
-            amount.setTotal(total); // Total amount
+            amount.setTotal(String.valueOf(result)); // Total amount
 
             Transaction transaction = new Transaction();
             transaction.setDescription("Your purchase from the Clothing Shop");

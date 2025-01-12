@@ -106,7 +106,13 @@ INSERT INTO product VALUES
 ('Men''s T shirt', 'Elegant blouse suitable for work or casual outings.', '/static/images/products/Mens_I_Shirt.jpg', 39.99, 8, 2),
 ('Men''s Polo Star', 'Stylish leather jacket for a chic look.', '/static/images/products/Mens_Polo.jpg', 99.99, 15, 2),
 ('Men''s sport Paint', 'Fun and colorful t-shirt for kids.', '/static/images/products/Mens_pants.jpg', 19.99, 3, 3),
-('Kids'' Sneakers', 'Comfortable sneakers for active children.', '/static/images/products/kids_sneakers.jpg', 39.99, 6, 3);
-
+('Kids'' T shirt', 'Comfortable sneakers for active children.', '/static/images/products/children.jpg', 39.99, 6, 3);
+GO
 ALTER TABLE [DBO].[User]
 add Role nvarchar(20)
+GO
+ALTER TABLE [DBO].[User]
+add Img nvarchar(255)
+select * from [DBO].[User]
+-- reset id 
+DBCC CHECKIDENT (Product, RESEED, 0);

@@ -59,3 +59,16 @@
 header {
     background-color: #fff;
 }
+.relative {
+    position: relative;
+}
+.badge-danger {
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 12px;
+}

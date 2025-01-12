@@ -18,24 +18,19 @@
     <div class="card mx-auto" style="max-width: 380px; margin-top: 100px">
         <div class="card-body">
             <h4 class="card-title mb-4">Tạo mật khẩu mới</h4>
-            <form action="CreatePassword" method="GET">
+            <form action="${pageContext.request.contextPath}/templates/CreatePassword" method="Post">
                 <div class="form-row">
-                    <label>Mật khẩu cũ</label>
-                    <input id="OldPassword" name="Email" type="password" class="form-control" placeholder="" require>
-                </div>
-                <div class="form-row">
-
-                    <label for="password">Mật khẩu:</label>
+                    <label for="password">Mật khẩu mới:</label>
                     <input type="password" name="password" id="password" class="form-control"
-                           onchange="validatePassword()">
+                           onchange="validatePassword()" required>
                     <p id="password-error" style="color: red; display: none;">Mật khẩu phải có từ 8 đến 20 ký tự, bao
                         gồm chữ hoa, chữ thường, số và ký tự đặc biệt.</p>
 
                 </div>
                 <div class="form-row">
-                    <label>Nhập lại mật khẩu </label>
+                    <label>Nhập lại mật khẩu mới  </label>
                     <input id="Checkpassword" name="Checkpassword" class="form-control" type="password"
-                           onChange="validateCheckPassword()">
+                           onChange="validateCheckPassword()" required>
                     <p id="Checkpassword-error" style="color: red; display: none;"> Mật khẩu không trùng khớp </p>
                 </div>
                 <div class="form-group mt-4">

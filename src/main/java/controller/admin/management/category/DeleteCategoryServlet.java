@@ -17,10 +17,10 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "DeleteCategoryServlet", urlPatterns = {"/DeleteCategoryServlet"})
+@WebServlet(name = "DeleteCategoryServlet", urlPatterns = {"/secure/DeleteCategoryServlet"})
 public class DeleteCategoryServlet extends HttpServlet {
     private DataSource dataSource;
-    private static final String MANAGE_CATEGORY_CONTROLLER = "ManageCategoryServlet";
+    private static final String MANAGE_CATEGORY_CONTROLLER = "/ManageCategoryServlet";
 
     @Override
     public void init() throws ServletException {

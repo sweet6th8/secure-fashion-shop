@@ -14,11 +14,11 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "InsertUserServlet", urlPatterns = {"/InsertUserServlet"})
+@WebServlet(name = "InsertUserServlet", urlPatterns = {"/secure/InsertUserServlet"})
 public class InsertUserServlet extends HttpServlet {
 
-    private static final String MANAGE_USER_CONTROLLER = "ManageUserServlet";
-    private static final String INSERT_USER_PAGE = "templates/admin/admin_user_insert.jsp";
+    private static final String MANAGE_USER_CONTROLLER = "/ManageUserServlet";
+    private static final String INSERT_USER_PAGE = "/templates/admin/admin_user_insert.jsp";
     private DataSource dataSource;
 
 

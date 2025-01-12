@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit Product</title>
-    <link rel="stylesheet" type="text/css" href="static/admin/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/admin/css/main.css">
     <script src="static/admin/js/main.js"></script>
     <style>
         img {

@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@WebServlet("/cart")
+@WebServlet("/secure/cart")
 public class CartServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final String LOGIN_PAGE = "/templates/login.jsp";
@@ -151,7 +151,7 @@ public class CartServlet extends HttpServlet {
 
             addItemToCart(userId, cartDAO, product, quantity);
             System.out.println("Product added to cart. Redirecting to cart page.");
-            redirectToPage(response, "/cart");
+            redirectToPage(response, "/secure/cart");
         } catch (NumberFormatException e) {
             sendErrorResponse(response, HttpServletResponse.SC_BAD_REQUEST, ERROR_INVALID_INPUT);
         } catch (SQLException e) {

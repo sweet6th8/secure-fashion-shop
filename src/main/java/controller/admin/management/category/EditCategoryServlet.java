@@ -19,10 +19,10 @@ import java.io.IOException;
 import java.sql.Connection;
 
 
-@WebServlet(name = "EditCategoryServlet", urlPatterns = {"/EditCategoryServlet"})
+@WebServlet(name = "EditCategoryServlet", urlPatterns = {"/secure/EditCategoryServlet"})
 public class EditCategoryServlet extends HttpServlet {
     private DataSource dataSource;
-    private static final String MANAGE_CATEGORY_CONTROLLER = "ManageCategoryServlet";
+    private static final String MANAGE_CATEGORY_CONTROLLER = "/ManageCategoryServlet";
 
     @Override
     public void init() throws ServletException {

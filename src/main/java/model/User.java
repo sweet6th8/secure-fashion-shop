@@ -12,12 +12,21 @@ public class User {
     private String phone; // Số điện thoại
     private boolean gender ;
     private String role ;
+    private String image;
     private ArrayList<Product> FavoriteProducts ;
 
     // Constructor
     public User() {}
 
     // Getter và Setter
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getRole() {
         return role;

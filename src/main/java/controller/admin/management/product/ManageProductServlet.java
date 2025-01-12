@@ -19,10 +19,11 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
 
-@WebServlet(name = "ManageProductServlet", urlPatterns = {"/ManageProductServlet"})
+@WebServlet(name = "ManageProductServlet", urlPatterns = {"/secure/ManageProductServlet"})
 public class ManageProductServlet extends HttpServlet {
     private DataSource dataSource;
-    private static final String MANAGE_PRODUCT_PAGE = "templates/admin/admin_products.jsp";
+    private static final String MANAGE_PRODUCT_PAGE = "/templates/admin/admin_products.jsp";
+
 
     @Override
     public void init() throws ServletException {

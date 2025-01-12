@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Servlet for inserting a new product.
  */
-@WebServlet(name = "InsertProductServlet", urlPatterns = {"/InsertProductServlet"})
+@WebServlet(name = "InsertProductServlet", urlPatterns = {"/secure/InsertProductServlet"})
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 10,      // 10MB
@@ -35,7 +35,7 @@ import java.util.List;
 public class InsertProductServlet extends HttpServlet {
 
     private DataSource dataSource;
-    private static final String INSERT_PRODUCT_PAGE = "templates/admin/admin_products_insert.jsp";
+    private static final String INSERT_PRODUCT_PAGE = "/templates/admin/admin_products_insert.jsp";
     private static final String MANAGE_PRODUCT_SERVLET = "ManageProductServlet";
 
     @Override

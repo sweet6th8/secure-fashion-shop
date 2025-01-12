@@ -63,7 +63,7 @@
             </div>
             <div class="form-group">
               <label>phone</label>
-             <input type="text" id="phone" placeholder="Enter your phone" oninput="validatePhone()"  required   class="form-control" />
+             <input name="phone" type="text" id="phone" placeholder="Enter your phone" oninput="validatePhone()"  required   class="form-control" />
              <span id="error-phone" style="color: red; display: none;"></span>
 
 
@@ -93,11 +93,11 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label>Country</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" name="Country" />
               </div>
               <div class="form-group col-md-6">
                 <label>City</label>
-                <input list="inputState" class="form-control" />
+                <input list="inputState" class="form-control" name="City" />
                 <datalist name="city" id="inputState">
                   <option name="city" selected value="Long An"></option>
                   <option name="city" value="Binh Dinh"></option>
@@ -150,7 +150,7 @@
       </div>
       <!-- card .// -->
       <p class="text-center mt-4">
-        Have an account? <a href="login">Log In</a>
+        Have an account?  <a href="${pageContext.request.contextPath}/templates/login">Login</a>
       </p>
       <c:set var="message" value="${requestScope.IEmail}"/>
       <c:if test="${not empty message  }">

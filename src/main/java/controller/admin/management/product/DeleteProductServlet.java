@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "DeleteProductServlet", urlPatterns = {"/DeleteProductServlet"})
+@WebServlet(name = "DeleteProductServlet", urlPatterns = {"/secure/DeleteProductServlet"})
 public class DeleteProductServlet extends HttpServlet {
 
     @Override
@@ -31,6 +31,6 @@ public class DeleteProductServlet extends HttpServlet {
         } catch (Exception ex) {
             log("DeleteProductServlet error: " + ex.getMessage());
         }
-        response.sendRedirect("ManageProductServlet");
+        response.sendRedirect("/secure/ManageProductServlet");
     }
 }

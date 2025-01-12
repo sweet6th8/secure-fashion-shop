@@ -1,5 +1,6 @@
 package controller.web;
 
+import dao.CartDAO;
 import dao.DBConnectionPool;
 import dao.UserDAO;
 import jakarta.servlet.ServletException;
@@ -8,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Cart;
 import model.User;
 
 import java.io.IOException;
@@ -15,7 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 
-@WebServlet(name = "DangNhap", urlPatterns = {"/templates/login"})
+@WebServlet(name = "Login", urlPatterns = {"/templates/login"})
 public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,6 +40,7 @@ public class login extends HttpServlet {
             String email = req.getParameter("email");
             String pass = req.getParameter("password");
             UserDAO udao = new UserDAO(connection);
+            CartDAO cdao = new CartDAO(connection);
             HttpSession session = req.getSession();
             try {
                 User user = udao.getLogin(email, pass);
@@ -50,20 +53,17 @@ public class login extends HttpServlet {
                 } else {
                     int userId = user.getId();
                     String role = user.getRole();
-
+                  Cart cart=  cdao.getCartByUserId(userId);
+                    session.setAttribute("count", cart.getItems().size());
                     session.setAttribute("role", role);
                     session.setAttribute("userId", userId);
-
-                    session.setAttribute("user", user);
+                    session.setAttribute("Img" , user.getImage());
 
                     if (role.equals("Admin")) {
-                        System.out.println(role);
-
                         resp.sendRedirect(getServletContext().getContextPath() + "/secure/admin");
                     }
                     else {
                         resp.sendRedirect(req.getContextPath());
-
                     }
                     // fix here, tam thoi dung sendRedirect nen luu user trong session
                 }

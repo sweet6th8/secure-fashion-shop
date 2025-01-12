@@ -2,6 +2,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:requestEncoding value="UTF-8"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="messages"/>
+<fmt:message key="exchangeRate" var="rate"/>
+<fmt:message key="currency" var="currency"/>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -58,7 +63,8 @@
                                     <td>
                                         <input
                                                 type="number"
-                                                onchange="updateQuantity('<c:out value="${fn:escapeXml(cartItem.product.id)}"/>', this)"
+                                                onchange="updateQuantity('<c:out
+                                                        value="${fn:escapeXml(cartItem.product.id)}"/>', this)"
                                                 class="form-control"
                                                 value="${cartItem.quantity}"
                                                 min="1">
@@ -66,16 +72,22 @@
                                     <td>
                                         <div class="price-wrap">
                         <span id="item-total-${fn:escapeXml(cartItem.product.id)}">
-                            <fmt:formatNumber value="${cartItem.totalPrice}" pattern="#0.00"/>
+                                <fmt:formatNumber value="${cartItem.totalPrice * rate}" maxFractionDigits="0"/>
+                            ${currency}
                         </span>
-                                            USD
-                                            <small class="text-muted"> ${cartItem.product.price} each </small>
+                                            <small class="text-muted">
+                                                <fmt:formatNumber value="${cartItem.product.price * rate}"
+                                                                  maxFractionDigits="0"/>
+                                                    ${currency}
+                                                each </small>
                                         </div>
                                     </td>
                                     <td class="text-right">
                                         <button
-                                                onclick="removeItem('<c:out value="${fn:escapeXml(cartItem.product.id)}"/>', document.getElementById('row-${fn:escapeXml(cartItem.product.id)}'))"
-                                                class="btn btn-danger">Remove</button>
+                                                onclick="removeItem('<c:out
+                                                        value="${fn:escapeXml(cartItem.product.id)}"/>', document.getElementById('row-${fn:escapeXml(cartItem.product.id)}'))"
+                                                class="btn btn-danger">Remove
+                                        </button>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -83,7 +95,7 @@
                         <c:if test="${empty cart.items}">
                             <tr>
                                 <td colspan="4" class="text-center">
-                                    <p>Your cart is empty. <a href="/">Start shopping now!</a></p>
+                                    <p> <fmt:message key="NotifyCardEmptu"/> <a href="/"><fmt:message key="BuyNow"/></a></p>
                                 </td>
                             </tr>
                         </c:if>
@@ -98,14 +110,15 @@
                             <dt>Total:</dt>
                             <dd class="text-right">
                                 <strong id="totalPrice">
-                                    <fmt:formatNumber value="${cart.totalPrice}" pattern="#0.00"/> USD
+                                    <fmt:formatNumber value="${cart.totalPrice * rate}" maxFractionDigits="0"/> ${currency}
                                 </strong>
                             </dd>
                         </dl>
                         <hr>
 
                         <a href="place-order" class="btn btn-primary btn-block"> Checkout </a>
-                        <a href="${pageContext.request.contextPath}" class="btn btn-light btn-block">Continue Shopping</a>
+                        <a href="${pageContext.request.contextPath}" class="btn btn-light btn-block">Continue
+                            Shopping</a>
                     </div>
                 </div>
             </aside>

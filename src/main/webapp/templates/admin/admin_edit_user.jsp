@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit</title>
-    <link rel="stylesheet" type="text/css" href="static/admin/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/admin/css/main.css">
     <script src="static/admin/js/main.js"></script>
     <style>
         img{
@@ -29,7 +29,7 @@
         }
     </style>
 <body>
-<form id="form" action="EditUserServlet" method="get">
+<form id="form" action="${pageContext.request.contextPath}/secure/EditUserServlet" method="post" enctype="multipart/form-data">
     <div class="" >
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -44,31 +44,31 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="control-label">Tên đăng nhập</label>
-                            <input class="form-control" type="text" readonly name="username" value="${username}">
+                            <input class="form-control" type="text" readonly name="username" value="${requestScope.user.username}">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label">First name</label>
-                            <input class="form-control" type="text" name="firstname" value="${firstname}">
+                            <input class="form-control" type="text" name="firstname" value="${requestScope.user.getFullName().split(' ')[0]}">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label">Last name</label>
-                            <input class="form-control" type="text" name="lastname" value="${lastname}">
+                            <input class="form-control" type="text" name="lastname" value="${requestScope.user.getFullName().split(' ')[1]}">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label">Số điện thoại</label>
-                            <input class="form-control" type="text" name="phone" value="${phone}">
+                            <input class="form-control" type="text" name="phone" value="${requestScope.user.phone}">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label">Email</label>
-                            <input class="form-control" type="text" name="email" value="${email}">
+                            <input class="form-control" type="text" name="email" value="${requestScope.user.email}">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label">Địa chỉ</label>
-                            <input class="form-control" type="text" name="address" value="${address}">
+                            <input class="form-control" type="text" name="address" value="${requestScope.user.address}">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleSelect1" class="control-label">Quyền quản trị</label>
-                            <input hidden name="user_id" value="${roleid}">
+                            <input hidden name="user_id" value="${requestScope.user.role}">
                             <select name="permission" class="form-control" id="exampleSelect1">
                                 <option value="True">Cho phép</option>
                                 <option value="False">Hủy bỏ</option>
@@ -77,7 +77,7 @@
                         <div class="form-group col-md-12">
                             <label class="control-label">Ảnh đại diện</label>
                             <div id="myfileupload">
-                                <input type="file" id="uploadfile" name="avatar" value="${avatar}" onchange="readURL(this);" />
+                                <input type="file" id="uploadfile" name="avatar" value="${requestScope.user.getImage()}"  accept="image/*" onchange="readURL(this);" />
                             </div>
                             <div id="thumbbox">
                                 <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none" />
@@ -87,7 +87,7 @@
                     </div>
                     <BR>
                     <button onclick="setValue()" class="btn btn-save" name="action" value="Update" type="submit">Lưu lại</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="ManageUserServlet">Hủy bỏ</a>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="${pageContext.request.contextPath}/secure/ManageUserServlet">Hủy bỏ</a>
                     <BR>
                 </div>
             </div>

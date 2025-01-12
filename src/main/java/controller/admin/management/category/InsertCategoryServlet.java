@@ -18,10 +18,10 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "InsertCategoryServlet", urlPatterns = {"/InsertCategoryServlet"})
+@WebServlet(name = "InsertCategoryServlet", urlPatterns = {"/secure/InsertCategoryServlet"})
 public class InsertCategoryServlet extends HttpServlet {
     private DataSource dataSource;
-    private static final String MANAGE_CATEGORY_CONTROLLER = "ManageCategoryServlet";
+    private static final String MANAGE_CATEGORY_CONTROLLER = "/ManageCategoryServlet";
 
     @Override
     public void init() throws ServletException {

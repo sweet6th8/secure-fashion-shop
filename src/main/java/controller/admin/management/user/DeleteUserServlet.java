@@ -12,10 +12,10 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "DeleteUserServlet", urlPatterns = {"/DeleteUserServlet"})
+@WebServlet(name = "DeleteUserServlet", urlPatterns = {"/secure/DeleteUserServlet"})
 public class DeleteUserServlet extends HttpServlet {
 
-    private static final String MANAGE_USER_CONTROLLER = "ManageUserServlet";
+    private static final String MANAGE_USER_CONTROLLER = "/secure/ManageUserServlet";
     private DataSource dataSource;
 
 
@@ -33,6 +33,7 @@ public class DeleteUserServlet extends HttpServlet {
             String uid = request.getParameter("uid");
             // Initialize UserDAO
             UserDAO dao = new UserDAO(conn);
+            System.out.println("Deleting !");
             // Delete user by id
             boolean result = dao.deleteUser(Integer.parseInt(uid));
             if (result) {

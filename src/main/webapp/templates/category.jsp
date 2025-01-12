@@ -1,6 +1,14 @@
 <!--Chức năng: Hiển thị sản phẩm theo danh mục (ví dụ: quần áo nam, nữ, trẻ em).
 Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người dùng chọn.-->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<fmt:requestEncoding value="UTF-8"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="messages"/>
+<fmt:message key="exchangeRate" var="rate"/>
+<fmt:message key="currency" var="currency"/>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -74,29 +82,32 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                         <div class="form-group col-md-6">
                                             <label>Min</label>
                                             <select name="minPrice" class="mr-2 form-control">
-                                                <option value="0">$0</option>
-                                                <option value="50">$50</option>
-                                                <option value="100">$100</option>
-                                                <option value="150">$150</option>
-                                                <option value="200">$200</option>
-                                                <option value="500">$500</option>
-                                                <option value="1000">$1000</option>
+                                                <option value="0"> 0 ${currency}</option>
+                                                <option value="50"> ${50 * rate} ${currency}</option>
+                                                <option value="100"> ${100 * rate} ${currency}</option>
+                                                <option value="150"> ${150 * rate} ${currency}</option>
+                                                <option value="200"> ${200 * rate} ${currency}</option>
+                                                <option value="500"> ${500 * rate} ${currency}</option>
+                                                <option value="1000"> ${1000 * rate} ${currency}</option>
                                             </select>
                                         </div>
                                         <div class="form-group text-right col-md-6">
                                             <label>Max</label>
                                             <select name="maxPrice" class="mr-2 form-control">
-                                                <option value="50">$50</option>
-                                                <option value="100">$100</option>
-                                                <option value="150">$150</option>
-                                                <option value="200">$200</option>
-                                                <option value="500">$500</option>
-                                                <option value="1000">$1000</option>
-                                                <option value="2000">$2000+</option>
+                                                <option value="50"><fmt:formatNumber value="${50* rate}"
+                                                                                     maxFractionDigits="2"
+                                                /> ${currency}</option>
+                                                <option value="100">${100 * rate} ${currency}</option>
+                                                <option value="150">${150 * rate} ${currency}</option>
+                                                <option value="200">${200 * rate} ${currency}</option>
+                                                <option value="500">${500 * rate} ${currency}</option>
+                                                <option value="1000">${1000 * rate} ${currency}</option>
+                                                <option value="2000">${2000 * rate} ${currency}</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-block btn-primary">Apply</button>
+                                    <button type="submit" class="btn btn-block btn-primary"><fmt:message
+                                            key="btnApply"/></button>
                                 </div>
                             </div>
                         </article>
@@ -119,25 +130,30 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                 <div class="col-md-4">
                                     <figure class="card card-product-grid">
                                         <div class="img-wrap">
-                                            <a href="./product?id=${product.getId()}"><img src="${pageContext.request.contextPath}/${product.getPhoto()}"
-                                                                                            alt="${product.getName()}"></a>
+                                            <a href="./product?id=${product.getId()}"><img
+                                                    src="${pageContext.request.contextPath}/${product.getPhoto()}"
+                                                    alt="${product.getName()}"></a>
                                         </div>
                                         <figcaption class="info-wrap">
                                             <div class="fix-height">
                                                 <a href="./product?id=${product.getId()}"
                                                    class="title">${product.getName()}</a>
                                                 <div class="price-wrap mt-2">
-                                                    <span class="price">$ ${product.getPrice()}</span>
+                                                    <fmt:formatNumber value="${product.price * rate}"
+                                                                      maxFractionDigits="0"
+                                                    />
+                                                        ${currency}
                                                 </div>
                                             </div>
-<%--                                            <a href="addToCart?id=${product.getId()}" class="btn btn-block btn-success">Add--%>
-<%--                                                to cart</a>--%>
-                                            <form action="cart" method="post">
+                                                <%--                                            <a href="addToCart?id=${product.getId()}" class="btn btn-block btn-success">Add--%>
+                                                <%--                                                to cart</a>--%>
+                                            <form action="/secure/cart" method="post">
                                                 <input type="hidden" name="action" value="addToCart">
                                                 <input type="hidden" name="productId" value="${product.getId()}">
-                                                <input type="hidden" name="quantity" min="1" value="1" class="form-control mb-2" required>
+                                                <input type="hidden" name="quantity" min="1" value="1"
+                                                       class="form-control mb-2" required>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <span class="text">Add to cart</span>
+                                                    <span class="text"> <fmt:message key="btnAddToCart"/> </span>
                                                     <i class="fas fa-shopping-cart"></i>
                                                 </button>
                                             </form>

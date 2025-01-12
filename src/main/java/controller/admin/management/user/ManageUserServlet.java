@@ -15,11 +15,11 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
 
-@WebServlet(name = "ManageUserServlet", urlPatterns = {"/ManageUserServlet"})
+@WebServlet(name = "ManageUserServlet", urlPatterns = {"/secure/ManageUserServlet"})
 public class ManageUserServlet extends HttpServlet {
 
-    private final String MANAGE_USER_PAGE = "templates/admin/admin_users.jsp";
-    private final String INSERT_USER_PAGE = "templates/admin/admin_user_insert.jsp";
+    private final String MANAGE_USER_PAGE = "/templates/admin/admin_users.jsp";
+    private final String INSERT_USER_PAGE = "/templates/admin/admin_user_insert.jsp";
     private DataSource dataSource;
 
 

@@ -27,7 +27,7 @@ import java.sql.Connection;
 import java.util.List;
 
 // Define your servlet with MultipartConfig.
-@WebServlet(name = "EditProductServlet", urlPatterns = {"/EditProductServlet"})
+@WebServlet(name = "EditProductServlet", urlPatterns = {"/secure/EditProductServlet"})
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB threshold for in-memory storage
         maxFileSize = 1024 * 1024 * 10,      // 10MB maximum file size
@@ -36,7 +36,7 @@ import java.util.List;
 
 public class EditProductServlet extends HttpServlet {
     private DataSource dataSource;
-    private static final String EDIT_PAGE = "templates/admin/admin_edit_product.jsp";
+    private static final String EDIT_PAGE = "/templates/admin/admin_edit_product.jsp";
 
 
     @Override

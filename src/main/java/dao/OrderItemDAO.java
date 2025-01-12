@@ -1,7 +1,45 @@
 package dao;
 
-public class OrderItemDAO {
+import model.HistoryProduct;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class OrderItemDAO {
+private Connection conn;
+public OrderItemDAO(Connection conn) {
+    this.conn = conn;
+}
+public List<HistoryProduct> getAllHistoryProducts(int userId) throws SQLException {
+
+    List<HistoryProduct> historyProducts = new ArrayList<HistoryProduct>();
+    String query = "SELECT P.id , P.name , OI.price, OI.quantity , P.photo,O.status  FROM " +
+            "Order_Items OI JOIN    Orders O on O.id = OI.order_id" +
+            " JOIN product P ON P.id = OI.product_id" +
+            " WHERE O.user_id =  ?";
+    PreparedStatement ps = conn.prepareStatement(query);
+    ps.setInt(1, userId);
+    ResultSet rs = ps.executeQuery();
+    while (rs.next()) {
+        HistoryProduct hp = new HistoryProduct(
+                rs.getInt(1),
+                rs.getString(2),
+                rs.getDouble(3),
+                rs.getInt(4),
+                rs.getString(5),
+                rs.getString(6)
+
+        );
+        historyProducts.add(hp);
+
+    }
+
+    return historyProducts;
+}
     // Thêm sản phẩm vào đơn hàng
 //    public void addOrderItem(OrderItem orderItem) {
 //        String sql = "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)";

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <header class="section-header container-fluid">
     <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4"
@@ -8,10 +9,10 @@
         <div class="collapse navbar-collapse" id="navbarTop4">
             <ul class="navbar-nav mr-auto ml-1">
                 <li class="nav-item ">
-                    <a href="${pageContext.request.contextPath}/language?lang=vi" class="nav-link"> VN </a>
+                    <a href="${pageContext.request.contextPath}?lang=vi_VN" class="nav-link"> VN </a>
                 </li>
                 <li class="nav-item">
-                    <a href="${pageContext.request.contextPath}/language?lang=en    " class="nav-link"> US </a>
+                    <a href="${pageContext.request.contextPath}?lang=en_US" class="nav-link"> US </a>
                 </li>
             </ul>
             <ul class="navbar-nav mr-1">
@@ -23,8 +24,8 @@
     <section class="header-main border-bottom">
         <div class="row align-items-center">
             <div class="col-lg-2 col-md-3 col-6">
-                <a href="${pageContext.request.contextPath}/" class="ms-1 brand-wrap">
-                    <img class="logo" src="${pageContext.request.contextPath}/static/images/logo.png" alt="Logo">
+                <a href="${context}/" class="ms-1 brand-wrap">
+                    <img class="logo" src="${context}/static/images/logo.png" alt="Logo">
                 </a>
             </div>
             <div class="col-lg col-sm col-md col-6 flex-grow-0">
@@ -34,14 +35,14 @@
                         <i class="fa fa-bars"></i> All category
                     </button>
                     <ul class="dropdown-menu" style="left: 0;">
-                        <li> <a class="dropdown-item border-bottom" href="${pageContext.request.contextPath}/category?id=all">All
+                        <li><a class="dropdown-item border-bottom" href="${context}/category?id=all">All
                             products</a></li>
                         <c:set var="categoryList" value="${applicationScope.categoryList}"/>
                         <c:if test="${categoryList != null}">
                             <c:forEach var="item" items="${categoryList}">
                                 <li>
                                     <a class="dropdown-item border-bottom"
-                                       href="${pageContext.request.contextPath}/category?id=${ item.getId()}"> ${ item.getTitle()}
+                                       href="${context}/category?id=${ item.getId()}"> ${ item.getTitle()}
                                     </a>
                                 </li>
                             </c:forEach>
@@ -52,9 +53,9 @@
                     </ul>
                 </div>
             </div>
-            <a href="${pageContext.request.contextPath}/category?id=all" class="btn btn-outline-primary">Store</a>
+            <a href="${context}/category?id=all" class="btn btn-outline-primary">Store</a>
             <div class="col-lg  col-md-6 col-sm-12 col">
-                <form action="${pageContext.request.contextPath}/search" class="search" method="post">
+                <form action="${context}/search" class="search" method="post">
                     <div class="input-group w-100">
                         <input type="text" name="txt" class="form-control" style="width:60%;" placeholder="Search"
                                value="${txtS}">
@@ -69,25 +70,36 @@
             </div>
             <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
                 <div class="d-flex justify-content-end mb-3 mb-lg-0">
-                    <a href="${pageContext.request.contextPath}/secure/cart?userId=${sessionScope.user.getId()}" class="widget-header pl-3 mr-3">
-                        <a href="cart" aria-label="Go to shopping cart">
-                            <div class="icon icon-sm rounded-circle border">
+
+                        <a href="${context}/secure/cart?userId=${sessionScope.user.getId()}"
+                           aria-label="Go to shopping cart">
+                            <div class="icon icon-sm rounded-circle border relative">
                                 <i class="fa fa-shopping-cart"></i>
+                                <span class="badge badge-pill badge-danger">${sessionScope.count}</span>
+
                             </div>
                         </a>
-                        <span class="badge badge-pill badge-danger notify">0</span>
-                    </a>
-                    <c:set var="user" value="${sessionScope.user}"/>
+
+                    <c:set var="userId" value="${sessionScope.userId}"/>
                     <c:choose>
-                        <c:when test="${user != null}">
+                        <c:when test="${userId != null}">
 
                             <div class="dropdown">
-                                <button class="dropdown-button user rounded-circle">${user.getUsername().toUpperCase().charAt(0)}</button>
+                                <img style="height: 50px ;padding: 0; " class="dropdown-button user rounded-circle"
+                                     src="${context}${sessionScope.Img}" alt="User Img">
                                 <ul class="dropdown-menu " style="left: -50px">
-                                   <li class="text-center border-bottom" > <a class="dropdown-item "  href="${pageContext.request.contextPath}/templates/edit.jsp">Edit profile</a></li>
-                                   <li class="text-center border-bottom"> <a class="dropdown-item "  href="${pageContext.request.contextPath}/secure/saved">Saved</a></li>
-                                 <li class="text-center border-bottom">   <a class="dropdown-item "  href="${pageContext.request.contextPath}/secure/history">History</a></li>
-                                    <li class="text-center border-bottom"> <a class="dropdown-item "  href="${pageContext.request.contextPath}/secure/logout">Log out</a></li>
+                                    <li class="text-center border-bottom"><a class="dropdown-item "
+                                                                             href="${context}/secure/EditServlet?id=${userId}">Edit
+                                        profile</a></li>
+                                    <li class="text-center border-bottom"><a class="dropdown-item "
+                                                                             href="${context}/secure/saved?id=${userId}">Saved</a>
+                                    </li>
+                                    <li class="text-center border-bottom"><a class="dropdown-item "
+                                                                             href="${context}/secure/history?id=${userId}">History</a>
+                                    </li>
+                                    <li class="text-center border-bottom"><a class="dropdown-item "
+                                                                             href="${context}/secure/logout?id=${userId}">Log
+                                        out</a></li>
                                 </ul>
                             </div>
                         </c:when>
@@ -100,7 +112,7 @@
                                 </div>
                             </div>
                             <img style="height: 50px ; width: 50px ; border-radius: 60%; background-color: #1a56e9; margin: 0 20px;"
-                                 src="${pageContext.request.contextPath}/static/images/avatars/guest.png">
+                                 src="${context}/static/images/avatars/guest.png">
                         </c:otherwise>
                     </c:choose>
                 </div>

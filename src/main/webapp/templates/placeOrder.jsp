@@ -3,6 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<fmt:requestEncoding value="UTF-8"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="messages"/>
+<fmt:message key="exchangeRate" var="rate"/>
+<fmt:message key="currency" var="currency"/>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -47,7 +52,13 @@
                     <figcaption class="info">
                       <p>${item.product.name}</p>
 
-                      <span class="text-muted">${item.quantity} x $${item.product.price} = $${item.totalPrice}</span>
+                      <span class="text-muted">${item.quantity} x
+
+                         <fmt:formatNumber value="${item.product.price}" maxFractionDigits="0"/>
+                            ${currency} =
+                       <fmt:formatNumber value="${item.totalPrice * rate}" maxFractionDigits="0"/>
+                            ${currency}
+                      </span>
                     </figcaption>
                   </figure>
                 </div>

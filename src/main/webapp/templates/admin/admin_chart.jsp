@@ -27,7 +27,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Template Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="view/assets/admin/css/main.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/admin/css/main.css">
     </head>
     <body  onload="time()" class="app sidebar-mini rtl">
         <%@include file="../../common/admin/sidebar.jsp"%>
