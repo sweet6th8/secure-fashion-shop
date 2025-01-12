@@ -41,7 +41,7 @@ public class CreateUser {
         user.setUsername(FirstName);
         user.setAddress(city+","+ country);
         user.setFavoriteProducts(new ArrayList<>());
-        user.setPassword(password);
+        user.setPassword(GeneratePassword.hashPassword(password));
         user.setImage("/static/images/avatars/user.png");
         return user;
 

@@ -16,8 +16,8 @@
                 </li>
             </ul>
             <ul class="navbar-nav mr-1">
-                <li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
-                <li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
+                <li><a href="mailto:22130015@st.hcmuaf.edu.vn" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
+                <li><a href="tel:+84387822490" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
             </ul>
         </div>
     </nav>
@@ -107,8 +107,8 @@
                             <div class="widget-header">
                                 <small class="title text-muted">Welcome guest!</small>
                                 <div>
-                                    <a href="templates/login.jsp">Login</a> <span class="dark-transp"> | </span>
-                                    <a href="templates/register.jsp"> Register</a>
+                                    <a href="${context}/templates/login.jsp">Login</a> <span class="dark-transp"> | </span>
+                                    <a href="${context}/templates/register.jsp"> Register</a>
                                 </div>
                             </div>
                             <img style="height: 50px ; width: 50px ; border-radius: 60%; background-color: #1a56e9; margin: 0 20px;"

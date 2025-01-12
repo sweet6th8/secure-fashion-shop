@@ -21,5 +21,9 @@ public class LogOut  extends HttpServlet {
             session.invalidate();
             resp.sendRedirect(req.getContextPath() + "/");
         }
+        else {
+            resp.sendRedirect(req.getContextPath() + "/templates/login.jsp");
+        }
+
     }
 }

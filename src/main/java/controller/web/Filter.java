@@ -17,14 +17,21 @@ public class Filter implements jakarta.servlet.Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession session = req.getSession();
-        if (session.getAttribute("role").equals("Admin") || session.getAttribute("role").equals("User")) {
-            chain.doFilter(request, response);
+        try {
+            String role = (String) session.getAttribute("role");
+            if (role.equals("Admin") || session.getAttribute("role").equals("User")) {
+                chain.doFilter(request, response);
 
+            }
+            else {
+                res.sendRedirect(req.getContextPath() + "/templates/login.jsp");
+
+            }
         }
-        else {
+        catch ( Exception e) {
             res.sendRedirect(req.getContextPath() + "/templates/login.jsp");
-
         }
+
 
 
     }

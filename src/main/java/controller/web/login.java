@@ -40,7 +40,6 @@ public class login extends HttpServlet {
             String email = req.getParameter("email");
             String pass = req.getParameter("password");
             UserDAO udao = new UserDAO(connection);
-            CartDAO cdao = new CartDAO(connection);
             HttpSession session = req.getSession();
             try {
                 User user = udao.getLogin(email, pass);
@@ -53,16 +52,19 @@ public class login extends HttpServlet {
                 } else {
                     int userId = user.getId();
                     String role = user.getRole();
-                  Cart cart=  cdao.getCartByUserId(userId);
-                    session.setAttribute("count", cart.getItems().size());
                     session.setAttribute("role", role);
                     session.setAttribute("userId", userId);
                     session.setAttribute("Img" , user.getImage());
+
 
                     if (role.equals("Admin")) {
                         resp.sendRedirect(getServletContext().getContextPath() + "/secure/admin");
                     }
                     else {
+                        CartDAO cdao = new CartDAO(connection);
+                        Cart cart=  cdao.getCartByUserId(userId);
+                        session.setAttribute("count", cart.getItems().size());
+
                         resp.sendRedirect(req.getContextPath());
                     }
                     // fix here, tam thoi dung sendRedirect nen luu user trong session
