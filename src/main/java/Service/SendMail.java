@@ -38,7 +38,7 @@ public class SendMail {
         message.setFrom(new InternetAddress(senderEmail));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
         message.setSubject("Nhấn vào link để kích hoạt tài khoản của bạn : ");
-        message.setText("http://localhost:8080/MyMavenProject/Active?id="+id);
+        message.setText("http://localhost:8080/FashionWebProject/Active?id="+id);
         return message;
     }
     public  Message sendMail (String email , String otp ) throws MessagingException {

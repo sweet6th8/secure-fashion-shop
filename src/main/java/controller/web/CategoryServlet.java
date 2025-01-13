@@ -57,17 +57,12 @@ public class CategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {
             String categoryId = request.getParameter("id");
-<<<<<<< HEAD
-            categoryId = (categoryId == null) ? "all" : categoryId;
-=======
             String pageParam = request.getParameter("page"); // Get current page from request
             String sizeParam = request.getParameter("size"); // Get page size (number of items per page)
 
             int page = (pageParam != null) ? Integer.parseInt(pageParam) : 1; // Default to page 1
             int size = (sizeParam != null) ? Integer.parseInt(sizeParam) : 10; // Default page size: 10
             int offset = (page - 1) * size;
->>>>>>> 0aa83980b2392a2ff9b4eedfda5a78eeca28c8a9
-
             ProductDAO productDAO = new ProductDAO(connection);
             List<Product> products;
             int totalProducts;
