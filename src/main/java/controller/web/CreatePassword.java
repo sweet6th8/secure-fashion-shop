@@ -40,12 +40,11 @@ public class CreatePassword extends HttpServlet {
             String email = (String) session.getAttribute("email");
             try {
                 da.updatePassword(email,password);
-                req.setAttribute("message","Đổi mật khẩu thành công !");
+                req.setAttribute("message","Your new password has been updated successfully");
                 req.getRequestDispatcher( "/templates/login.jsp").forward(req, resp);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
         }
     }
 }

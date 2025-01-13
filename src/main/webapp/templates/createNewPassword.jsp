@@ -17,32 +17,32 @@
 <section class="section-conten padding-y" style="min-height: 84vh">
     <div class="card mx-auto" style="max-width: 380px; margin-top: 100px">
         <div class="card-body">
-            <h4 class="card-title mb-4">Tạo mật khẩu mới</h4>
+            <h4 class="card-title mb-4">Create a new password</h4>
             <form action="${pageContext.request.contextPath}/templates/CreatePassword" method="Post">
                 <div class="form-row">
-                    <label for="password">Mật khẩu mới:</label>
+                    <label for="password">New password:</label>
                     <input type="password" name="password" id="password" class="form-control"
                            onchange="validatePassword()" required>
-                    <p id="password-error" style="color: red; display: none;">Mật khẩu phải có từ 8 đến 20 ký tự, bao
-                        gồm chữ hoa, chữ thường, số và ký tự đặc biệt.</p>
+                    <p id="password-error" style="color: red; display: none;">The password must be between 8 and 20 characters, including uppercase letters,
+                        usually, numbers, and special characters.</p>
 
                 </div>
                 <div class="form-row">
-                    <label>Nhập lại mật khẩu mới  </label>
+                    <label>Confirm new password  </label>
                     <input id="Checkpassword" name="Checkpassword" class="form-control" type="password"
                            onChange="validateCheckPassword()" required>
-                    <p id="Checkpassword-error" style="color: red; display: none;"> Mật khẩu không trùng khớp </p>
+                    <p id="Checkpassword-error" style="color: red; display: none;">Passwords do not match</p>
                 </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-primary btn-block">
-                        Cập nhật mật khẩu
+                        Update your password
                     </button>
                 </div>
             </form>
         </div>
     </div>
     <p class="text-center mt-4">
-        Don'\'t have account? <a href="register.jsp">Sign up</a>
+        Don't have an account? <a href="register.jsp">Sign up</a>
     </p>
     <br/><br/>
 </section>

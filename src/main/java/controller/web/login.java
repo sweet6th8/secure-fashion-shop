@@ -62,7 +62,7 @@ public class login extends HttpServlet {
              }
                 User user = udao.getLogin(email,realPass);
                 if (user == null) {
-                    String message = "Sai thông tin tài khoản mật khẩu ";
+                    String message = "Incorrect email or password";
                     req.setAttribute("message", message);
                     req.getRequestDispatcher("/templates/login.jsp").forward(req,resp);
 
@@ -79,8 +79,8 @@ public class login extends HttpServlet {
                     }
                     else {
                         CartDAO cdao = new CartDAO(connection);
-                        Cart cart=  cdao.getCartByUserId(userId);
-                        session.setAttribute("count", cart.getItems().size());
+                        Cart cart = cdao.getCartByUserId(userId);
+                        session.setAttribute("count", cart != null ? cart.getItems().size() : 0);
 
                         resp.sendRedirect(req.getContextPath());
                     }

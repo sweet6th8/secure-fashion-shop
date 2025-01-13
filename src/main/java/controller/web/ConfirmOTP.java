@@ -26,7 +26,7 @@ public class ConfirmOTP extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
 
-        request.getRequestDispatcher("/templates/forgotPassword.jsp").forward(request, response);
+        request.getRequestDispatcher("/templates/forgetPassword.jsp").forward(request, response);
     }
 
     @Override
@@ -37,9 +37,8 @@ public class ConfirmOTP extends HttpServlet {
 
         if (otp.equalsIgnoreCase(sessionOTP)) {
             request.getRequestDispatcher("/templates/createNewPassword.jsp").forward(request, response);
-        }
-        else {
-            request.getRequestDispatcher("/templates/forgot.jsp").forward(request, response);
+        } else {
+            request.getRequestDispatcher("/templates/forgetPassword.jsp").forward(request, response);
         }
     }
 }

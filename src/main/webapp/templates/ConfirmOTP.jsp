@@ -9,21 +9,22 @@
   <jsp:include page="headerResource.jsp"/>
 </head>
 <body>
+<jsp:include page="includes/navbar.jsp"/>
 <section class="section-conten padding-y" style="min-height:84vh">
   <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
     <div class="card-body">
       <h4 class="card-title mb-4">Confirm OTP</h4>
       <form action="${pageContext.request.contextPath}/templates/ConfirmOTP" method="post">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Email Address" name="otp" >
+          <input type="text" class="form-control" placeholder="Fill your OTP" name="otp" >
         </div> <!-- form-group// -->
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block"> Send Email  </button>
+          <button type="submit" class="btn btn-primary btn-block"> Confirm  </button>
         </div> <!-- form-group// -->
       </form>
     </div> <!-- card-body.// -->
   </div> <!-- card .// -->
-  <p class="text-center mt-4">Don'\'t have account? <a href="register.jsp">Sign up</a></p>
+  <p class="text-center mt-4">Don't have an account? <a href="register.jsp">Sign up</a></p>
   <br><br>
 </section>
 <footer class="section-footer border-top padding-y">

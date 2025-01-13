@@ -82,7 +82,7 @@
 <%--                  <input type="text" placeholder="Type here" class="form-control" name="lastName">--%>
 <%--                </div>--%>
 <%--                <div class="form-group col-sm-6">--%>
-<%--                  <label>Phone</label>--%>
+<%--                  <label>Phone Number</label>--%>
 <%--                  <input type="text" value="+998" class="form-control" name="phone">--%>
 <%--                </div>--%>
 <%--                <div class="form-group col-sm-6">--%>

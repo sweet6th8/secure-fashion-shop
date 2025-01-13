@@ -22,7 +22,7 @@
             <input type="password" class="form-control" placeholder="Password" name="password">
           </div>
           <div class="form-group">
-            <a href="forgetPassword.jsp" class="float-right">Forgot password?</a>
+            <a href="forgetPassword.jsp" class="float-right">Forget password?</a>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block"> Login </button>
@@ -33,7 +33,7 @@
         </form>
       </div>
     </div>
-    <p class="text-center mt-4">Don'\'t have account? <a href="register.jsp">Sign up</a></p>
+    <p class="text-center mt-4">Don't have an account? <a href="register.jsp">Sign up</a></p>
     <br><br>
   </section>
 <%@ include file="/templates/includes/footer.jsp" %>
