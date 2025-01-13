@@ -31,7 +31,7 @@ public class ActiveAccount  extends HttpServlet {
            UserDAO udao = new UserDAO(con);
            try {
         if (       !udao.updateActive(userId)) {
-            req.getRequestDispatcher("/templates/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/templates/LoginServlet.jsp").forward(req, resp);
         }
         else {
             req.getRequestDispatcher("/").forward(req, resp);

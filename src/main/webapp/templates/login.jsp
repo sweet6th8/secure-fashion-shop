@@ -14,7 +14,7 @@
     <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
       <div class="card-body">
         <h4 class="card-title mb-4">Sign in</h4>
-        <form action="login" method="POST">
+        <form action="${pageContext.request.contextPath}/templates/Login" method="POST">
           <div class="form-group">
             <input type="email" class="form-control" placeholder="Email Address" name="email">
           </div>
@@ -28,7 +28,10 @@
             <button type="submit" class="btn btn-primary btn-block"> Login </button>
           </div>
           <c:if test="${ not  empty requestScope.message}">
-            <p style="color: red;">${requestScope.message} !</p>
+            <p class="text-danger">${requestScope.message} !</p>
+          </c:if>
+          <c:if test="${ not  empty requestScope.success}">
+            <p class="text-success">${requestScope.success} !</p>
           </c:if>
         </form>
       </div>

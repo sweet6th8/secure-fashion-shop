@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="context" value="${pageContext.request.contextPath}"/>
-<header class="section-header container-fluid">
+<header class="section-header container-fluid fixed-top navbar-expand-md">
     <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,10 +92,10 @@
                                                                              href="${context}/secure/EditServlet?id=${userId}">Edit
                                         profile</a></li>
                                     <li class="text-center border-bottom"><a class="dropdown-item "
-                                                                             href="${context}/secure/saved?id=${userId}">Saved</a>
+                                                                             href="${context}/secure/SavedServlet?id=${userId}">Saved</a>
                                     </li>
                                     <li class="text-center border-bottom"><a class="dropdown-item "
-                                                                             href="${context}/secure/history?id=${userId}">History</a>
+                                                                             href="${context}/secure/HistoryServlet?id=${userId}">History</a>
                                     </li>
                                     <li class="text-center border-bottom"><a class="dropdown-item "
                                                                              href="${context}/secure/logout?id=${userId}">Log

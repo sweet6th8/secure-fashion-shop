@@ -83,7 +83,7 @@ public class EditUserServlet extends HttpServlet {
             System.out.println(user);
 
             // Handle file upload
-            Part filePart = request.getPart("avatar"); // Match "name" in input field
+            Part filePart = request.getPart("photo"); // Match "name" in input field
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
             String uploadDir = getServletContext().getRealPath("/") + "uploads";
 

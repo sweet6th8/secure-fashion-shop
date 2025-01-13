@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/history.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/reset.css">
 
-    <jsp:include page="headerResource.jsp"/>
+    <jsp:include page="../headerResource.jsp"/>
 </head>
 <body>
 <%@ include file="/templates/includes/navbar.jsp" %>
-<section class="section-content">
+<section class="section-content" style="margin-top: 120px;">
     <div class="container p-4">
         <div class="row mt-4">
             <div class="col-md-12">

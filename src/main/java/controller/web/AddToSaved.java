@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@WebServlet(name = "Add to saved" , urlPatterns = {"/secure/AddToSaved"})
+@WebServlet(name = "Add to SavedServlet" , urlPatterns = {"/secure/AddToSaved"})
 
 public class AddToSaved  extends HttpServlet {
     private Connection con ;

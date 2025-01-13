@@ -18,6 +18,7 @@ public class UserDAO {
     public static final String SQL_GET_USERID = "SELECT id FROM [dbo].[User] WHERE email = ?";
     public static final String SQL_CHECK_ACTIVE = "SELECT Active FROM [dbo].[User] WHERE email = ?";
     public static final String SQL_UPDATE_ACTIVE ="UPDATE [dbo].[User]  SET ACTIVE = ? WHERE  id = ? ";
+    public static final String SQL_COUNT_USER ="SELECT COUNT(id) FROM [dbo].[User]";
     private final Connection connection;
 
     public UserDAO(Connection connection) {
@@ -29,6 +30,14 @@ public class UserDAO {
         ps.setInt(2, id);
         System.out.println(ps.executeUpdate());
         return ps.executeUpdate() > 0;
+    }
+    public int totalUser () throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(SQL_COUNT_USER);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            return rs.getInt(1);
+        }
+        return 0;
     }
     public boolean checkActive(String email) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(SQL_CHECK_ACTIVE);
@@ -96,7 +105,7 @@ public class UserDAO {
                 }
             }
         } catch (SQLException e) {
-            throw new SQLException("Error retrieving user by login", e);
+            throw new SQLException("Error retrieving user by LoginServlet", e);
         }
         return null;
     }
@@ -161,7 +170,7 @@ public class UserDAO {
 
 
     public boolean updateUser(User user) throws SQLException {
-        String SQL_UPDATE_USER = "UPDATE [dbo].[User] SET  email = ?, fullName = ?, address = ?, phone = ? , img = ?  WHERE id = ?";
+        String SQL_UPDATE_USER = "UPDATE [dbo].[User] SET  email = ?, fullName = ?, address = ?, phone = ? , img = ?  , password = ?  WHERE id = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(SQL_UPDATE_USER)) {
             ps.setString(1, user.getEmail());
@@ -169,7 +178,8 @@ public class UserDAO {
             ps.setString(3, user.getAddress());
             ps.setString(4, user.getPhone());
             ps.setString(5, user.getImage());
-            ps.setInt(6, user.getId());
+            ps.setString(6, user.getPassword());
+            ps.setInt(7, user.getId());
             int rowsUpdated = ps.executeUpdate();
             return rowsUpdated > 0;
         } catch (SQLException e) {
@@ -178,8 +188,9 @@ public class UserDAO {
     }
 
 
-    public boolean deleteUser(int userId) throws SQLException {
-        String SQL_DELETE_USER = "DELETE FROM [dbo].[User] WHERE id = ?";
+    public boolean deleteUser(int userId ) throws SQLException {
+        String SQL_DELETE_USER = "DELETE FROM [dbo].[User]" +
+                "WHERE id = ?;";
 
         try (PreparedStatement ps = connection.prepareStatement(SQL_DELETE_USER)) {
             ps.setInt(1, userId);

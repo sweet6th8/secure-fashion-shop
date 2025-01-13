@@ -261,7 +261,7 @@ public final class store_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <small class=\"title text-muted\">Welcome guest!</small>\r\n");
       out.write("            <div>\r\n");
       out.write("              <a href=\"./signin.html\">Sign in</a> <span class=\"dark-transp\"> | </span>\r\n");
-      out.write("              <a href=\"./register.html\"> Register</a>\r\n");
+      out.write("              <a href=\"./RegisterServlet.html\"> Register</a>\r\n");
       out.write("            </div>\r\n");
       out.write("          </div>\r\n");
       out.write("          <a href=\"./cart.html\" class=\"widget-header pl-3 ml-3\">\r\n");

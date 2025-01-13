@@ -36,6 +36,7 @@ public class DeleteUserServlet extends HttpServlet {
             System.out.println("Deleting !");
             // Delete user by id
             boolean result = dao.deleteUser(Integer.parseInt(uid));
+            System.out.println(result);
             if (result) {
                 request.setAttribute("mess", "User deleted successfully!");
             } else {

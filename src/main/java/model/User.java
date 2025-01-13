@@ -18,6 +18,15 @@ public class User {
     // Constructor
     public User() {}
 
+    public User(String email, String fullName, String address ,String phone,String image,  String password , int id) {
+        this.email = email;
+        this.fullName = fullName;
+        this.address = address;
+        this.phone = phone;
+        this.image = image;
+        this.password = password;
+        this.id = id;
+    }
     // Getter và Setter
 
     public String getImage() {

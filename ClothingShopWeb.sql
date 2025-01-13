@@ -142,3 +142,15 @@ SELECT O.id , KH.fullName  , kh.phone , kh.address , O.created_at , O.total_pric
              JOIN product P ON P.id = OI.product_id 
 			 JOIN [dbo].[User] KH ON KH.id = O.user_id
              WHERE O.user_id =  2
+
+			 -- Đảm bảo các ràng buộc khóa ngoại có ON DELETE CASCADE
+ALTER TABLE orders
+ADD CONSTRAINT fk_user
+FOREIGN KEY (user_id) REFERENCES [dbo].[User](id)
+ON DELETE CASCADE;
+
+
+
+-- Chỉ cần xóa từ User
+DELETE FROM [dbo].[User]
+WHERE id = 2;

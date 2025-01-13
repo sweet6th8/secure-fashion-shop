@@ -61,12 +61,12 @@ public class InsertUserServlet extends HttpServlet {
                 request.setAttribute("mess", "User added successfully!");
                 request.getRequestDispatcher(MANAGE_USER_CONTROLLER).forward(request, response);
             } else {
-                request.setAttribute("mess", "Error: Unable to register user.");
+                request.setAttribute("mess", "Error: Unable to RegisterServlet user.");
                 request.getRequestDispatcher(INSERT_USER_PAGE).forward(request, response);
             }
         } catch (Exception ex) {
             log("InsertUserServlet Error: " + ex.getMessage());
-            request.setAttribute("mess", "Error: Unable to register user!");
+            request.setAttribute("mess", "Error: Unable to RegisterServlet user!");
             request.getRequestDispatcher(INSERT_USER_PAGE).forward(request, response);
         }
     }

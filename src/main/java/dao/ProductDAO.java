@@ -35,7 +35,25 @@ public class ProductDAO {
             return false;
         }
     }
+    public int productStock () throws SQLException {
+        String sql = "SELECT Count(stock) FROM Product WHERE stock < 5";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1);
+        }
+        return -1;
+    }
+    public int totalProducts() throws SQLException {
+        String sql = "SELECT COUNT(*) FROM product";
+        PreparedStatement ps  = connection.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
 
+        if (rs.next()) {
+            return rs.getInt(1);
+        }
+        return -1;
+    }
 
     // Lấy sản phẩm theo ID
     public Product getProductById(int id) {

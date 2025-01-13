@@ -11,24 +11,26 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>GreatKart | One of the Biggest Online Shopping Platform</title>
-    <%@include file="headerResource.jsp"%>
+    <%@include file="../headerResource.jsp"%>
   </head>
 <body>
-<jsp:include page="includes/navbar.jsp"/>
+<jsp:include page="../includes/navbar.jsp"/>
 <c:set var="user" value="${requestScope.user}"/>
 <section class="section-content container-fluid" style="margin-top: 100px">
   <div class="card mx-auto " style="max-width: 520px">
     <article class="card-body">
       <header class="mb-4"><h4 class="card-title">Edit profile</h4></header>
-      <form action="eidt" method="POST">
+      <form action="${pageContext.request.contextPath}/secure/EditServlet" method="POST" enctype="multipart/form-data" >
         <div class="form-row">
           <div class="col form-group">
-            <label>First namne </label>
+            <input name="id" value="${user.id}" type="hidden">
+            <input name="username" value="${user.username}" type="hidden">
+            <label>First name </label>
             <input
                     name="FirstName"
                     type="text"
                     class="form-control"
-                    value="${user.getUsername()}"
+                    value="${user.fullName.split(" ")[0]}"
                     maxlength="255"
                     autofocus
                     required
@@ -40,7 +42,7 @@
                     name="LastName"
                     type="text"
                     class="form-control"
-                    value="${user.getUsername()}"
+                    value="${user.fullName.split(" ")[1]}"
                     maxlength="255"
                     required
             />
@@ -63,7 +65,7 @@
         </div>
         <div class="form-group">
           <label>phone</label>
-          <input type="text" id="phone"       value="${user.getPhone()}" oninput="validatePhone()"  required   class="form-control" />
+          <input type="text" id="phone" name="Phone"      value="${user.getPhone()}" oninput="validatePhone()"  required   class="form-control" />
           <span id="error-phone" style="color: red; display: none;"></span>
 
 
@@ -93,11 +95,11 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label>Country</label>
-            <input type="text" class="form-control" value="${user.getAddress().split(",")[0]}" />
+            <input type="text" class="form-control" name="Country" value="${user.getAddress().split(",")[0]}" />
           </div>
           <div class="form-group col-md-6">
             <label>City</label>
-            <input list="inputState" class="form-control" />
+            <input list="inputState" class="form-control" name="City" value="${user.getAddress().split(",")[1]}" />
             <datalist name="city" id="inputState">
               <option name="city" selected  value="Long An"></option>
               <option name="city" value="Binh Dinh"></option>
@@ -138,6 +140,18 @@
               password not match
             </p>
           </div>
+          <div class="form-group col-md-6">
+            <label>Avatar</label>
+            <input
+                    id="avatar"
+                    name="avatar"
+                    class="form-control"
+                    type="file"
+                    accept="image/*"
+                    required
+            />
+
+          </div>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block">
@@ -151,7 +165,7 @@
   <!-- card .// -->
   <br /><br />
 </section>
-<jsp:include page="includes/footer.jsp"/>
+<jsp:include page="../includes/footer.jsp"/>
 <script src="${pageContext.request.contextPath}/static/js/register.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 
 <c:set var="Context" value="${pageContext.request.contextPath}"/>
 <!-- Nội dung của home.jsp -->
-<section class="section-intro padding-y-sm">
+<section class="section-intro padding-y-sm" style="margin-top: 120px;">
     <div class="container">
         <div class="intro-banner-wrap">
             <img src="${Context}/static/images/banners/1.jpg" class="img-fluid rounded"

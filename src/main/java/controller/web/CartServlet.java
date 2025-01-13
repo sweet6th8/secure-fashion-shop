@@ -21,8 +21,8 @@ import java.sql.SQLException;
 @WebServlet("/secure/cart")
 public class CartServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final String LOGIN_PAGE = "/templates/login.jsp";
-    private static final String CART_PAGE = "/templates/cart.jsp";
+    private static final String LOGIN_PAGE = "/templates/LoginServlet.jsp";
+    private static final String CART_PAGE = "/templates/User/cart.jsp";
     private static final String ERROR_INVALID_INPUT = "Invalid input.";
     private static final String ERROR_PROCESSING_REQUEST = "An error occurred while processing your request.";
     private static final String ERROR_PRODUCT_NOT_FOUND = "Product not found.";
@@ -41,7 +41,7 @@ public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer userId = getUserIdFromSession(request.getSession());
         if (isUserNotLoggedIn(userId)) {
-            System.out.println("User not logged in. Redirecting to login page.");
+            System.out.println("User not logged in. Redirecting to LoginServlet page.");
             redirectToPage(response, LOGIN_PAGE);
             return;
         }

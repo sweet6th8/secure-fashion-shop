@@ -1,6 +1,6 @@
 package Util;
 
-public final class validation {
+public  class validation {
     public static  boolean isValidEmail(String email) {
         return email != null && email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$");
     }
@@ -9,6 +9,9 @@ public final class validation {
             return  false;
         }
         return true;
+    }
+    public static boolean checkPassword (String p1 , String p2) {
+        return p1.equals(p2);
     }
 
 }

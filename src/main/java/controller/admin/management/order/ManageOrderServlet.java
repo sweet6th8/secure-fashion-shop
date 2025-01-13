@@ -39,7 +39,6 @@ public class ManageOrderServlet extends HttpServlet {
         try (Connection conn = dataSource.getConnection()) {
             OrderItemDAO dao = new OrderItemDAO(conn);
             List<OrderProduct> lists = dao.getAllProducts();
-            System.out.println(lists);
             request.setAttribute("lists", lists);
             log("Before setting attribute");
             request.setAttribute("lists", lists);
@@ -51,8 +50,6 @@ public class ManageOrderServlet extends HttpServlet {
             // Forward to an error page or display a meaningful error message
             request.setAttribute("errorMessage", "An error occurred while processing your request.");
             request.getRequestDispatcher("/").forward(request, response);
-
-
         }
 
     }

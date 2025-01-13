@@ -8,7 +8,22 @@ public class OrderDAO {
     public OrderDAO(Connection connection) {
         this.conn = connection;
     }
+    public boolean deleteOrder(int userId) throws SQLException {
+        String query  = "DELETE FROM orders WHERE user_id=?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1, userId);
+        return ps.executeUpdate() > 0 ;
 
+    }
+public int totalOrders () throws SQLException {
+        String query  = "SELECT COUNT(id) FROM orders";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1);
+        }
+        return 0;
+}
     // Tạo đơn hàng mới
     public int createOrder(int userId, double totalPrice, String status) {
         String sql = "INSERT INTO Orders (user_id, total_price, status) VALUES (?, ?, ?)";

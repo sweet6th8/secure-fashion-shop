@@ -1,9 +1,4 @@
-<%-- 
-    Document   : admin_order
-    Created on : Feb 21, 2024, 11:42:03 PM
-    Author     : lvhho
---%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@include file="../../common/taglib.jsp" %>
 <!DOCTYPE html>
@@ -72,7 +67,8 @@
                                         <td>${item.getUserName()}</td>
                                         <td>${item.getPhone()}</td>
                                         <td>${item.getAddress()}</td>
-                                        <td>${item.getCreateDate()}</td>
+                                        <td>${item.getCreateDate()}
+                                        </td>
                                         <td>${item.getTotalPrice()}</td>
                                         <td>${item.getStatus()}</td>
 

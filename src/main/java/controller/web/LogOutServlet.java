@@ -11,7 +11,7 @@ import model.User;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/secure/logout"})
-public class LogOut  extends HttpServlet {
+public class LogOutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();

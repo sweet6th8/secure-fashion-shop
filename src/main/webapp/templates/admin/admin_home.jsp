@@ -45,7 +45,7 @@
                         <div class="col-md-6">
                             <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
                                 <div class="info">
-                                    <h4>Tổng khách hàng</h4>
+                                    <h4>Total khách hàng</h4>
                                     <p><b>${requestScope.TOTALUSERS} khách hàng</b></p>
                                     <p class="info-tong">Tổng số khách hàng được quản lý.</p>
                                 </div>
@@ -101,18 +101,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${LAST_RECENT_ORDERS}" var="b">
+                                        <c:if test="${not empty requestScope.lists}">
+                                            <c:forEach var="item" items="${requestScope.lists}">
+                                                <!-- Hiển thị item -->
                                                 <tr>
-                                                    <td>${b.orderID}</td>
-                                                    <td>${b.user.userName}</td>
-                                                    <td>(+84) ${b.user.phone}</td>
-                                                    <td>${b.user.address}</td>
-                                                    <td>${b.orderDate}</td>
-                                                    <td>${b.totalPrice}</td>
-                                                    <td><span class="badge bg-success">${b.paymentMethod.paymentMethod}</span></td>                              
-                                                    <td><a style=" color: rgb(245 157 57);background-color: rgb(251 226 197); padding: 5px;border-radius: 5px;" href="ManageOrderServlet?action=showdetail&bill_id=${b.getOrderID()}"><i class="fa"></i>Chi tiết đơn hàng</a></td>
+                                                    <td>${item.getOrderID()}</td>
+                                                    <td>${item.getUserName()}</td>
+                                                    <td>${item.getPhone()}</td>
+                                                    <td>${item.getAddress()}</td>
+                                                    <td>${item.getCreateDate()}
+                                                    </td>
+                                                    <td>${item.getTotalPrice()}</td>
+                                                    <td>${item.getStatus()}</td>
+
+
                                                 </tr>
                                             </c:forEach>
+                                        </c:if>
+
 
                                         </tbody>
                                     </table>

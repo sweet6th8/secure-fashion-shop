@@ -18,11 +18,18 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 
-@WebServlet(name = "Login", urlPatterns = {"/templates/login"})
-public class login extends HttpServlet {
+@WebServlet(name = "Login", urlPatterns = {"/templates/Login"})
+public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // check if session is existed
+        try {
+            String success = req.getParameter("success");
+            req.setAttribute("success", success);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
         if (user != null) {
@@ -52,6 +59,7 @@ public class login extends HttpServlet {
                     String message = "Email is not exist!";
                     req.setAttribute("message", message);
                     req.getRequestDispatcher("/templates/login.jsp").forward(req,resp);
+
                 }
                 String realPass = udao.getPassword(email);
              if (!GeneratePassword.checkPassword(pass, realPass)) {

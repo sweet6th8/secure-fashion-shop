@@ -26,12 +26,12 @@ public class CreateUser {
 
         if (!validation.isValidEmail(Email)) {
             req.setAttribute("message", "Invalid Email");
-            req.getRequestDispatcher("/templates/register.jsp").forward(req, resp);
+            req.getRequestDispatcher("/templates/RegisterServlet.jsp").forward(req, resp);
             return null;
         }
         if (!checkPassword.equals(password)) {
             req.setAttribute("message", "Password is not same");
-            req.getRequestDispatcher("/templates/register.jsp").forward(req, resp);
+            req.getRequestDispatcher("/templates/RegisterServlet.jsp").forward(req, resp);
             return null;
         }
         user.setFullName(FirstName.concat(" " + LastName));
@@ -39,7 +39,7 @@ public class CreateUser {
         user.setEmail(Email);
         user.setPhone(phone);
         user.setUsername(FirstName);
-        user.setAddress(city+","+ country);
+        user.setAddress(country+","+city);
         user.setFavoriteProducts(new ArrayList<>());
         user.setPassword(GeneratePassword.hashPassword(password));
         user.setImage("/static/images/avatars/user.png");

@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>GreatKart | One of the Biggest Online Shopping Platform</title>
-    <jsp:include page="templates/headerResource.jsp"/>
+    <jsp:include page="/templates/headerResource.jsp"/>
 </head>
 <body>
 <!-- Navbar -->
@@ -20,6 +20,5 @@
 <!-- Footer -->
 <%@ include file="templates/includes/footer.jsp" %>
 <script src="static/js/script.js" type="text/javascript"></script>
-<script src="js/navbar.js"></script>
 </body>
 </html>

@@ -20,8 +20,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 
-@WebServlet(name = "Mail", urlPatterns = {"/templates/Mail"})
-public class Mail extends HttpServlet {
+@WebServlet(name = "MailServlet", urlPatterns = {"/templates/Mail"})
+public class MailServlet extends HttpServlet {
     private Connection connection ;
     @Override
     public void init() throws ServletException {
@@ -34,7 +34,7 @@ public class Mail extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/templates/forgot.jsp").forward(request, response);
+        request.getRequestDispatcher("/templates/Forgot.jsp").forward(request, response);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Mail extends HttpServlet {
         try {
             if (!dao.checkEmailExist(email)) {
                 request.setAttribute("message" , "email chưa tồn tại !");
-                request.getRequestDispatcher("/templates/forgot.jsp").forward(request, response);
+                request.getRequestDispatcher("/templates/Forgot.jsp").forward(request, response);
             }
             else {
 
@@ -58,7 +58,7 @@ public class Mail extends HttpServlet {
                     SendMail service = new SendMail();
                     Transport.send(service.sendMail(email, otp));
 
-                    request.getRequestDispatcher("/templates/ConfirmOTP.jsp").forward(request, response);
+                    request.getRequestDispatcher("/templates/ConfirmOTPServlet.jsp").forward(request, response);
                 } catch (MessagingException e) {
                     response.getWriter().write("Có lỗi xảy ra khi gửi email: " + e.getMessage());
                 }

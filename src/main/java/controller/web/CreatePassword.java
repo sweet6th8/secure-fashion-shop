@@ -43,7 +43,7 @@ public class CreatePassword extends HttpServlet {
                 String newPassword = GeneratePassword.hashPassword(password);
                 da.updatePassword(email,newPassword);
                 req.setAttribute("message","Your new password has been updated successfully");
-                req.getRequestDispatcher( "/templates/login.jsp").forward(req, resp);
+                req.getRequestDispatcher( "/templates/LoginServlet.jsp").forward(req, resp);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

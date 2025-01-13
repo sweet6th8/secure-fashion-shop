@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@WebServlet(name = "ConfirmOTP", urlPatterns = {"/templates/ConfirmOTP"})
-public class ConfirmOTP extends HttpServlet {
+@WebServlet(name = "ConfirmOTPServlet", urlPatterns = {"/templates/ConfirmOTPServlet"})
+public class ConfirmOTPServlet extends HttpServlet {
     Connection con;
     @Override
     public void init() throws ServletException {
@@ -36,7 +36,7 @@ public class ConfirmOTP extends HttpServlet {
         String sessionOTP = (String) session.getAttribute("otp");
 
         if (otp.equalsIgnoreCase(sessionOTP)) {
-            request.getRequestDispatcher("/templates/createNewPassword.jsp").forward(request, response);
+            request.getRequestDispatcher("/templates/CreateNewPassword.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("/templates/forgetPassword.jsp").forward(request, response);
         }

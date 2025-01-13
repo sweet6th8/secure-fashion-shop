@@ -21,7 +21,6 @@ public class OrderItemDAO {
             "            Order_Items OI JOIN    Orders O on O.id = OI.order_id\n" +
             "             JOIN product P ON P.id = OI.product_id \n" +
             "\t\t\t JOIN [dbo].[User] KH ON KH.id = O.user_id\n";
-
     public OrderItemDAO(Connection conn) {
         this.conn = conn;
     }
@@ -69,4 +68,5 @@ public class OrderItemDAO {
         }
         return result;
     }
+
 }

@@ -13,13 +13,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>GreatKart | Shopping Cart</title>
-    <jsp:include page="headerResource.jsp"/>
+    <jsp:include page="../headerResource.jsp"/>
     <script src="${pageContext.request.contextPath}/static/js/cart.js"></script> <!-- Thêm liên kết file JavaScript -->
 </head>
 <body>
 <%@ include file="/templates/includes/navbar.jsp" %>
 
-<section class="section-content padding-y bg">
+<section class="section-content padding-y bg" style="margin-top: 120px;">
     <div class="container">
         <!-- Messaging Area -->
         <div id="cartMessage" class="alert" style="display: none;"></div>
@@ -95,7 +95,7 @@
                         <c:if test="${empty cart.items}">
                             <tr>
                                 <td colspan="4" class="text-center">
-                                    <p> <fmt:message key="NotifyCardEmptu"/> <a href="/MyMavenProject_war/"><fmt:message key="BuyNow"/></a></p>
+                                    <p> <fmt:message key="NotifyCardEmptu"/> <a href="${pageContext.request.contextPath}/"><fmt:message key="BuyNow"/></a></p>
                                 </td>
                             </tr>
                         </c:if>
