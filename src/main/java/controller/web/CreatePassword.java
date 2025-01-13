@@ -1,6 +1,7 @@
 package controller.web;
 
 
+import Util.GeneratePassword;
 import dao.DBConnectionPool;
 import dao.UserDAO;
 import jakarta.servlet.ServletException;
@@ -39,13 +40,13 @@ public class CreatePassword extends HttpServlet {
             HttpSession session = req.getSession();
             String email = (String) session.getAttribute("email");
             try {
-                da.updatePassword(email,password);
-                req.setAttribute("message","Đổi mật khẩu thành công !");
+                String newPassword = GeneratePassword.hashPassword(password);
+                da.updatePassword(email,newPassword);
+                req.setAttribute("message","Your new password has been updated successfully");
                 req.getRequestDispatcher( "/templates/login.jsp").forward(req, resp);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
         }
     }
 }

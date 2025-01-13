@@ -41,11 +41,11 @@ public class SendMail {
         message.setText("http://localhost:8080/FashionWebProject/Active?id="+id);
         return message;
     }
-    public  Message sendMail (String email , String otp ) throws MessagingException {
+    public Message sendMail (String email, String otp) throws MessagingException {
         message.setFrom(new InternetAddress(senderEmail));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-        message.setSubject("Mã opt của bạn là : ");
-        message.setText(otp);
+        message.setSubject("[Shopping Web] Mã OTP của bạn");
+        message.setText("Chúng tôi gửi bạn mã OTP là: " + otp);
         return message;
     }
 }

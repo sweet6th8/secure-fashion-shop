@@ -23,7 +23,7 @@
           <form action="register" method="POST">
             <div class="form-row">
               <div class="col form-group">
-                <label>First namne </label>
+                <label>First name </label>
                 <input
                   name="FirstName"
                   type="text"
@@ -63,7 +63,7 @@
               <p  style="color: red;">${message}</p>
             </div>
             <div class="form-group">
-              <label>phone</label>
+              <label>Phone Number</label>
              <input name="phone" type="text" id="phone" placeholder="Enter your phone" oninput="validatePhone()"  required   class="form-control" />
              <span id="error-phone" style="color: red; display: none;"></span>
 
