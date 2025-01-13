@@ -1,6 +1,7 @@
 ﻿CREATE
 DATABASE ClothingShopWeb;
 
+
 USE ClothingShopWeb
 -- Tạo bảng Category
 CREATE TABLE Categories
@@ -128,7 +129,8 @@ add Img nvarchar(255)
 Alter table [DBO].[User]
 add Active bit NOT NULL
 
-select * from [DBO].[User]
+delete  from [DBO].[User]
+SELECT * from [DBO].[User]
 
 SELECT * FROM Saved_Items
 -- reset id 

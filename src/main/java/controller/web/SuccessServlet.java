@@ -48,7 +48,7 @@ public class SuccessServlet extends HttpServlet {
             List<CartItem> cartItems = cartDAO.getCartItems(cart.getCartId());
 
             // Create a new order and update stock for each product
-            int orderId = orderDAO.createOrder(userId, cart.getTotalPrice(), "Completed");
+            int orderId = orderDAO.createOrder(userId, cart.getTotalPrice(), "");
             for (CartItem item : cartItems) {
                 Product product = item.getProduct();
                 product.reduceStock(item.getQuantity());

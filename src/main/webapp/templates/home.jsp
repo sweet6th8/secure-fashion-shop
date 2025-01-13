@@ -6,17 +6,42 @@
 <fmt:setBundle basename="messages" />
 
 <c:set var="Context" value="${pageContext.request.contextPath}"/>
+
+<style>
+    #tryOnButton {
+        position: fixed; /* Định vị cố định */
+        bottom: 60px; /* Cách đáy màn hình 20px */
+        right: 30px; /* Cách phải màn hình 20px */
+        background-color: #001b19; /* Màu nền xanh lá cây */
+        color: white; /* Màu chữ trắng */
+        padding: 10px 20px; /* Kích thước padding */
+        border-radius: 25px; /* Bo tròn các góc */
+        font-size: 16px; /* Cỡ chữ */
+        font-weight: bold; /* Đậm chữ */
+        text-align: center; /* Căn giữa chữ */
+        text-decoration: none; /* Xóa gạch chân */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+        transition: background-color 0.3s ease; /* Hiệu ứng hover */
+        z-index: 1000; /* Hiển thị trên các phần tử khác */
+    }
+
+    #tryOnButton:hover {
+        background-color: #007BFF; /* Màu nền khi hover */
+    }
+
+</style>
 <!-- Nội dung của home.jsp -->
 <section class="section-intro padding-y-sm" style="margin-top: 120px;">
     <div class="container">
         <div class="intro-banner-wrap">
-            <img src="${Context}/static/images/banners/1.jpg" class="img-fluid rounded"
+            <img src="${Context}/static/images/banners/banner.jpg" class="img-fluid rounded"
                  alt="Intro Banner">
         </div>
-        <!-- New Try On Button -->
+        <!--  Try On Button -->
         <div class="text-center mt-3">
-            <a href="${Context}/templates/tryon.jsp" class="btn btn-primary">Try On</a>
+            <a href="${Context}/templates/tryon.jsp" id="tryOnButton" class="btn btn-primary">Try-On with AI</a>
         </div>
+
     </div>
 </section>
 
