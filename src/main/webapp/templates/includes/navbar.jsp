@@ -25,7 +25,7 @@
         <div class="row align-items-center">
             <div class="col-lg-2 col-md-3 col-6">
                 <a href="${context}/" class="ms-1 brand-wrap">
-                    <img class="logo" src="${context}/static/images/logo.png" alt="Logo">
+                 <span CLASS="fa-2x font-weight-bolder pl-lg-5">FASHION AI</span>
                 </a>
             </div>
             <div class="col-lg col-sm col-md col-6 flex-grow-0">
