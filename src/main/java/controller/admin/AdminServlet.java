@@ -30,7 +30,7 @@ public class AdminServlet extends HttpServlet {
      HttpSession session = req.getSession();
      String role = (String) session.getAttribute("role");
      if (role.equals("Admin")) {
-         req.setAttribute("Message", "Chào mừng đến với admin ");
+         req.setAttribute("Message", "Welcome admin  ");
          ProductDAO pdao = new ProductDAO(connection);
          UserDAO udao= new UserDAO(connection);
          OrderDAO odao= new OrderDAO(connection);
@@ -48,7 +48,7 @@ public class AdminServlet extends HttpServlet {
          req.getRequestDispatcher("/templates/admin/admin_home.jsp").forward(req, resp);
      }
      else {
-         req.setAttribute("Message", "Vui lòng đăng nhập bằng tài khoan admin !");
+         req.setAttribute("Message", "Please admin account  !");
          req.getRequestDispatcher("/templates/LoginServlet").forward(req, resp);
      }
     }

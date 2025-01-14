@@ -32,7 +32,7 @@
                 <div class="col-md-12">
                     <div class="app-title">
                         <ul class="app-breadcrumb breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><b>Bảng điều khiển</b></a></li>
+                            <li class="breadcrumb-item"><a href="#"><b>Control panel </b></a></li>
                         </ul>
                         <div id="clock"></div>
                     </div>
@@ -45,9 +45,9 @@
                         <div class="col-md-6">
                             <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
                                 <div class="info">
-                                    <h4>Total khách hàng</h4>
-                                    <p><b>${requestScope.TOTALUSERS} khách hàng</b></p>
-                                    <p class="info-tong">Tổng số khách hàng được quản lý.</p>
+                                    <h4>Total Customer</h4>
+                                    <p><b>${requestScope.TOTALUSERS} Customer</b></p>
+                                    <p class="info-tong">Total Customer manage.</p>
                                 </div>
                             </div>
                         </div>
@@ -55,9 +55,9 @@
                         <div class="col-md-6">
                             <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>
                                 <div class="info">
-                                    <h4>Tổng sản phẩm</h4>
-                                    <p><b>${requestScope.TOTALPRODUCTS} sản phẩm</b></p>
-                                    <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
+                                    <h4>Total product</h4>
+                                    <p><b>${requestScope.TOTALPRODUCTS} Product</b></p>
+                                    <p class="info-tong">Total product manage.</p>
                                 </div>
                             </div>
                         </div>
@@ -65,40 +65,39 @@
                         <div class="col-md-6">
                             <div class="widget-small warning coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
                                 <div class="info">
-                                    <h4>Tổng đơn hàng</h4>
-                                    <p><b>${requestScope.TOTALORDERS} đơn hàng</b></p>
-                                    <p class="info-tong">Tổng số hóa đơn bán hàng trong tháng.</p>
-                                </div>
+                                    <h4>Total order</h4>
+                                    <p><b>${requestScope.TOTALORDERS} order</b></p>
+                                    <p class="info-tong">Total order invoices for the month.</p>                                </div>
                             </div>
                         </div>
                         <!-- col-6 -->
                         <div class="col-md-6">
                             <div class="widget-small danger coloured-icon"><i class='icon bx bxs-error-alt fa-3x'></i>
                                 <div class="info">
-                                    <h4>Sắp hết hàng</h4>
-                                    <p><b>${requestScope.PRODUCTSLOW} sản phẩm</b></p>
-                                    <p class="info-tong">Số sản phẩm cảnh báo hết cần nhập thêm.</p>
+                                    <h4>Out of stock</h4>
+                                    <p><b>${requestScope.PRODUCTSLOW} products</b></p>
+                                    <p class="info-tong">Number of out of stock products that need to be added.</p>
                                 </div>
                             </div>
                         </div>
                         <!-- col-12 -->
                         <div class="col-md-12">
                             <div class="tile">
-                                <h3 class="tile-title">Đơn hàng gần đây</h3>
+                                <h3 class="tile-title">Recent Orders</h3>
                                 <div>
                                     <table class="table table-bordered">
                                         <thead>
-                                            <tr>
-                                                <th>ID đơn hàng</th>
-                                                <th>Khách hàng</th>
-                                                <th>Số điện thoại</th>
-                                                <th>Địa chỉ</th>
-                                                <th>Ngày mua</th>
-                                                <th>Tổng tiền</th>
-                                                <th>Thanh Toán</th>
-                                                <th>Chức năng</th>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Customer</th>
+                                            <th>Phone Number</th>
+                                            <th>Address</th>
+                                            <th>Purchase Date</th>
+                                            <th>Total Amount</th>
+                                            <th>Payment</th>
+                                            <th>Functions</th>
 
-                                            </tr>
+                                        </tr>
                                         </thead>
                                         <tbody>
                                         <c:if test="${not empty requestScope.lists}">

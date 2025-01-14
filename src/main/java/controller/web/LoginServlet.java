@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
                 }
                 String realPass = udao.getPassword(email);
              if (!GeneratePassword.checkPassword(pass, realPass)) {
-                 String message = "Sai thông tin tài khoản mật khẩu ";
+                 String message = "Incorrect account password information";
                  req.setAttribute("message", message);
                  req.getRequestDispatcher("/templates/login.jsp").forward(req,resp);
 

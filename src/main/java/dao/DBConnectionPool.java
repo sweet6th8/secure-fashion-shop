@@ -15,8 +15,8 @@ public class DBConnectionPool {
             // Cấu hình HikariCP
             HikariConfig config = new HikariConfig();
             config.setJdbcUrl("jdbc:sqlserver://localhost:1433;databaseName=ClothingShopWeb;encrypt=false");
-            config.setUsername("sa");
-            config.setPassword("123456");
+            config.setUsername("nhutanh");
+            config.setPassword("nhutanh02042004@");
 
             // Các cấu hình Connection Pool
             config.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

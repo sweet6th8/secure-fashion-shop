@@ -22,7 +22,8 @@ import java.sql.Connection;
 @WebServlet(name = "EditCategoryServlet", urlPatterns = {"/secure/EditCategoryServlet"})
 public class EditCategoryServlet extends HttpServlet {
     private DataSource dataSource;
-    private static final String MANAGE_CATEGORY_CONTROLLER = "/ManageCategoryServlet";
+    private static final String MANAGE_CATEGORY_CONTROLLER = "/secure/ManageCategoryServlet";
+
 
     @Override
     public void init() throws ServletException {
@@ -40,7 +41,7 @@ public class EditCategoryServlet extends HttpServlet {
         // Validate ID
         if (cId == null || !cId.matches("\\d+")) {
             request.setAttribute("mess", "Invalid category ID.");
-            request.getRequestDispatcher("ManageCategoryServlet").forward(request, response);
+            request.getRequestDispatcher(MANAGE_CATEGORY_CONTROLLER).forward(request, response);
             return;
         }
 
@@ -51,18 +52,18 @@ public class EditCategoryServlet extends HttpServlet {
             Category category = dao.getCategoryById(Integer.parseInt(cId));
             if (category == null) {
                 request.setAttribute("mess", "Category not found.");
-                request.getRequestDispatcher("ManageCategoryServlet").forward(request, response);
+                request.getRequestDispatcher(MANAGE_CATEGORY_CONTROLLER).forward(request, response);
                 return;
             }
 
             // Pass category data to JSP for rendering
             request.setAttribute("category", category);
-            request.getRequestDispatcher("templates/admin/admin_categories_edit.jsp").forward(request, response);
+            request.getRequestDispatcher("/templates/admin/admin_categories_edit.jsp").forward(request, response);
 
         } catch (Exception ex) {
             log("Error retrieving category for edit:", ex);
             request.setAttribute("mess", "An error occurred while fetching category details.");
-            request.getRequestDispatcher("ManageCategoryServlet").forward(request, response);
+            request.getRequestDispatcher(MANAGE_CATEGORY_CONTROLLER).forward(request, response);
         }
     }
 
@@ -76,7 +77,7 @@ public class EditCategoryServlet extends HttpServlet {
         // Validate input
         if (cId == null || !cId.matches("\\d+") || cName == null || cName.trim().isEmpty()) {
             request.setAttribute("mess", "Please provide valid inputs for updating the category.");
-            request.getRequestDispatcher("ManageCategoryServlet").forward(request, response);
+            request.getRequestDispatcher(MANAGE_CATEGORY_CONTROLLER).forward(request, response);
             return;
         }
 
@@ -88,12 +89,12 @@ public class EditCategoryServlet extends HttpServlet {
             dao.updateCategory(category);
 
             request.setAttribute("mess", "Category updated successfully.");
-            response.sendRedirect("ManageCategoryServlet");
+            response.sendRedirect(MANAGE_CATEGORY_CONTROLLER);
 
         } catch (Exception ex) {
             log("Error editing category:", ex);
             request.setAttribute("mess", "Failed to update category. Please try again.");
-            request.getRequestDispatcher("ManageCategoryServlet").forward(request, response);
+            request.getRequestDispatcher(MANAGE_CATEGORY_CONTROLLER).forward(request, response);
         }
     }
     @Override

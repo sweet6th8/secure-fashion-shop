@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="form-group col-md-12">
                                 <span>
-                                    <h5>Chỉnh sửa thông tin sản phẩm</h5>
+                                                                        <h5>Edit your product information</h5>
                                 </span>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 <!-- Product ID -->
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="control-label">Mã sản phẩm</label>
+                        <label class="control-label">Product ID</label>
                         <input class="form-control" type="text" name="id" readonly
                                value="${PRODUCT.id}" />
                     </div>
@@ -52,7 +52,7 @@
                 <!-- Product Name -->
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="control-label">Tên sản phẩm</label>
+                        <label class="control-label">Product name</label>
                         <input class="form-control" type="text" name="name" required
                                value="${PRODUCT.name}" />
                     </div>
@@ -61,7 +61,7 @@
                 <!-- Product Description -->
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="control-label">Mô tả</label>
+                        <label class="control-label">Description</label>
                         <textarea class="form-control" name="description" required rows="4">${PRODUCT.description}</textarea>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                 <!-- Product Price -->
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="control-label">Giá sản phẩm (VNĐ)</label>
+                        <label class="control-label">Product price</label>
                         <input class="form-control" type="number" name="price" min="1" step="0.01" required
                                value="${PRODUCT.price}" />
                     </div>
@@ -78,7 +78,7 @@
                 <!-- Product Stock -->
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="control-label">Số lượng tồn kho</label>
+                        <label class="control-label">Stock</label>
                         <input class="form-control" type="number" name="stock" min="0" required
                                value="${PRODUCT.stock}" />
                     </div>
@@ -87,7 +87,7 @@
                 <!-- Product Category -->
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="category" class="control-label">Danh mục</label>
+                        <label for="category" class="control-label">Category</label>
                         <select name="categoryId" class="form-control" id="category">
                             <c:forEach items="${requestScope.LIST_CATEGORIES}" var="cat">
                                 <option value="${cat.id}" ${cat.id == PRODUCT.category.id ? "selected" : ""}>${cat.title}</option>
@@ -99,8 +99,8 @@
                 <!-- Product Photo -->
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="control-label">Hình ảnh</label><br>
-                        <img src="${PRODUCT.photo}" alt="Product Image" />
+                        <label class="control-label">Image</label><br>
+                        <img src="${pageContext.request.contextPath}${PRODUCT.photo}" alt="Product Image" />
                         <input class="form-control" type="file" name="photo" accept="image/*" />
                     </div>
                 </div>
@@ -108,8 +108,8 @@
 
             <div class="modal-footer">
                 <!-- Submit Button -->
-                <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
-                <a class="btn btn-secondary" href="ManageProductServlet">Hủy</a>
+                <button class="btn btn-primary" type="submit">Save change</button>
+                <a class="btn btn-secondary" href="ManageProductServlet">Cancel</a>
             </div>
         </div>
     </div>

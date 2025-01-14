@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/admin/css/main.css">
-    <script src="static/admin/js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/static/admin/js/main.js"></script>
     <style>
         img{
             width: 200px;
@@ -35,15 +35,15 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="row">
-                        <div class="form-group  col-md-12">
-                                    <span class="thong-tin-thanh-toan">
-                                        <h5>Chỉnh sửa thông tin người dùng</h5>
-                                    </span>
+                        <div class="form-group col-md-12">
+ <span class="thong-news-thanh-toan">
+ <h5>Edit user information</h5>
+ </span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="control-label">Tên đăng nhập</label>
+                            <label class="control-label">Login name</label>
                             <input class="form-control" type="text" readonly name="username" value="${requestScope.user.username}">
                         </div>
                         <div class="form-group col-md-6">
@@ -55,7 +55,7 @@
                             <input class="form-control" type="text" name="lastname" value="${requestScope.user.getFullName().split(' ')[1]}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="control-label">Số điện thoại</label>
+                            <label class="control-label">Phone number</label>
                             <input class="form-control" type="text" name="phone" value="${requestScope.user.phone}">
                         </div>
                         <div class="form-group col-md-6">
@@ -63,19 +63,19 @@
                             <input class="form-control" type="text" name="email" value="${requestScope.user.email}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="control-label">Địa chỉ</label>
+                            <label class="control-label">Address</label>
                             <input class="form-control" type="text" name="address" value="${requestScope.user.address}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="exampleSelect1" class="control-label">Quyền quản trị</label>
+                            <label for="exampleSelect1" class="control-label">Administrative permissions</label>
                             <input hidden name="user_id" value="${requestScope.user.role}">
                             <select name="permission" class="form-control" id="exampleSelect1">
-                                <option value="True">Cho phép</option>
-                                <option value="False">Hủy bỏ</option>
+                                <option value="True">Allow</option>
+                                <option value="False">Cancel</option>
                             </select>
                         </div>
                         <div class="form-group col-md-12">
-                            <label class="control-label">Ảnh đại diện</label>
+                            <label class="control-label">Representative image</label>
                             <div id="myfileupload">
                                 <input type="file" id="uploadfile" name="avatar" value="${requestScope.user.getImage()}"  accept="image/*" onchange="readURL(this);" />
                             </div>

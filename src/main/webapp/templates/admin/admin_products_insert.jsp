@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <title>Thêm sản phẩm | Quản trị Admin</title>
+    <title>More Products | Admin</title> Admin
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +17,8 @@
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><a href="ManageProductServlet">Quản lý sản phẩm</a></li>
-            <li class="breadcrumb-item active"><a href="#"><b>Thêm sản phẩm</b></a></li>
+            <li class="breadcrumb-item"><a href="ManageProductServlet">Manage Products</a></li>
+            <li class="breadcrumb-item active"><a href="#">Add a product</a></li>
         </ul>
     </div>
 
@@ -31,27 +31,26 @@
                             ${requestScope.mess}
                     </div>
                 </c:if>
-
-                <h3 class="tile-title">Thêm sản phẩm mới</h3>
+                <h3 class="tile-title">Add new product</h3>
                 <form action="InsertProductServlet" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label class="control-label">Tên sản phẩm</label>
-                        <input class="form-control" type="text" name="name" placeholder="Nhập tên sản phẩm" required>
+                        <label class="control-label">Product name</label>
+                        <input class="form-control" type="text" name="name" placeholder="Enter product name" required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Mô tả</label>
-                        <textarea class="form-control" name="description" rows="4" placeholder="Nhập mô tả sản phẩm" required></textarea>
+                        <label class="control-label">Description</label>
+                        <textarea class="form-control" name="description" rows="4" placeholder="Enter product description" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Giá sản phẩm (VNĐ)</label>
-                        <input class="form-control" type="number" name="price" min="1" step="0.01" placeholder="Nhập giá sản phẩm" required>
+                        <label class="control-label">Product price</label>
+                        <input class="form-control" type="number" name="price" min="1" step="0.01" placeholder="Enter product price" required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Số lượng tồn kho</label>
-                        <input class="form-control" type="number" name="stock" min="0" placeholder="Nhập số lượng tồn kho" required>
+                        <label class="control-label">Inventory quantity</label>
+                        <input class="form-control" type="number" name="stock" min="0" placeholder="Enter stock quantity" required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Danh mục</label>
+                        <label class="control-label">Category</label>
                         <select class="form-control" name="categoryId" required>
                             <!-- Display list of categories -->
                             <c:forEach items="${requestScope.LIST_CATEGORIES}" var="category">

@@ -14,7 +14,7 @@
   <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
     <div class="card-body">
       <h4 class="card-title mb-4">Confirm OTP</h4>
-      <form action="${pageContext.request.contextPath}/templates/ConfirmOTP" method="post">
+      <form action="${pageContext.request.contextPath}/templates/ConfirmOTPServlet" method="post">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Fill your OTP" name="otp" >
         </div> <!-- form-group// -->

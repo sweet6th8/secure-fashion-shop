@@ -64,7 +64,7 @@ public class EditProfileServlet extends HttpServlet {
         if (fileName != null && !fileName.isEmpty()) {
             filePart.write(uploadDir  + fileName);
         }
-        User user = new User(email, firstName + " " + lastName, city + " " + country
+        User user = new User(email, firstName + " " + lastName, city + "," + country
                 , phone, "/static/images/avatars/"+ fileName, GeneratePassword.hashPassword(password), id);
         UserDAO userDAO = new UserDAO(con);
         try {
@@ -72,15 +72,15 @@ public class EditProfileServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    resp.sendRedirect(req.getContextPath()+"/templates/LoginServlet.jsp");
+    resp.sendRedirect(req.getContextPath()+"/templates/login.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String role = (String) session.getAttribute("role");
         if (role.equals("Admin")) {
-            request.setAttribute("message", "Please LoginServlet user account !");
-            request.getRequestDispatcher("/templates/LoginServlet.jsp").forward(request, response);
+            request.setAttribute("message", "Please Login user account !");
+            request.getRequestDispatcher("/templates/login.jsp").forward(request, response);
         }
         try {
             UserDAO udao = new UserDAO(con);

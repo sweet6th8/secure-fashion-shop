@@ -156,3 +156,5 @@ ON DELETE CASCADE;
 -- Chỉ cần xóa từ User
 DELETE FROM [dbo].[User]
 WHERE id = 2;
+
+SELECT P.id , P.name , OI.price, OI.quantity , P.photo,O.status  FROM Order_Items OI JOIN    Orders O on O.id = OI.order_id JOIN product P ON P.id = OI.product_id

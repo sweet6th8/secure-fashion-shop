@@ -10,7 +10,7 @@
 <html lang="en">
 
     <head>
-        <title>Chi tiết đơn hàng | Quản trị Admin</title>
+        <title>Order Details | Admin Management</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +34,7 @@
         <main class="app-content">
             <div class="app-title">
                 <ul class="app-breadcrumb breadcrumb side">
-                    <li class="breadcrumb-item active"><a href="#"><b>Chi tiết đơn hàng</b></a></li>
+                    <li class="breadcrumb-item active"><a href="#"><b>Order details</b></a></li>
                 </ul>
                 <div id="clock"></div>
             </div>
@@ -45,19 +45,19 @@
                             <div class="row element-button">
                                 <div class="col-sm-2">
                                     <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                                            class="fas fa-print"></i> In dữ liệu</a>
+                                            class="fas fa-print"></i> Print order detail</a>
                                 </div>
                             </div>
                             <table class="table table-hover table-bordered" id="sampleTable">
                                 <thead>
                                     <tr>
-                                        <th>Ảnh</th>
-                                        <th>Mã sản phẩm</th>
-                                        <th>Tên sản phẩm</th>
+                                        <th>Photo</th>
+                                        <th>Product Code</th>
+                                        <th>Product Name</th>
                                         <th>Size</th>
-                                        <th>Màu</th>
-                                        <th>Số lượng</th>
-                                        <th>Đơn giá</th>
+                                        <th>Color</th>
+                                        <th>Quantity</th>
+                                        <th>Unit Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>

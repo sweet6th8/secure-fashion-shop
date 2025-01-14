@@ -1,16 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <head>
     <meta charset="utf-8" />
     <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>GreatKart | One of the Biggest Online Shopping Platform</title>
+    <title>FASHION AI  | One of the Biggest Online Shopping Platform</title>
     <%@include file="../headerResource.jsp"%>
   </head>
 <body>
@@ -140,7 +137,7 @@
               password not match
             </p>
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col">
             <label>Avatar</label>
             <input
                     id="avatar"

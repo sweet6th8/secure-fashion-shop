@@ -1,5 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="../../common/taglib.jsp"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@include file="../../common/taglib.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,17 +11,18 @@
     <!-- Main CSS -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/admin/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
-<%@include file="../../common/admin/sidebar.jsp"%>
+<%@include file="../../common/admin/sidebar.jsp" %>
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
+            <li class="breadcrumb-item active"><a href="#"><b>List products</b></a></li>
         </ul>
         <div id="clock"></div>
     </div>
@@ -31,11 +32,13 @@
                 <div class="tile-body">
                     <div class="row element-button">
                         <div class="col-sm-2">
-                        <a class="btn btn-add btn-sm" href="InsertProductServlet" title="Thêm"><i class="fas fa-plus"></i> Tạo mới sản phẩm</a>
+                            <a class="btn btn-add btn-sm" href="InsertProductServlet" title="Thêm"><i
+                                    class="fas fa-plus"></i> Create new product</a>
                         </div>
                         <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                                    class="fas fa-print"></i> In dữ liệu</a>
+                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"
+                               onclick="myApp.printTable()"><i
+                                    class="fas fa-print"></i>Print products</a>
                         </div>
                     </div>
                     <h3 style="color: green; text-align: center; margin: 20px 0">${requestScope.mess}</h3>
@@ -44,14 +47,14 @@
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
-                            <th>Mã sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Mô tả</th>
-                            <th>Giá (VNĐ)</th>
-                            <th>Hình ảnh</th>
-                            <th>Số lượng tồn</th>
-                            <th>Danh mục</th>
-                            <th>Trạng thái</th>
+                            <th>Product Code</th>
+                            <th>Product Name</th>
+                            <th>describe</th>
+                            <th>Price</th>
+                            <th>image</th>
+                            <th>Inventory</th>
+                            <th>directory</th>
+                            <th>condition</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -64,20 +67,22 @@
                                 <td>${product.description}</td>
                                 <td>${product.price}</td>
                                 <td>
-                                    <img src="${pageContext.request.contextPath}${product.photo}" alt="${product.name}" style="width: 100px; height: auto;">
+                                    <img src="${pageContext.request.contextPath}${product.photo}" alt="${product.name}"
+                                         style="width: 100px; height: auto;">
                                 </td>
                                 <td>${product.stock}</td>
                                 <td>${product.category.title}</td>
                                 <td>
                                     <c:choose>
-                                        <c:when test="${product.isInStock()}">Còn hàng</c:when>
-                                        <c:otherwise>Hết hàng</c:otherwise>
+                                        <c:when test="${product.isInStock()}">In Stock</c:when>
+                                        <c:otherwise>Stock</c:otherwise>
                                     </c:choose>
                                 </td>
                                 <td>
-                                    <a href="EditProductServlet?pid=${product.id}" class="btn btn-primary btn-sm">Sửa</a>
+                                    <a href="EditProductServlet?pid=${product.id}"
+                                       class="btn btn-primary btn-sm">edit</a>
                                     <a href="DeleteProductServlet?pid=${product.id}" class="btn btn-danger btn-sm"
-                                       onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">Xóa</a>
+                                       onclick="return confirm('Are you sure you want to remove this product?');" >Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>

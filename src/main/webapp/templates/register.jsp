@@ -16,11 +16,11 @@
   <body>
 <jsp:include page="includes/navbar.jsp"/>
 
-    <section class="section-content container-fluid">
+    <section class="section-content container-fluid" style="margin-top: 130px;">
       <div class="card mx-auto" style="max-width: 520px; margin-top: 40px">
         <article class="card-body">
           <header class="mb-4"><h4 class="card-title">Sign up</h4></header>
-          <form action="register" method="POST">
+          <form action="${pageContext.request.contextPath}/templates/RegisterServlet" method="POST">
             <div class="form-row">
               <div class="col form-group">
                 <label>First name </label>

@@ -20,7 +20,7 @@ import java.sql.Connection;
 @WebServlet(name = "DeleteCategoryServlet", urlPatterns = {"/secure/DeleteCategoryServlet"})
 public class DeleteCategoryServlet extends HttpServlet {
     private DataSource dataSource;
-    private static final String MANAGE_CATEGORY_CONTROLLER = "/ManageCategoryServlet";
+    private static final String MANAGE_CATEGORY_CONTROLLER = "/secure/ManageCategoryServlet";
 
     @Override
     public void init() throws ServletException {
@@ -50,7 +50,7 @@ public class DeleteCategoryServlet extends HttpServlet {
             log("Error deleting category:", ex);
             request.setAttribute("mess", "Failed to delete category. Please try again.");
         } finally {
-            response.sendRedirect(MANAGE_CATEGORY_CONTROLLER); // Better UX
+            response.sendRedirect(request.getContextPath()+MANAGE_CATEGORY_CONTROLLER); // Better UX
         }
     }
 
