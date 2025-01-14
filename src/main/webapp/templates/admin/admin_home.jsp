@@ -95,7 +95,6 @@
                                             <th>Purchase Date</th>
                                             <th>Total Amount</th>
                                             <th>Payment</th>
-                                            <th>Functions</th>
 
                                         </tr>
                                         </thead>

@@ -48,14 +48,14 @@ public class SuccessPaymentServlet extends HttpServlet {
             List<CartItem> cartItems = cartDAO.getCartItems(cart.getCartId());
 
             // Create a new order and update stock for each product
-            int orderId = orderDAO.createOrder(userId, cart.getTotalPrice(), "");
+            int orderId = orderDAO.createOrder(userId, cart.getTotalPrice(), "Payed");
             for (CartItem item : cartItems) {
                 Product product = item.getProduct();
                 product.reduceStock(item.getQuantity());
                 productDAO.updateProductStock(product);
 
                 // Add order items
-                orderDAO.addOrderItem(orderId, item.getProductId(), item.getQuantity(), item.getTotalPrice());
+                orderDAO.addOrderItem(orderId, item.getProductId(), item.getQuantity(), product.getPrice());
             }
 
             // Clear the cart
