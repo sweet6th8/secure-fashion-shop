@@ -15,20 +15,20 @@
     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="${context}/static/admin/images/user.png" alt="Avatar">
         <div>
             <p class="app-sidebar__user-name"><b>${sessionScope.account.firstName} ${sessionScope.account.lastName}</b></p>
-            <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
+            <p class="app-sidebar__user-designation">Welcome back admin </p>
         </div>
     </div>
     <hr>
     <ul class="app-menu">
         <li><a class="app-menu__item ${requestScope.CURRENTSERVLET == "Home" ? "active" : ""}" href="${context}/secure/admin"><i class='app-menu__icon bx bx-home'></i><span
-                    class="app-menu__label">Trang chủ</span></a></li>
+                    class="app-menu__label">Home</span></a></li>
         <li><a class="app-menu__item ${requestScope.CURRENTSERVLET == "User" ? "active" : ""}" href="${context}/secure/ManageUserServlet"><i class='app-menu__icon bx bx-user-voice'></i><span
-                    class="app-menu__label">Quản lý khách hàng</span></a></li>
+                    class="app-menu__label">User management</span></a></li>
         <li><a class="app-menu__item ${requestScope.CURRENTSERVLET == "Product" ? "active" : ""}" href="${context}/secure/ManageProductServlet"><i class='app-menu__icon bx bx-purchase-tag-alt'></i><span
-                    class="app-menu__label">Quản lý sản phẩm</span></a></li>
+                    class="app-menu__label">Product management</span></a></li>
         <li><a class="app-menu__item ${requestScope.CURRENTSERVLET == "Category" ? "active" : ""}" href="${context}/secure/ManageCategoryServlet"><i class='app-menu__icon fa fa-layer-group'></i><span
-                    class="app-menu__label">Quản lý danh mục</span></a></li>
+                    class="app-menu__label">Category management</span></a></li>
         <li><a class="app-menu__item ${requestScope.CURRENTSERVLET == "Order" ? "active" : ""}" href="${context}/secure/ManageOrderServlet"><i class='app-menu__icon bx bx-task'></i><span
-                    class="app-menu__label">Quản lý đơn hàng</span></a></li>
+                    class="app-menu__label">Order management</span></a></li>
     </ul>
 </aside>

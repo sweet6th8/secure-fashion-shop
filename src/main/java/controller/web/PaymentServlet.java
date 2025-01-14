@@ -19,6 +19,11 @@ import java.util.List;
 
 @WebServlet("/PaymentServlet")
 public class PaymentServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("message" , "please login  !");
+        req.getRequestDispatcher("/templates/Forgot.jsp").forward(req, resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

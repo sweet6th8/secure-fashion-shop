@@ -67,8 +67,7 @@
                                         <td>${item.getUserName()}</td>
                                         <td>${item.getPhone()}</td>
                                         <td>${item.getAddress()}</td>
-                                        <td>${item.getCreateDate()}
-                                        </td>
+                                        <td>${item.getCreateDate()}</td>
                                         <td>${item.getTotalPrice()}</td>
                                         <td>${item.getStatus()}</td>
 
