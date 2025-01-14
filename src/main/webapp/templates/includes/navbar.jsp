@@ -16,7 +16,8 @@
                 </li>
             </ul>
             <ul class="navbar-nav mr-1">
-                <li><a href="mailto:22130015@st.hcmuaf.edu.vn" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
+                <li><a href="mailto:22130015@st.hcmuaf.edu.vn" class="nav-link"> <i class="fa fa-envelope"></i> Email
+                </a></li>
                 <li><a href="tel:+84387822490" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
             </ul>
         </div>
@@ -25,7 +26,7 @@
         <div class="row align-items-center">
             <div class="col-lg-2 col-md-3 col-6">
                 <a href="${context}/?lang=${sessionScope.lang}" class="ms-1 brand-wrap">
-                 <span CLASS="fa-2x font-weight-bolder pl-lg-5">FASHION AI</span>
+                    <span CLASS="fa-2x font-weight-bolder pl-lg-5">FASHION AI</span>
                 </a>
             </div>
             <div class="col-lg col-sm col-md col-6 flex-grow-0">
@@ -71,14 +72,14 @@
             <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
                 <div class="d-flex justify-content-end mb-3 mb-lg-0">
 
-                        <a href="${context}/secure/cart?userId=${sessionScope.user.getId()}"
-                           aria-label="Go to shopping cart">
-                            <div class="icon icon-sm rounded-circle border relative">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span class="badge badge-pill badge-danger">${sessionScope.cart.getItems().size()}</span>
+                    <a href="${context}/secure/cart?userId=${sessionScope.user.getId()}"
+                       aria-label="Go to shopping cart">
+                        <div class="icon icon-sm rounded-circle border relative">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="badge badge-pill badge-danger">${sessionScope.cart.getItems().size()}</span>
 
-                            </div>
-                        </a>
+                        </div>
+                    </a>
 
                     <c:set var="userId" value="${sessionScope.userId}"/>
                     <c:choose>
@@ -92,10 +93,12 @@
                                                                              href="${context}/secure/EditServlet?id=${userId}">Edit
                                         profile</a></li>
                                     <li class="text-center border-bottom"><a class="dropdown-item "
-                                                                             href="${context}/secure/SavedServlet?id=${userId}">Saved</a>
+                                                                             href="${context}/secure/SavedServlet?id=${userId}">Favorite
+                                        products</a>
                                     </li>
                                     <li class="text-center border-bottom"><a class="dropdown-item "
-                                                                             href="${context}/secure/HistoryServlet?id=${userId}">History</a>
+                                                                             href="${context}/secure/HistoryServlet?id=${userId}">Order
+                                        history</a>
                                     </li>
                                     <li class="text-center border-bottom"><a class="dropdown-item "
                                                                              href="${context}/secure/logout?id=${userId}">Log
@@ -107,7 +110,8 @@
                             <div class="widget-header">
                                 <small class="title text-muted">Welcome guest!</small>
                                 <div>
-                                    <a href="${context}/templates/login.jsp">Login</a> <span class="dark-transp"> | </span>
+                                    <a href="${context}/templates/login.jsp">Login</a> <span
+                                        class="dark-transp"> | </span>
                                     <a href="${context}/templates/register.jsp"> Register</a>
                                 </div>
                             </div>

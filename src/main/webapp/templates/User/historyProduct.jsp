@@ -1,8 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<fmt:requestEncoding value="UTF-8"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="messages"/>
+<fmt:message key="exchangeRate" var="rate"/>
+<fmt:message key="currency" var="currency"/>
 
 <html>
 <head><title>Title</title>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <title>GreatKart | One of the Biggest Online Shopping Platform</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/history.css">
@@ -21,28 +29,37 @@
                     <c:choose>
                         <c:when test="${not empty requestScope.list }">
                             <c:forEach var="item" items="${requestScope.list}">
-                                <div class="card mb-3" style="max-width: 100%; max-height: 400px; ">
-                                    <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img src="${pageContext.request.contextPath}${item.getProductImage()}"
-                                                 class="img-thumbnail rounded-start" alt="...">
+                                <div class="col-md-4" >
+                                    <figure class="card card-product-grid border-dark">
+                                        <div class="img-wrap">
+                                            <a href="${pageContext.request.contextPath}/product?id=${item.getProductId()}"><img
+                                                    src="${pageContext.request.contextPath}${item.getProductImage()}"
+                                                    alt="${item.getProductName()}"></a>
                                         </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body" style="height: 60%; ">
-                                                <p class="status">
-                                                        ${item.getProductStatus()}
-                                                </p>
-                                                <h5 class="card-title fa-2x">${item.getProductName()}</h5>
-                                                <p class="card-text fa-2"><small class="text-body-secondary">Quantity :
-                                                        ${item.getProductQuantity()} </small></p>
+                                        <figcaption class="info-wrap">
+                                            <div class=" mb-2">
+                                                <a href="${pageContext.request.contextPath}/product?id=${item.getProductId()}"
+                                                   class="title text-center">${item.getProductName()}</a>
+                                                <div class="price-wrap mt-2 fa-2x text-right">
+                                                    <fmt:formatNumber value="${item.getProductPrice() * rate}"
+                                                                      maxFractionDigits="0"
+                                                    />
+                                                        ${currency}
+                                                </div>
+                                            </div>
 
-                                            </div>
-                                            <div class="card-footer d-flex justify-content-between align-items-md-end ">
-                                                <p class="fa-2x"> Order total : ${item.getProductPrice()}</p>
-                                                <a href="#" class="btn btn-primary" style="float: right">Buy again</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            <form action="${pageContext.request.contextPath}/secure/cart" method="post">
+                                                <input type="hidden" name="action" value="addToCart">
+                                                <input type="hidden" name="productId" value="${item.getProductId()}">
+                                                <input type="hidden" name="quantity" min="1" value="1"
+                                                       class="form-control mb-2" required>
+                                                <button type="submit" class="btn btn-primary float-right">
+                                                    <span class="text"> <fmt:message key="BuyAgain"/> </span>
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                            </form>
+                                        </figcaption>
+                                    </figure>
                                 </div>
                             </c:forEach>
                         </c:when>
