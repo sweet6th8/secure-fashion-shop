@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 @WebServlet(name = "Active" , urlPatterns = {"/Active"})
-public class ActiveAccount  extends HttpServlet {
+public class ActiveAccountServlet extends HttpServlet {
     Connection con;
     @Override
     public void init() throws ServletException {

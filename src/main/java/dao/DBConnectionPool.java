@@ -40,7 +40,7 @@ public class DBConnectionPool {
         return dataSource;
     }
 
-    // Optional: Đóng Connection Pool khi không sử dụng nữa
+
     public static void shutdown() {
         if (dataSource != null) {
             dataSource.close();

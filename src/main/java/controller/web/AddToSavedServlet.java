@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 @WebServlet(name = "Add to SavedServlet" , urlPatterns = {"/secure/AddToSaved"})
 
-public class AddToSaved  extends HttpServlet {
+public class AddToSavedServlet extends HttpServlet {
     private Connection con ;
 
     @Override

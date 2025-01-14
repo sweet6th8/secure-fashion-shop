@@ -3,13 +3,11 @@ package controller.web;
 import Util.GeneratePassword;
 import Util.validation;
 import dao.DBConnectionPool;
-import dao.ProductDAO;
 import dao.UserDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import model.Product;
 import model.User;
 
 import java.io.File;
@@ -25,7 +23,7 @@ import java.sql.SQLException;
         maxRequestSize = 1024 * 1024 * 50    // 50MB maximum request size
 )
 
-public class EditProfile extends HttpServlet {
+public class EditProfileServlet extends HttpServlet {
     private Connection con;
 
     @Override

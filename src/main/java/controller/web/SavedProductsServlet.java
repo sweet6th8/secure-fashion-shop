@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(urlPatterns = {"/secure/SavedServlet"})
-public class SavedServlet extends HttpServlet {
+public class SavedProductsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (Connection con = DBConnectionPool.getDataSource().getConnection()) {

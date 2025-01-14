@@ -23,7 +23,7 @@ import java.sql.Connection;
 import java.util.List;
 
 @WebServlet("/SuccessServlet")
-public class SuccessServlet extends HttpServlet {
+public class SuccessPaymentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
