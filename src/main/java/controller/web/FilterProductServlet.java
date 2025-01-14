@@ -1,4 +1,4 @@
-package controller;
+package controller.web;
 
 import dao.DBConnectionPool;
 import dao.ProductDAO;
@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.util.List;
 
 @WebServlet("/Filter")
-public class FilterServlet extends HttpServlet {
+public class FilterProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {

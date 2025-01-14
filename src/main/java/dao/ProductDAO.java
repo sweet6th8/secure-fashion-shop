@@ -204,19 +204,19 @@ public class ProductDAO {
         }
         return list;
     }
-    // Phương thức close để đóng kết nối
+
     public void close() {
         if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {
-                e.printStackTrace(); // Log lỗi khi đóng kết nối thất bại
+                e.printStackTrace();
             }
         }
     }
-    // Update product stock in the database
+
     public void updateProductStock(Product product) {
-        // Corrected table name to match the rest of the DAO
+
         String query = "UPDATE product SET stock = ? WHERE id = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -256,22 +256,22 @@ public class ProductDAO {
         }
         return filteredProducts;
     }
-    // Assuming Product has a Category property
+
     private Product mapResultSetToProduct(ResultSet rs) throws Exception {
         Product product = new Product();
 
-        // Map product attributes
+
         product.setId(rs.getInt("id"));
         product.setName(rs.getString("name"));
         product.setPrice(rs.getDouble("price"));
         product.setDescription(rs.getString("description"));
         product.setPhoto(rs.getString("photo"));
 
-        // Map category ID - Initialize Category object to prevent NullPointerException
+
         if (rs.getObject("category_id") != null) {
             Category category = new Category();
-            category.setId(rs.getInt("category_id")); // Set category ID
-            product.setCategory(category); // Assuming Product has a 'setCategory' method
+            category.setId(rs.getInt("category_id"));
+            product.setCategory(category);
         }
 
         return product;
