@@ -46,7 +46,7 @@
                                 </div>
                             </c:forEach>
                         </c:when>
-                        <c:otherwise><h1 class="fa-4x text-center">Please Select your favored products  !</h1></c:otherwise>
+                        <c:otherwise><h1 class="fa-4x text-center">You don't have any orders yet</h1></c:otherwise>
 
                     </c:choose>
                 </div>

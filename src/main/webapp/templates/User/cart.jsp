@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>GreatKart | Shopping Cart</title>
     <jsp:include page="../headerResource.jsp"/>
-    <script src="${pageContext.request.contextPath}/static/js/cart.js"></script> <!-- Thêm liên kết file JavaScript -->
+    <script src="${pageContext.request.contextPath}/static/js/cart_ajax.js"></script> <!-- Thêm liên kết file JavaScript -->
 </head>
 <body>
 <%@ include file="/templates/includes/navbar.jsp" %>
