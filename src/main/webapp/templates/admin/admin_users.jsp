@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <title>Danh sách nhân viên | Quản trị Admin</title>
+    <title>Staff List | Admin Management</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +22,7 @@
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item active"><a href="#"><b>Danh sách người dùng</b></a></li>
+            <li class="breadcrumb-item active"><a href="#"><b>List of users</b></a></li>
         </ul>
         <div>${requestScope.mess}</div>
         <div id="clock"></div>
@@ -34,12 +34,12 @@
                 <div class="tile-body">
                     <div class="row element-button">
                         <div class="col-sm-2">
-                            <a class="btn btn-add btn-sm" href="ManageUserServlet?action=Insert" title="Thêm"><i class="fas fa-plus"></i>
-                                Tạo mới tài khoản</a>
+                            <a class="btn btn-add btn-sm" href="ManageUserServlet?action=Insert" title="More"><i class="fas fa-plus"></i>
+                                Create a new account</a>
                         </div>
                         <div class="col-sm-2">
                             <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                                    class="fas fa-print"></i> In dữ liệu</a>
+                                    class="fas fa-print"></i> Print data</a>
                         </div>
                     </div>
                     <h3 style="color: green; text-align: center; margin: 20px 0">${requestScope.mess}</h3>
@@ -47,13 +47,13 @@
                            id="sampleTable">
                         <thead>
                         <tr>
-                            <th>ID khách hàng</th>
-                            <th>Tên người dùng</th>
+                            <th>Customer ID</th>
+                            <th>Username</th>
                             <th>Email</th>
-                            <th>Địa chỉ</th>
-                            <th>Số điện thoại</th>
-                            <th>Giới tính</th>
-                            <th width="70">Chức năng</th>
+                            <th>Address</th>
+                            <th>Phone Number</th>
+                            <th>Gender</th>
+                            <th>Function</th>
                         </tr>
                         </thead>
                         <tbody>

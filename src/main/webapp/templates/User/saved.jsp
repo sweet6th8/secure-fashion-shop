@@ -17,27 +17,34 @@
         <div class="row mt-4">
             <div class="col-md-12">
                 <div>
-                    <c:forEach var="item" items="${requestScope.products}">
-                        <div class="card mb-3" style="max-width: 100%; max-height: 400px; ">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="${pageContext.request.contextPath}${item.getPhoto()}"
-                                         class="img-thumbnail rounded-start" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body" style="height: 60%; ">
+                   <c:choose>
+                       <c:when test="${not empty requestScope.products }">
+                           <c:forEach var="item" items="${requestScope.products}">
+                               <div class="card mb-3" style="max-width: 100%; max-height: 400px; ">
+                                   <div class="row g-0">
+                                       <div class="col-md-4">
+                                           <img src="${pageContext.request.contextPath}${item.getPhoto()}"
+                                                class="img-thumbnail rounded-start" alt="...">
+                                       </div>
+                                       <div class="col-md-8">
+                                           <div class="card-body" style="height: 60%; ">
 
-                                        <h5 class="card-title fa-2x">${item.getName()}</h5>
+                                               <h5 class="card-title fa-2x">${item.getName()}</h5>
 
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-md-end ">
-                                        <p class="fa-2x"> Order total : ${item.getPrice()}</p>
-                                        <a href="#" class="btn btn-primary" style="float: right">Buy again</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+                                           </div>
+                                           <div class="card-footer d-flex justify-content-between align-items-md-end ">
+                                               <p class="fa-2x"> Order total : ${item.getPrice()}</p>
+                                               <a href="#" class="btn btn-primary" style="float: right">Buy again</a>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </c:forEach>
+                       </c:when>
+                       <c:otherwise><h1 class="fa-4x text-center">Please Select your favored products  !</h1></c:otherwise>
+
+                   </c:choose>
+
                 </div>
             </div>
         </div>

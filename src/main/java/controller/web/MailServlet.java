@@ -44,7 +44,7 @@ public class MailServlet extends HttpServlet {
         UserDAO dao = new UserDAO(connection);
         try {
             if (!dao.checkEmailExist(email)) {
-                request.setAttribute("message" , "email chưa tồn tại !");
+                request.setAttribute("message" , "email is not exist  !");
                 request.getRequestDispatcher("/templates/Forgot.jsp").forward(request, response);
             }
             else {
@@ -58,9 +58,9 @@ public class MailServlet extends HttpServlet {
                     SendMail service = new SendMail();
                     Transport.send(service.sendMail(email, otp));
 
-                    request.getRequestDispatcher("/templates/ConfirmOTPServlet.jsp").forward(request, response);
+                    request.getRequestDispatcher("/templates/ConfirmOTP.jsp").forward(request, response);
                 } catch (MessagingException e) {
-                    response.getWriter().write("Có lỗi xảy ra khi gửi email: " + e.getMessage());
+                    response.getWriter().write("An error occurred while sending the email: " + e.getMessage());
                 }
             }
         } catch (SQLException e) {

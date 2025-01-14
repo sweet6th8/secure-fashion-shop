@@ -104,7 +104,7 @@
     <!-- Main Content -->
     <div class="form-container">
         <h1>Edit Category</h1>
-        <form action="EditCategoryServlet" method="post">
+        <form action="${pageContext.request.contextPath}/secure/EditCategoryServlet" method="post">
             <input type="hidden" name="id" value="${category.id}">
 
             <div class="form-group">

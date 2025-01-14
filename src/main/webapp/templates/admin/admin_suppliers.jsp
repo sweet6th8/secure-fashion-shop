@@ -10,7 +10,7 @@
 <html lang="en">
 
     <head>
-        <title>Danh sách sản phẩm | Quản trị Admin</title>
+        <title>Product List | Admin Management</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +34,7 @@
         <main class="app-content">
             <div class="app-title">
                 <ul class="app-breadcrumb breadcrumb side">
-                    <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
+                    <li class="breadcrumb-item active"><a href="#"><b>List product </b></a></li>
                 </ul>
                 <div id="clock"></div>
             </div>
@@ -45,27 +45,27 @@
                             <div class="row element-button">
                                 <div class="col-sm-2">
                                     <a class="btn btn-add btn-sm" href="productmanager?action=insert" title="Thêm"><i class="fas fa-plus"></i>
-                                        Tạo mới sản phẩm</a>
+                                       Create new product</a>
                                 </div>
                                 <div class="col-sm-2">
                                     <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                                            class="fas fa-print"></i> In dữ liệu</a>
+                                            class="fas fa-print"></i>Print product </a>
                                 </div>
                             </div>
                             <form action="productmanager?action=updateproduct" method="POST">
                                 <table class="table table-hover table-bordered" id="sampleTable">
                                     <thead>
                                         <tr>
-                                            <th>Mã sản phẩm</th>
-                                            <th>Danh mục</th>
-                                            <th>Tên sản phẩm</th>
-                                            <th>Giá</th>
+                                            <th>Product Code</th>
+                                            <th>Category</th>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
                                             <th>Size</th>
-                                            <th>Màu</th>
-                                            <th>Thông tin</th>
-                                            <th>Số lượng</th>
-                                            <th>Ảnh</th>
-                                            <th>Chức năng</th>
+                                            <th>Color</th>
+                                            <th>Information</th>
+                                            <th>Quantity</th>
+                                            <th>Photo</th>
+                                            <th>Function</th>
                                         </tr>
                                     </thead>
                                     <tbody>

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : admin_categories
-    Created on : Feb 20, 2024, 12:27:23 AM
-    Author     : HuuThanh
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../../common/taglib.jsp"%>
@@ -11,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Danh sách sản phẩm | Quản trị Admin</title>
+        <title>Product List | Admin</title> Admin
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,8 +30,8 @@
         <main class="app-content">
             <div class="app-title">
                 <ul class="app-breadcrumb breadcrumb side">
-                    <li class="breadcrumb-item active"><a href="#"><b>Danh sách danh mục</b></a></li>
-                </ul>
+                    <li class="breadcrumb-item active"><a href="#">List <b>of categories</b></a></li>
+                    </ul>
                 <div id="clock"></div>
             </div>
             <div class="row">
@@ -45,8 +40,8 @@
                         <div class="tile-body">
                             <div class="row element-button">
                                 <div class="col-sm-2">
-                                    <a class="btn btn-add btn-sm" href="InsertCategoryServlet" title="Thêm"><i class="fas fa-plus"></i>
-                                        Tạo mới danh mục</a>
+                                    <a class="btn btn-add btn-sm" href="${pageContext.request.contextPath}/secure/InsertCategoryServlet" title="Thêm"><i class="fas fa-plus"></i>
+                                       Create Category</a>
                                 </div>
 
                             </div>
@@ -54,10 +49,10 @@
                             <table class="table table-hover table-bordered" id="sampleTable">
                                 <thead>
                                 <tr>
-                                    <th>Mã</th>
-                                    <th>Tên danh mục</th>
-                                    <th>Loại</th>
-                                    <th>Chức năng</th>
+                                    <th>Id</th>
+                                    <th>Category name</th>
+                                    <th>type</th>
+                                    <th>feature</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -67,9 +62,9 @@
                                         <td>${c.title}</td>
                                         <td>${c.description}</td>
                                         <td>
-                                            <a href="EditCategoryServlet?id=${c.id}" class="btn btn-primary btn-sm">
+                                            <a href="${pageContext.request.contextPath}/secure/EditCategoryServlet?id=${c.id}" class="btn btn-primary btn-sm">
                                                 <i class="fas fa-edit"></i> Sửa</a>
-                                            <a href="DeleteCategoryServlet?cid=${c.id}" class="btn btn-danger btn-sm">
+                                            <a href="${pageContext.request.contextPath}/secure/DeleteCategoryServlet?cid=${c.id}" class="btn btn-danger btn-sm">
                                                 <i class="fas fa-trash-alt"></i> Xóa</a>
                                         </td>
                                     </tr>

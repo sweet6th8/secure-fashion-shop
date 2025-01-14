@@ -24,7 +24,7 @@
     <section class="header-main border-bottom">
         <div class="row align-items-center">
             <div class="col-lg-2 col-md-3 col-6">
-                <a href="${context}/" class="ms-1 brand-wrap">
+                <a href="${context}/?lang=${sessionScope.lang}" class="ms-1 brand-wrap">
                  <span CLASS="fa-2x font-weight-bolder pl-lg-5">FASHION AI</span>
                 </a>
             </div>

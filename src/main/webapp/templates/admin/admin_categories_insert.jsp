@@ -9,7 +9,8 @@
 <!DOCTYPE html>
 <html lang="vi">
     <head>
-        <title>Thêm sản phẩm | Quản trị Admin</title>
+        <title>More Products | Admin</title> Admin
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -157,26 +158,26 @@
         <main class="app-content">
             <div class="app-title">
                 <ul class="app-breadcrumb breadcrumb">
-                    <li class="breadcrumb-item">Danh sách danh mục</li>
-                    <li class="breadcrumb-item"><a href="">Tạo mới danh mục</a></li>
+                    <li class="breadcrumb-item">List category</li>
+                    <li class="breadcrumb-item"><a href="">Create new Category</a></li>
                 </ul>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="tile">
-                        <h3 class="tile-title">Tạo mới danh mục</h3>
+                        <h3 class="tile-title">Create new category</h3>
                         <div class="tile-body">
-                            <form action="InsertCategoryServlet" method="post">
+                            <form action="${pageContext.request.contextPath}/secure/InsertCategoryServlet" method="post">
                                 <div class="form-group">
-                                    <label for="categoryTitle">Tên danh mục</label>
-                                    <input type="text" name="title" id="categoryTitle" class="form-control" placeholder="Nhập tên danh mục" required>
+                                    <label for="categoryTitle">Category name</label>
+                                    <input type="text" name="title" id="categoryTitle" class="form-control" placeholder="Enter category name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="categoryDesc">Mô tả</label>
-                                    <textarea name="description" id="categoryDesc" class="form-control" rows="4" placeholder="Nhập mô tả" required></textarea>
+                                    <label for="categoryDesc">Description</label>
+                                    <textarea name="description" id="categoryDesc" class="form-control" rows="4" placeholder="Enter category description" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-success">Tạo mới</button>
-                                <a href="ManageCategoryServlet" class="btn btn-secondary">Hủy</a>
+                                <button type="submit" class="btn btn-success">Create new </button>
+                                <a href="${pageContext.request.contextPath}/secure/ManageCategoryServlet" class="btn btn-secondary">Cancel</a>
                             </form>
                         </div>
                     </div>

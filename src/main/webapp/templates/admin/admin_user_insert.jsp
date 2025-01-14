@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="vi">
     <head>
-        <title>Thêm sản phẩm | Quản trị Admin</title>
+        <title>Add Product | Admin Management</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -156,20 +156,20 @@
         <main class="app-content">
             <div class="app-title">
                 <ul class="app-breadcrumb breadcrumb">
-                    <li class="breadcrumb-item">Danh sách người dùng</li>
-                    <li class="breadcrumb-item"><a href="">Tạo mới tài khoản</a></li>
+                    <li class="breadcrumb-item">List of users</li>
+                    <li class="breadcrumb-item"><a href="">Create new account</a></li>
                 </ul>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="tile">
-                        <h3 class="tile-title">Tạo mới tài khoản</h3>
+                        <h3 class="tile-title">Create new account</h3>
                         <div class="tile-body">
                             <h3 style="color: green; text-align: center; margin: 20px 0">${requestScope.mess}</h3>
                             <h3 style="color: red; text-align: center; margin: 20px 0">${requestScope.error}</h3>
-                            <form class="row" action="InsertUserServlet" method="get">
+                            <form class="row" action="${pageContext.request.contextPath}/secure/InsertUserServlet" method="get">
                                 <div class="form-group col-md-12">
-                                    <label class="control-label">Ảnh đại diện</label>
+                                    <label class="control-label">Avatar</label>
                                     <div id="myfileupload">
                                         <input type="file" id="uploadfile" multiple name="avatar" onchange="readURL(this);" />
                                     </div>
@@ -178,20 +178,20 @@
                                         <a class="removeimg" href="javascript:"></a>
                                     </div>
                                     <div id="boxchoice">
-                                        <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn ảnh</a>
+                                        <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Select picture</a>
                                         <p style="clear:both"></p>
                                     </div>
                                 </div>
-                                <div class="form-group  col-md-3">
-                                    <label class="control-label">Tên đầy đủ</label>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Full name</label>
                                     <input class="form-control" required="" name="fullname" type="text">
                                 </div>
-                                <div class="form-group  col-md-3">
-                                    <label class="control-label">Tên người dùng</label>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Username</label>
                                     <input class="form-control" required="" name="username" type="text">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Mật khẩu</label>
+                                    <label class="control-label">Password</label>
                                     <input class="form-control" required="" name="password" type="text">
                                 </div>
                                 <div class="form-group col-md-3">
@@ -199,24 +199,24 @@
                                     <input class="form-control" required="" name="email" type="text">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Địa chỉ</label>
+                                    <label class="control-label">Address</label>
                                     <input class="form-control" required="" name="address" type="text">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Số điện thoại</label>
+                                    <label class="control-label">Phone number</label>
                                     <input class="form-control" required="" name="phone" type="text">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="exampleSelect1" class="control-label">Quyền quản trị</label>
+                                    <label for="exampleSelect1" class="control-label">Administrative permissions</label>
                                     <select name="role" class="form-control" id="exampleSelect1">
                                         <option value="admin">Admin</option>
                                         <option value="user">User</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <button class="btn btn-save" type="submit">Lưu lại</button>
+                                    <button class="btn btn-save" type="submit">Save</button>
                                     &nbsp;
-                                    <a class="btn btn-cancel" href="ManageUserServlet">Hủy bỏ</a>
+                                    <a class="btn btn-cancel" href="${pageContext.request.contextPath}/secure/ManageUserServlet">Cancel</a>
                                 </div>
                             </form>
                         </div>
@@ -225,11 +225,11 @@
             </div>
         </main>
 
-        <script src="view/assets/admin/js/jquery-3.2.1.min.js"></script>
-        <script src="view/assets/admin/js/popper.min.js"></script>
-        <script src="view/assets/admin/js/bootstrap.min.js"></script>
-        <script src="view/assets/admin/js/main.js"></script>
-        <script src="view/assets/admin/js/plugins/pace.min.js"></script>
+        <script src="${pageContext.request.contextPath}/static/admin/js/jquery-3.2.1.min.js"></script>
+        <script src="${pageContext.request.contextPath}/static/admin/js/popper.min.js"></script>
+        <script src="${pageContext.request.contextPath}/static/admin/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/static/admin/js/main.js"></script>
+        <script src="${pageContext.request.contextPath}/static/admin/js/plugins/pace.min.js"></script>
     </body>
 
 </html>

@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    <title>Danh sách sản phẩm | Quản trị Admin</title>
+    <title>Product List | Admin Management</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +31,7 @@
     <div class="app-content">
         <div class="app-title">
             <ul class="app-breadcrumb breadcrumb side">
-                <li class="breadcrumb-item active"><a href="#"><b>Danh sách đơn hàng</b></a></li>
+                <li class="breadcrumb-item active"><a href="#"><b>List order</b></a></li>
             </ul>
             <div id="clock"></div>
         </div>
@@ -43,19 +43,19 @@
                             <div class="col-sm-2">
                                 <a class="btn btn-delete btn-sm print-file" type="button" title="In"
                                    onclick="myApp.printTable()"><i
-                                        class="fas fa-print"></i> In dữ liệu</a>
+                                        class="fas fa-print"></i> Print order</a>
                             </div>
                         </div>
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                             <tr>
-                                <th>ID đơn hàng</th>
-                                <th>Khách hàng</th>
-                                <th>Số điện thoại</th>
-                                <th>Địa chỉ</th>
-                                <th>Ngày mua</th>
-                                <th>Tổng tiền</th>
-                                <th>Trạng thái</th>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Phone Number</th>
+                                <th>Address</th>
+                                <th>Purchase Date</th>
+                                <th>Total Amount</th>
+                                <th>Status</th>
                             </tr>
                             </thead>
                             <tbody>

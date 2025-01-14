@@ -40,7 +40,7 @@ public class InsertCategoryServlet extends HttpServlet {
         // Validate input
         if (cateTitle == null || cateTitle.trim().isEmpty() || cateDescription == null || cateDescription.trim().isEmpty()) {
             request.setAttribute("mess", "Please provide valid inputs for title and description.");
-            request.getRequestDispatcher("templates/admin/admin_categories_insert.jsp").forward(request, response); // Return to form
+            request.getRequestDispatcher("/templates/admin/admin_categories_insert.jsp").forward(request, response); // Return to form
             return;
         }
 

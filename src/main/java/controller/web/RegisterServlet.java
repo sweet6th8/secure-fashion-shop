@@ -48,13 +48,13 @@ public class RegisterServlet extends HttpServlet {
                     SendMail service = new SendMail();
                     Transport.send(service.activeAcount(user.getEmail(),id));
 
-                    resp.sendRedirect(req.getContextPath() + "/templates/LoginServlet.jsp");
+                    resp.sendRedirect(req.getContextPath() + "/templates/login.jsp");
                     return;
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            resp.sendRedirect(req.getContextPath() + "/templates/RegisterServlet.jsp");
+            resp.sendRedirect(req.getContextPath() + "/templates/register.jsp");
 
         } catch (Exception e) {
             throw new ServletException("Error connecting to the database", e);
