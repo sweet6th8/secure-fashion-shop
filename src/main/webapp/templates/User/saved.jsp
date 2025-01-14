@@ -34,7 +34,8 @@
                                            </div>
                                            <div class="card-footer d-flex justify-content-between align-items-md-end ">
                                                <p class="fa-2x"> Order total : ${item.getPrice()}</p>
-                                               <a href="#" class="btn btn-primary" style="float: right">Buy again</a>
+                                               <a href="${pageContext.request.contextPath}/secure/AddToSaved?productId=${item.getId()}" class="w-auto btn  float-right   "><i class="fas fa-heart float-right fa-2x  text-danger"></i></a>
+
                                            </div>
                                        </div>
                                    </div>

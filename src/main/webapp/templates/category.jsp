@@ -130,13 +130,13 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                 <div class="col-md-4">
                                     <figure class="card card-product-grid">
                                         <div class="img-wrap">
-                                            <a href="./product?id=${product.getId()}"><img
+                                            <a href="${pageContext.request.contextPath}/product?id=${product.getId()}"><img
                                                     src="${pageContext.request.contextPath}/${product.getPhoto()}"
                                                     alt="${product.getName()}"></a>
                                         </div>
                                         <figcaption class="info-wrap">
                                             <div class="fix-height">
-                                                <a href="./product?id=${product.getId()}"
+                                                <a href="${pageContext.request.contextPath}/product?id=${product.getId()}"
                                                    class="title">${product.getName()}</a>
                                                 <div class="price-wrap mt-2">
                                                     <fmt:formatNumber value="${product.price * rate}"
@@ -145,8 +145,7 @@ Nội dung: Danh sách sản phẩm thuộc danh mục cụ thể mà người d
                                                         ${currency}
                                                 </div>
                                             </div>
-                                                <%--                                            <a href="addToCart?id=${product.getId()}" class="btn btn-block btn-success">Add--%>
-                                                <%--                                                to cart</a>--%>
+
                                             <form action="${pageContext.request.contextPath}/secure/cart" method="post">
                                                 <input type="hidden" name="action" value="addToCart">
                                                 <input type="hidden" name="productId" value="${product.getId()}">

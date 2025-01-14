@@ -142,7 +142,7 @@
                                 </div>
                                 <figcaption class="info-wrap">
                                     <div class="fix-height">
-                                        <a href="./product-detail.jsp" class="title">${product.getProductName()}</a>
+                                        <a href="${pageContext.request.contextPath}/templates/product-detail.jsp" class="title">${product.getProductName()}</a>
                                         <div class="price-wrap mt-2">
                                             <span class="price">${product.getPrice()}</span>
                                         </div>

@@ -44,11 +44,10 @@ public class RegisterServlet extends HttpServlet {
                 if (userDAO.registerUser(user)) {
                     int id = userDAO.getUserId(user.getEmail());
                     cartDAO.createCart(new Cart(id));
-                    req.setAttribute("message", SUCCESS);
                     SendMail service = new SendMail();
                     Transport.send(service.activeAcount(user.getEmail(),id));
-
-                    resp.sendRedirect(req.getContextPath() + "/templates/login.jsp");
+                    req.setAttribute("success","Registration successful, please check your email to activate your account!");
+                    req.getRequestDispatcher("/templates/login.jsp").forward(req, resp);
                     return;
                 }
             } catch (SQLException e) {

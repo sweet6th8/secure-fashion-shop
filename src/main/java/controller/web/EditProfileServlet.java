@@ -69,10 +69,13 @@ public class EditProfileServlet extends HttpServlet {
         UserDAO userDAO = new UserDAO(con);
         try {
             userDAO.updateUser(user);
+            req.setAttribute("success","User updated");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    resp.sendRedirect(req.getContextPath()+"/templates/login.jsp");
+
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -88,6 +91,7 @@ public class EditProfileServlet extends HttpServlet {
             User user = udao.getUserById(Integer.parseInt(request.getParameter("id")));
 
             request.setAttribute("user", user);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

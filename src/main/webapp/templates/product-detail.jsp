@@ -51,10 +51,12 @@
                            <input type="hidden" name="productId" value="${singleProduct.getId()}">
                             <input type="number" name="quantity" min="1" value="1" required
                                    style="width: 80px; padding: 10px; font-size: 14px; text-align: left;">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary  ml-3">
                                 <span class="text"> <fmt:message key="btnAddToCart"/></span>
                                 <i class="fas fa-shopping-cart"></i>
                             </button>
+                             <a href="${pageContext.request.contextPath}/secure/AddToSaved?productId=${product.getId()}" class="w-auto btn  float-right   "><i class="fas fa-heart float-right fa-2x text-light "></i></a>
+
                         </form>
                     </article>
                 </main>

@@ -95,7 +95,7 @@
                         <c:if test="${empty cart.items}">
                             <tr>
                                 <td colspan="4" class="text-center">
-                                    <p> <fmt:message key="NotifyCardEmptu"/> <a href="${pageContext.request.contextPath}/"><fmt:message key="BuyNow"/></a></p>
+                                    <p> <fmt:message key="NotifyCardEmpty"/> <a href="${pageContext.request.contextPath}/"><fmt:message key="BuyNow"/></a></p>
                                 </td>
                             </tr>
                         </c:if>
