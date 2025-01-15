@@ -116,7 +116,7 @@
                         </dl>
                         <hr>
 
-                        <a href="${pageContext.request.contextPath}/place-order" class="btn btn-primary btn-block"> Checkout </a>
+                        <a href="${pageContext.request.contextPath}/secure/place-order" class="btn btn-primary btn-block"> Checkout </a>
                         <a href="${pageContext.request.contextPath}" class="btn btn-light btn-block">Continue
                             Shopping</a>
                     </div>

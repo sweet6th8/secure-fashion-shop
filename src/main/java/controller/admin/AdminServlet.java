@@ -49,7 +49,7 @@ public class AdminServlet extends HttpServlet {
      }
      else {
          req.setAttribute("Message", "Please admin account  !");
-         req.getRequestDispatcher("/templates/LoginServlet").forward(req, resp);
+         req.getRequestDispatcher("/templates/login").forward(req, resp);
      }
     }
 }

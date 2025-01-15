@@ -13,10 +13,11 @@ import java.sql.SQLException;
 @WebServlet(name = "ConfirmOTPServlet", urlPatterns = {"/templates/ConfirmOTPServlet"})
 public class ConfirmOTPServlet extends HttpServlet {
     Connection con;
+
     @Override
     public void init() throws ServletException {
         try {
-             con = DBConnectionPool.getDataSource().getConnection();
+            con = DBConnectionPool.getDataSource().getConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -34,11 +35,8 @@ public class ConfirmOTPServlet extends HttpServlet {
         String otp = request.getParameter("otp");
         HttpSession session = request.getSession();
         String sessionOTP = (String) session.getAttribute("otp");
+        String navigate = otp.equalsIgnoreCase(sessionOTP) ? "/templates/CreateNewPassword.jsp" : "/templates/forgetPassword.jsp";
+        request.getRequestDispatcher(navigate).forward(request, response);
 
-        if (otp.equalsIgnoreCase(sessionOTP)) {
-            request.getRequestDispatcher("/templates/CreateNewPassword.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("/templates/forgetPassword.jsp").forward(request, response);
-        }
     }
 }

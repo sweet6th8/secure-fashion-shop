@@ -23,6 +23,10 @@ import java.sql.SQLException;
 @WebServlet(name = "MailServlet", urlPatterns = {"/templates/Mail"})
 public class MailServlet extends HttpServlet {
     private Connection connection ;
+    private final static String ForgotPage = "/templates/Forgot.jsp";
+    private final static String ConfirmPage = "/templates/ConfirmOTP.jsp";
+    private final static String MailNotExist = "email is not exist  !";
+
     @Override
     public void init() throws ServletException {
         try {
@@ -34,7 +38,7 @@ public class MailServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/templates/Forgot.jsp").forward(request, response);
+        request.getRequestDispatcher(ForgotPage).forward(request, response);
     }
 
     @Override
@@ -44,8 +48,8 @@ public class MailServlet extends HttpServlet {
         UserDAO dao = new UserDAO(connection);
         try {
             if (!dao.checkEmailExist(email)) {
-                request.setAttribute("message" , "email is not exist  !");
-                request.getRequestDispatcher("/templates/Forgot.jsp").forward(request, response);
+                request.setAttribute("message" , MailNotExist);
+                request.getRequestDispatcher(ForgotPage).forward(request, response);
             }
             else {
 
@@ -58,7 +62,7 @@ public class MailServlet extends HttpServlet {
                     SendMail service = new SendMail();
                     Transport.send(service.sendMail(email, otp));
 
-                    request.getRequestDispatcher("/templates/ConfirmOTP.jsp").forward(request, response);
+                    request.getRequestDispatcher(ConfirmPage).forward(request, response);
                 } catch (MessagingException e) {
                     response.getWriter().write("An error occurred while sending the email: " + e.getMessage());
                 }

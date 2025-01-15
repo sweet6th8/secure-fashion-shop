@@ -58,17 +58,12 @@ public class SuccessPaymentServlet extends HttpServlet {
                 orderDAO.addOrderItem(orderId, item.getProductId(), item.getQuantity(), product.getPrice());
             }
 
-            // Clear the cart
             cartDAO.clearCart(cart.getCartId());
 
-            // Send confirmation email (optional)
-            sendConfirmationEmail(userId, executedPayment, orderId);
-
-            // Set payment details in the request for the success page
             request.setAttribute("payment", executedPayment);
-
-            // Forward to the success JSP to display payment details
+            request.getSession().setAttribute("count",0);
             request.getRequestDispatcher("templates/success-payment.jsp").forward(request, response);
+
 
         } catch (PayPalRESTException e) {
             e.printStackTrace();
@@ -79,15 +74,4 @@ public class SuccessPaymentServlet extends HttpServlet {
         }
     }
 
-    /**
-     * Sends a confirmation email to the user after successful payment.
-     *
-     * @param userId   ID of the user
-     * @param payment  PayPal payment object
-     * @param orderId  ID of the created order
-     */
-    private void sendConfirmationEmail(int userId, Payment payment, int orderId) {
-        // Implementation of email sending logic (if required)
-        System.out.println("Sending confirmation email...");
-    }
 }

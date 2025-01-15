@@ -20,11 +20,9 @@ public class FilterServlet implements jakarta.servlet.Filter {
             String role = (String) session.getAttribute("role");
             if (role.equals("Admin") || role.equals("User")) {
                 chain.doFilter(request, response);
-
             }
             else {
                 res.sendRedirect(req.getContextPath() + "/templates/login.jsp");
-
             }
         }
         catch ( Exception e) {

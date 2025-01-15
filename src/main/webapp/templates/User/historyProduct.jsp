@@ -23,8 +23,6 @@
 <section class="section-content" style="margin-top: 120px;">
     <div class="container p-4">
         <div class="row mt-4">
-            <div class="col-md-12">
-                <div>
 
                     <c:choose>
                         <c:when test="${not empty requestScope.list }">
@@ -68,8 +66,6 @@
                     </c:choose>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+    </section>
 </body>
 </html>

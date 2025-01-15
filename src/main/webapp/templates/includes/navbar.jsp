@@ -76,7 +76,7 @@
                        aria-label="Go to shopping cart">
                         <div class="icon icon-sm rounded-circle border relative">
                             <i class="fa fa-shopping-cart"></i>
-                            <span class="badge badge-pill badge-danger">${sessionScope.cart.getItems().size()}</span>
+                            <span class="badge badge-pill badge-danger">${sessionScope.count}</span>
 
                         </div>
                     </a>
