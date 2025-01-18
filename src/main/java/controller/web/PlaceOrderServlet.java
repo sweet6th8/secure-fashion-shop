@@ -11,7 +11,7 @@ import model.Cart;
 
 import java.io.IOException;
 
-@WebServlet("/place-order")
+@WebServlet("/secure/place-order")
 public class PlaceOrderServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -23,14 +23,12 @@ public class PlaceOrderServlet extends HttpServlet {
 
         if (cart == null || cart.getItems().isEmpty()) {
             request.setAttribute("errorMessage", "Your cart is empty. Please add items before placing an order.");
-            request.getRequestDispatcher("templates/placeOrder.jsp").forward(request, response);
+            request.getRequestDispatcher("/templates/placeOrder.jsp").forward(request, response);
             return;
         }
 
         request.setAttribute("cartItems", cart.getItems().values());
-
-        System.out.println(cart.getItems());// Truyền dữ liệu cart đến JSP
-        RequestDispatcher dispatcher = request.getRequestDispatcher("templates/placeOrder.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/templates/placeOrder.jsp");
         dispatcher.forward(request, response);
 
     }

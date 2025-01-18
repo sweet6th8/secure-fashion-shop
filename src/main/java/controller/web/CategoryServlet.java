@@ -20,39 +20,6 @@ import java.util.List;
 @WebServlet(urlPatterns = {"/category"})
 public class CategoryServlet extends HttpServlet {
 
-
-
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {
-//            String categoryId = request.getParameter("id");
-//
-//
-//            ProductDAO productDAO = new ProductDAO(connection);
-//            List<Product> products;
-//
-//            // If a category ID is provided, fetch products for that category
-//            // If the category ID is "all", fetch all products
-//            if ("all".equals(categoryId)) {
-//                products = productDAO.getAllProducts(); // Implement this method in ProductDAO
-//            } else if (categoryId != null) {
-//                // If a category ID is provided, fetch products for that category
-//                products = productDAO.getProductsByCategoryId(Integer.parseInt(categoryId));
-//            } else {
-//                products = null; // No specific category or all products requested
-//            }
-//            // Set product list in request attribute
-//            request.setAttribute("productList", products);
-//            // Forward the request to category.jsp to display products
-//            request.getRequestDispatcher("/templates/category.jsp").forward(request, response);
-//        } catch (Exception e) {
-//            throw new ServletException("Error connecting to the database", e);
-//        }
-//
-//
-//
-//    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (Connection connection = DBConnectionPool.getDataSource().getConnection()) {

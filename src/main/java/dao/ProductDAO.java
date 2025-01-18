@@ -58,7 +58,7 @@ public class ProductDAO {
     // Lấy sản phẩm theo ID
     public Product getProductById(int id) {
         Product product = null;
-        String sql = "SELECT * FROM product WHERE id = ?";
+        String sql = "SELECT * FROM product WHERE id = ? and stock > 0 ";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
@@ -84,7 +84,7 @@ public class ProductDAO {
     // Lấy tất cả sản phẩm
     public List<Product> getAllProducts() {
         List<Product> products = new ArrayList<>();
-        String sql = "SELECT * FROM Product";
+        String sql = "SELECT * FROM Product where stock > 0 ";
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {

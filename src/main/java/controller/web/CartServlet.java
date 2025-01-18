@@ -41,13 +41,11 @@ public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer userId = getUserIdFromSession(request.getSession());
         if (isUserNotLoggedIn(userId)) {
-            System.out.println("User not logged in. Redirecting to LoginServlet page.");
             redirectToPage(response, LOGIN_PAGE);
             return;
         }
 
         try (Connection connection = dataSource.getConnection()) {
-            System.out.println("Fetching the cart for userId: " + userId);
             CartDAO cartDAO = new CartDAO(connection);
 
             // Display the user's cart
@@ -67,18 +65,8 @@ public class CartServlet extends HttpServlet {
             return;
         }
 
-        // Debugging: Log all parameters sent in the request
-        System.out.println("POST Request Parameters:");
-        request.getParameterMap().forEach((key, value) -> System.out.println(key + ": " + String.join(",", value)));
 
         String action = request.getParameter("action");
-        String productIdParam = request.getParameter("productId");
-        String quantityParam = request.getParameter("quantity");
-
-        // Log action and parameters
-        System.out.println("Action: " + action);
-        System.out.println("Product ID: " + productIdParam);
-        System.out.println("Quantity: " + quantityParam);
 
         if (isInvalidInput(action)) {
             sendErrorResponse(response, HttpServletResponse.SC_BAD_REQUEST, "Invalid action.");
@@ -112,11 +100,9 @@ public class CartServlet extends HttpServlet {
         Cart cart = cartDAO.getCartByUserId(userId);
 
         if (cart == null || cart.getItems().isEmpty()) {
-            System.out.println("Cart is empty or not found for userId: " + userId);
             request.setAttribute("errorMessage", "Your cart is empty.");
             request.getSession().setAttribute("cart", null);
         } else {
-            System.out.println("Cart retrieved for userId: " + userId + " - " + cart);
             request.getSession().setAttribute("cart", cart);
         }
 
@@ -128,7 +114,6 @@ public class CartServlet extends HttpServlet {
         String productIdParam = request.getParameter("productId");
         String quantityParam = request.getParameter("quantity");
 
-        System.out.println("Add to Cart invoked - ProductId: " + productIdParam + ", Quantity: " + quantityParam);
 
         if (isInvalidInput(productIdParam) || isInvalidInput(quantityParam)) {
 
@@ -144,14 +129,12 @@ public class CartServlet extends HttpServlet {
 
             Product product = productDAO.getProductById(productId);
             if (product == null) {
-                System.out.println("Product not found for productId: " + productId);
                 sendErrorResponse(response, HttpServletResponse.SC_NOT_FOUND, ERROR_PRODUCT_NOT_FOUND);
                 return;
             }
 
-          Cart cart =   addItemToCart(userId, cartDAO, product, quantity);
+            Cart cart = addItemToCart(userId, cartDAO, product, quantity);
             request.getSession().setAttribute("cart", cart);
-            System.out.println("Product added to cart. Redirecting to cart page.");
 
             redirectToPage(response, "/secure/cart");
         } catch (NumberFormatException e) {
@@ -163,11 +146,7 @@ public class CartServlet extends HttpServlet {
     }
 
     private Integer getUserIdFromSession(HttpSession session) {
-        Integer userId = (Integer) session.getAttribute("userId");
-        if (userId == null) {
-            System.out.println("Session does not contain a userId.");
-        }
-        return userId;
+        return (Integer) session.getAttribute("userId");
     }
 
     private boolean isUserNotLoggedIn(Integer userId) {
@@ -200,7 +179,6 @@ public class CartServlet extends HttpServlet {
     private Cart addItemToCart(int userId, CartDAO cartDAO, Product product, int quantity) throws SQLException {
         Cart cart = cartDAO.getCartByUserId(userId);
         if (cart == null) {
-            System.out.println("Creating a new cart for userId: " + userId);
             cart = new Cart(0, userId); // Default cartId is 0 temporarily
             cartDAO.createCart(cart);
         }
@@ -213,10 +191,8 @@ public class CartServlet extends HttpServlet {
     private void updateQuantity(HttpServletRequest request, HttpServletResponse response, int userId, CartDAO cartDAO) throws IOException {
         String productIdParam = request.getParameter("productId");
         String quantityParam = request.getParameter("quantity");
-        System.out.println("Update quantity invoked - ProductId: " + productIdParam + ", Quantity: " + quantityParam);
 
         if (isInvalidInput(productIdParam) || isInvalidInput(quantityParam)) {
-            System.out.println("Invalid input: Product ID or Quantity is missing.");
             response.getWriter().write("{\"success\": false, \"message\": \"Invalid input.\"}");
             return;
         }
@@ -247,7 +223,6 @@ public class CartServlet extends HttpServlet {
             // Respond with both the updated individual item price and total price
             response.getWriter().write("{\"success\": true, \"updatedItemTotal\": " + itemTotalPrice + ", \"totalCartPrice\": " + totalCartPrice + "}");
         } catch (NumberFormatException e) {
-            System.out.println("Invalid product ID or quantity format.");
             response.getWriter().write("{\"success\": false, \"message\": \"Invalid product ID or quantity.\"}");
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -258,7 +233,6 @@ public class CartServlet extends HttpServlet {
         String productIdParam = request.getParameter("productId");
 
         if (isInvalidInput(productIdParam)) {
-            System.out.println("Invalid input: Product ID is missing.");
             response.getWriter().write("{\"success\": false, \"message\": \"Invalid product ID.\"}");
             return;
         }
@@ -276,11 +250,10 @@ public class CartServlet extends HttpServlet {
             cart.removeItem(productId);
             cartDAO.updateCart(cart);
             double totalCartPrice = cart.getTotalPrice();
-request.getSession().setAttribute("cart", cart);
+            request.getSession().setAttribute("cart", cart);
             // Respond with updated total price
             response.getWriter().write("{\"success\": true, \"totalCartPrice\": " + totalCartPrice + "}");
         } catch (NumberFormatException e) {
-            System.out.println("Invalid product ID format.");
             response.getWriter().write("{\"success\": false, \"message\": \"Invalid product ID.\"}");
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -25,7 +25,10 @@ import java.sql.SQLException;
 
 public class EditProfileServlet extends HttpServlet {
     private Connection con;
-
+    private final static String  LoginPage = "/templates/login.jsp";
+    private final static String EditPage = "/templates/User/edit.jsp";
+    private final static String ErrorPassword = "Password is not same Confirm";
+    private final static String AdminNotAccess = "Please Login user account !";
     @Override
     public void init() throws ServletException {
         try {
@@ -48,7 +51,7 @@ public class EditProfileServlet extends HttpServlet {
         String password = req.getParameter("password");
         String checkpassword = req.getParameter("Checkpassword");
         if (!validation.checkPassword(password,checkpassword)){
-            req.setAttribute("message","Password is not same Confirm");
+            req.setAttribute("message",ErrorPassword);
             req.getRequestDispatcher("/secure/EditServlet").forward(req, resp);
         }
         // Handle file upload
@@ -82,8 +85,8 @@ public class EditProfileServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String role = (String) session.getAttribute("role");
         if (role.equals("Admin")) {
-            request.setAttribute("message", "Please Login user account !");
-            request.getRequestDispatcher("/templates/login.jsp").forward(request, response);
+            request.setAttribute("message", AdminNotAccess);
+            request.getRequestDispatcher(LoginPage).forward(request, response);
         }
         try {
             UserDAO udao = new UserDAO(con);
@@ -95,6 +98,6 @@ public class EditProfileServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        request.getRequestDispatcher("/templates/User/edit.jsp").forward(request, response);
+        request.getRequestDispatcher(EditPage).forward(request, response);
     }
 }

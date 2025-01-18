@@ -15,6 +15,20 @@ public class CartDAO {
         this.connection = connection;
     }
 
+    public int getTotalCart(int id) throws SQLException {
+        String sql = "SELECT  count(Cart_items.cart_id) " +
+                "FROM  Carts C join Cart_items on Cart_items.cart_id = C.id  " +
+                "WHERE  user_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            return resultSet.getInt(1);
+        }
+
+        return -1;
+    }
+
     public Cart getCartByUserId(int userId) {
         String query = "SELECT * FROM carts WHERE user_id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -66,16 +80,6 @@ public class CartDAO {
     }
 
     public void updateCart(Cart cart) throws SQLException {
-//        String query = "UPDATE cart_items SET quantity = ? WHERE cart_id = ? and product_id = ?";
-//        PreparedStatement stmt = connection.prepareStatement(query);
-//        for (CartItem item : cart.getItems().values()) {
-//            stmt.setInt(1, item.getQuantity());
-//
-//                    stmt.setInt(2, cart.getCartId());
-//                    stmt.setInt(3, item.getProduct().getId());
-//                    stmt.addBatch();
-//                }
-//        stmt.executeBatch();
         String deleteItems = "DELETE FROM cart_items WHERE cart_id = ?";
         String insertItem = "INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (?, ?, ?)";
         try (PreparedStatement deleteStmt = connection.prepareStatement(deleteItems)) {
@@ -87,14 +91,13 @@ public class CartDAO {
                     insertStmt.setInt(1, cart.getCartId());
                     insertStmt.setInt(2, item.getProduct().getId());
                     insertStmt.setInt(3, item.getQuantity());
-                   insertStmt.executeUpdate();
+                    insertStmt.executeUpdate();
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    // Phương thức close để đóng kết nối
     public void close() {
         if (connection != null) {
             try {
@@ -104,7 +107,6 @@ public class CartDAO {
             }
         }
     }
-    // Method to fetch all CartItems for a specific cartId
     public List<CartItem> getCartItems(int cartId) {
         String query = "SELECT * FROM cart_items WHERE cart_id = ?";
         List<CartItem> items = new ArrayList<>();
@@ -132,14 +134,14 @@ public class CartDAO {
         }
         return items;
     }
-    // Clear all items in the cart for a given cartId
+
     public void clearCart(int cartId) {
         String query = "DELETE FROM cart_items WHERE cart_id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(1, cartId); // Bind the cart ID
-            stmt.executeUpdate();  // Execute the DELETE query
+            stmt.setInt(1, cartId);
+            stmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();  // Log the SQL exception
+            e.printStackTrace();
         }
     }
 }

@@ -1,6 +1,5 @@
 package controller.web;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,8 +12,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
-
-
 @WebServlet("/aiprocess")
 public class AIProcessServlet extends HttpServlet {
 
@@ -23,15 +20,13 @@ public class AIProcessServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Retrieve uploaded image name
-        String imageName = request.getParameter("human"); // Example: human.jpg
+        String imageName = request.getParameter("human");
         if (imageName == null || imageName.trim().isEmpty()) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Image name is missing.");
             return;
         }
-
         // Path to the virtual environment's Python executable
         String venvPython = "D:/FashionWebProject/VIRTUAL-TRYON/.venv/Scripts/python.exe";
-
         try {
             // HUMAN-PARSE: Run inference.py
             String humanParseCommand = String.format(
@@ -65,7 +60,6 @@ public class AIProcessServlet extends HttpServlet {
     }
 
     private void executeCommand(String command, File directory) throws IOException, InterruptedException {
-        // Log the command execution
         logger.info("Executing command: " + command + " in directory: " + directory);
 
         // ProcessBuilder setup
@@ -80,16 +74,12 @@ public class AIProcessServlet extends HttpServlet {
         // Capture process output for logging/debugging
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
             String line;
-            while ((line = reader.readLine()) != null) {
-                logger.info(line);
-            }
+            while ((line = reader.readLine()) != null)  logger.info(line);
         }
 
         // Wait for process to complete and check exit code
         int exitCode = process.waitFor();
-        if (exitCode != 0) {
-            throw new RuntimeException("Command failed with exit code: " + exitCode);
-        }
+        if (exitCode != 0)  throw new RuntimeException("Command failed with exit code: " + exitCode);
     }
 }
 
