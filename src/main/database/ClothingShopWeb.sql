@@ -129,35 +129,15 @@ add Img nvarchar(255)
 Alter table [DBO].[User]
 add Active bit NOT NULL
 
-delete  from [DBO].[User]
-SELECT * from [DBO].[User]
 
-SELECT * FROM Saved_Items
 -- reset id 
 DBCC CHECKIDENT (Product, RESEED, 0);
 DBCC CHECKIDENT ('[DBO].[User]', RESEED, 0);
 
-SELECT P.id , P.name , P.price  , P.photo   FROM Saved_Items S join Product P on P.id=S.product_id  where user_id = 2
 
-SELECT O.id , KH.fullName  , kh.phone , kh.address , O.created_at , O.total_price ,O.status  FROM 
-            Order_Items OI JOIN    Orders O on O.id = OI.order_id
-             JOIN product P ON P.id = OI.product_id 
-			 JOIN [dbo].[User] KH ON KH.id = O.user_id
-             WHERE O.user_id =  2
-
-			 -- Đảm bảo các ràng buộc khóa ngoại có ON DELETE CASCADE
+-- Đảm bảo các ràng buộc khóa ngoại có ON DELETE CASCADE
 ALTER TABLE orders
 ADD CONSTRAINT fk_user
 FOREIGN KEY (user_id) REFERENCES [dbo].[User](id)
 ON DELETE CASCADE;
 
-
-
--- Chỉ cần xóa từ User
-DELETE FROM [dbo].[User]
-WHERE id = 2;
- DELETE FROM Orders
-
-SELECT P.id , P.name , OI.price, OI.quantity , P.photo,O.status  FROM Order_Items OI JOIN    Orders O on O.id = OI.order_id JOIN product P ON P.id = OI.product_id
-
-SELECT  count(Cart_items.cart_id) FROM  Carts C join Cart_items on Cart_items.cart_id = C.id  WHERE  user_id = 15

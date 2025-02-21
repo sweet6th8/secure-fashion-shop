@@ -26,7 +26,7 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.util.List;
 
-// Define your servlet with MultipartConfig.
+
 @WebServlet(name = "EditProductServlet", urlPatterns = {"/secure/EditProductServlet"})
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB threshold for in-memory storage
@@ -67,7 +67,7 @@ public class EditProductServlet extends HttpServlet {
             }
             request.setAttribute("PRODUCT", product);
 
-            // Retrieve categories
+
             List<Category> categories = new CategoryDAO(conn).getAllCategories();
             if (categories == null) categories = List.of();
             request.setAttribute("LIST_CATEGORIES", categories);
@@ -83,7 +83,7 @@ public class EditProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            // Read form fields
+
             String id = getPartValue(request.getPart("id"));
             String name = getPartValue(request.getPart("name"));
             String description = getPartValue(request.getPart("description"));
@@ -91,12 +91,12 @@ public class EditProductServlet extends HttpServlet {
             String stockStr = getPartValue(request.getPart("stock"));
             String categoryIdStr = getPartValue(request.getPart("categoryId"));
 
-            // Parse numeric fields
+
             double price = Double.parseDouble(priceStr);
             int stock = Integer.parseInt(stockStr);
             int categoryId = Integer.parseInt(categoryIdStr);
 
-            // Handle file upload
+
             Part filePart = request.getPart("photo"); // Match "name" in input field
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
             String uploadDir = getServletContext().getRealPath("/") + "uploads";
@@ -109,20 +109,20 @@ public class EditProductServlet extends HttpServlet {
 
             String uploadedFilePath = null;
             if (fileName != null && !fileName.isEmpty()) {
-                uploadedFilePath = "uploads/" + fileName; // Relative path
+                uploadedFilePath = "uploads/" + fileName;
                 filePart.write(uploadDir + File.separator + fileName);
             } else {
-                // If no new photo is uploaded, use the existing photo from the database
+
                 try (Connection connection = dataSource.getConnection()) {
                     ProductDAO productDAO = new ProductDAO(connection);
-                    Product existingProduct = productDAO.getProductById(Integer.parseInt(id)); // Assume method exists
-                    uploadedFilePath = existingProduct.getPhoto(); // Use the same photo
+                    Product existingProduct = productDAO.getProductById(Integer.parseInt(id));
+                    uploadedFilePath = existingProduct.getPhoto();
                 }
             }
 
-// Set the photo into the product
 
-            // Prepare product object
+
+
             Product product = new Product();
             product.setId(Integer.parseInt(id));
             product.setName(name);
@@ -133,13 +133,13 @@ public class EditProductServlet extends HttpServlet {
 
             product.setPhoto(uploadedFilePath);
 
-            // DAO logic for updating the product in the database
+
             try (Connection connection = dataSource.getConnection()) {
                 ProductDAO productDAO = new ProductDAO(connection);
                 productDAO.updateProduct(product);
             }
 
-            // Redirect back to product management or an appropriate page
+
             response.sendRedirect("ManageProductServlet");
         } catch (Exception e) {
             e.printStackTrace();
@@ -147,9 +147,7 @@ public class EditProductServlet extends HttpServlet {
         }
     }
 
-    /**
-     * Utility method to extract form field value.
-     */
+
     private String getPartValue(Part part) throws IOException {
         if (part == null) {
             return null;

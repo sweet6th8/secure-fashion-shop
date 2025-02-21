@@ -27,10 +27,10 @@ public class PaymentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get cart details (you should calculate order details dynamically)
+
         String successUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/SuccessServlet";
         String cancelUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/CancelServlet";
-        String total = request.getParameter("total"); // Total price of the cart
+        String total = request.getParameter("total");
         HttpSession session = request.getSession();
         Double result = Double.parseDouble(total);
         if (session.getAttribute("lang").equals("vi_VN")){
